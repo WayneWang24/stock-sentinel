@@ -1,0 +1,13 @@
+{
+  "score_weights": {
+    "trend": 0.3,
+    "momentum": 0.3,
+    "volume": 0.2,
+    "pattern": 0.2
+  },
+  "aggregator_weights": {
+    "tech_weight": 0.4,
+    "ml_weight": 0.6
+  },
+  "_updated": "初始值"
+}

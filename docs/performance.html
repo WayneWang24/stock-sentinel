@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>策略表现追踪 - Megathink</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>策略表现追踪</h1>
+            <div class="header-meta">
+                <a href="index.html">← 返回今日分析</a>
+            </div>
+        </header>
+
+        <!-- 命中率趋势 -->
+        <section class="section">
+            <h2>命中率趋势</h2>
+            <div id="hit-rate-chart" style="height: 400px;"></div>
+        </section>
+
+        <!-- 累计收益 -->
+        <section class="section">
+            <h2>推荐股票平均收益</h2>
+            <div id="return-chart" style="height: 400px;"></div>
+        </section>
+
+        <!-- 权重变更时间线 -->
+        <section class="section">
+            <h2>策略权重变更历史</h2>
+            <div class="timeline" id="weight-timeline"></div>
+        </section>
+
+        <footer>
+            <p>由 Megathink 分析引擎自动生成 | 数据仅供参考</p>
+        </footer>
+    </div>
+
+    <script>
+    async function loadPerformance() {
+        try {
+            const resp = await fetch('api/performance.json');
+            const data = await resp.json();
+            renderHitRateChart(data);
+            renderReturnChart(data);
+            renderTimeline(data);
+        } catch (e) {
+            console.error('加载数据失败:', e);
+        }
+    }
+
+    function renderHitRateChart(data) {
+        const chart = echarts.init(document.getElementById('hit-rate-chart'));
+        const dates = data.map(d => d.date);
+        const windows = [5, 10, 20];
+        const series = windows.map(w => ({
+            name: `T+${w}`,
+            type: 'line',
+            smooth: true,
+            data: data.map(d => {
+                const perf = d.performance?.windows?.[w];
+                return perf ? (perf.avg_hit_rate * 100).toFixed(1) : null;
+            }),
+        }));
+
+        chart.setOption({
+            tooltip: { trigger: 'axis' },
+            legend: { data: series.map(s => s.name), textStyle: { color: '#ccc' } },
+            xAxis: { type: 'category', data: dates, axisLabel: { color: '#999' } },
+            yAxis: {
+                type: 'value', name: '命中率(%)',
+                axisLabel: { color: '#999', formatter: '{value}%' },
+            },
+            series: series,
+            grid: { left: '8%', right: '5%', bottom: '10%' },
+            backgroundColor: 'transparent',
+        });
+        window.addEventListener('resize', () => chart.resize());
+    }
+
+    function renderReturnChart(data) {
+        const chart = echarts.init(document.getElementById('return-chart'));
+        const dates = data.map(d => d.date);
+        const series = [5, 10, 20].map(w => ({
+            name: `T+${w}`,
+            type: 'bar',
+            data: data.map(d => {
+                const perf = d.performance?.windows?.[w];
+                return perf ? (perf.avg_return * 100).toFixed(2) : null;
+            }),
+        }));
+
+        chart.setOption({
+            tooltip: { trigger: 'axis' },
+            legend: { data: series.map(s => s.name), textStyle: { color: '#ccc' } },
+            xAxis: { type: 'category', data: dates, axisLabel: { color: '#999' } },
+            yAxis: {
+                type: 'value', name: '平均收益(%)',
+                axisLabel: { color: '#999', formatter: '{value}%' },
+            },
+            series: series,
+            grid: { left: '8%', right: '5%', bottom: '10%' },
+            backgroundColor: 'transparent',
+        });
+        window.addEventListener('resize', () => chart.resize());
+    }
+
+    function renderTimeline(data) {
+        const el = document.getElementById('weight-timeline');
+        let html = '';
+        data.filter(d => d.performance?.weight_changes?.length).forEach(d => {
+            html += `<div class="timeline-item">
+                <div class="timeline-date">${d.date}</div>
+                <div class="timeline-content">`;
+            (d.performance.weight_changes || []).forEach(wc => {
+                html += `<p>${wc.type}.${wc.name}: ${wc.old} → ${wc.new} (${wc.reason})</p>`;
+            });
+            html += '</div></div>';
+        });
+        el.innerHTML = html || '<p class="muted">暂无权重变更记录</p>';
+    }
+
+    loadPerformance();
+    </script>
+</body>
+</html>

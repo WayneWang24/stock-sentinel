@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Megathink A股每日分析</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Megathink A股每日分析</h1>
+            <div class="header-meta">
+                <span id="report-date">加载中...</span>
+                <span class="sep">|</span>
+                <a href="performance.html">策略表现追踪</a>
+            </div>
+        </header>
+
+        <!-- 策略摘要 -->
+        <section class="summary-cards" id="summary-cards"></section>
+
+        <!-- Top 3 推荐 -->
+        <section class="section">
+            <h2>Top 3 最佳买入推荐</h2>
+            <div class="top3-grid" id="top3-grid"></div>
+        </section>
+
+        <!-- 板块资金流 -->
+        <section class="section">
+            <h2>热门板块资金流</h2>
+            <div id="sector-chart" style="height: 350px;"></div>
+        </section>
+
+        <!-- Tab: 即将启动 / 最低估 -->
+        <section class="section">
+            <div class="tab-header">
+                <button class="tab-btn active" onclick="switchTab('launch')">
+                    即将启动 Top 100
+                </button>
+                <button class="tab-btn" onclick="switchTab('undervalue')">
+                    最低估 Top 100
+                </button>
+            </div>
+            <div id="tab-content">
+                <table class="data-table" id="stock-table">
+                    <thead>
+                        <tr>
+                            <th>#</th><th>代码</th><th>名称</th><th>行业</th>
+                            <th>信号</th><th>置信度</th><th>技术分</th>
+                            <th>低估分</th><th>PE</th><th>收盘价</th><th>涨跌%</th>
+                        </tr>
+                    </thead>
+                    <tbody id="stock-tbody"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer>
+            <p>由 Megathink 分析引擎自动生成 | 数据仅供参考，不构成投资建议</p>
+            <p><a href="https://github.com/WayneWang24/a-stock-daily">GitHub</a></p>
+        </footer>
+    </div>
+
+    <script src="assets/app.js"></script>
+</body>
+</html>
