@@ -272,7 +272,7 @@
       ],
       "pe_ttm": 19.7374,
       "pb": 1.5669,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 3.52,
       "pct_chg": 1.15,
       "amount": 83414.432
@@ -375,7 +375,7 @@
         0.7123202306337224,
         0.17699788607270012
       ],
-      "pe_ttm": null,
+      "pe_ttm": NaN,
       "pb": 0.747,
       "dv_ratio": 0.2467,
       "close": 8.09,
@@ -396,9 +396,9 @@
         0.7095148041719205,
         0.19696245751145774
       ],
-      "pe_ttm": null,
+      "pe_ttm": NaN,
       "pb": 3.487,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 1.83,
       "pct_chg": 1.67,
       "amount": 116583.245
@@ -417,9 +417,9 @@
         0.7058380488281042,
         0.18767573600081636
       ],
-      "pe_ttm": null,
+      "pe_ttm": NaN,
       "pb": 2.6829,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 11.45,
       "pct_chg": 1.24,
       "amount": 140201.175
@@ -440,7 +440,7 @@
       ],
       "pe_ttm": 95.488,
       "pb": 0.7576,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 6.84,
       "pct_chg": 1.48,
       "amount": 230151.558
@@ -522,9 +522,9 @@
         0.31095677975506697,
         0.5387829921389296
       ],
-      "pe_ttm": null,
+      "pe_ttm": NaN,
       "pb": 0.6221,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 1.7,
       "pct_chg": 3.66,
       "amount": 461672.778
@@ -545,7 +545,7 @@
       ],
       "pe_ttm": 95.2878,
       "pb": 2.7509,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 16.07,
       "pct_chg": 1.26,
       "amount": 294285.634
@@ -648,9 +648,9 @@
         0.6804854471673347,
         0.12307107204823714
       ],
-      "pe_ttm": null,
+      "pe_ttm": NaN,
       "pb": 2.3673,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 9.07,
       "pct_chg": 2.37,
       "amount": 250524.784
@@ -690,7 +690,7 @@
         0.3781242065727919,
         0.515599224984309
       ],
-      "pe_ttm": null,
+      "pe_ttm": NaN,
       "pb": 1.1022,
       "dv_ratio": 0.5609,
       "close": 1.95,
@@ -753,9 +753,9 @@
         0.6590524009541797,
         0.13397607560652336
       ],
-      "pe_ttm": null,
+      "pe_ttm": NaN,
       "pb": 18.2474,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 12.44,
       "pct_chg": 2.22,
       "amount": 440035.864
@@ -837,9 +837,9 @@
         0.6540182578381197,
         0.17677326950858877
       ],
-      "pe_ttm": null,
+      "pe_ttm": NaN,
       "pb": 0.6729,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 1.73,
       "pct_chg": 4.85,
       "amount": 628219.323
@@ -881,7 +881,7 @@
       ],
       "pe_ttm": 446.8587,
       "pb": 2.0356,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 2.87,
       "pct_chg": 1.77,
       "amount": 185403.145
@@ -902,7 +902,7 @@
       ],
       "pe_ttm": 86.7,
       "pb": 2.8718,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 4.19,
       "pct_chg": 1.7,
       "amount": 661427.817
@@ -942,9 +942,9 @@
         0.6508907918170258,
         0.21401502075228088
       ],
-      "pe_ttm": null,
+      "pe_ttm": NaN,
       "pb": 2.0461,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 8.13,
       "pct_chg": 1.88,
       "amount": 106057.832
@@ -1005,9 +1005,9 @@
         0.21492722221434296,
         0.14328790048758366
       ],
-      "pe_ttm": null,
+      "pe_ttm": NaN,
       "pb": 4.8325,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 17.84,
       "pct_chg": 6.13,
       "amount": 101061.203
@@ -1026,9 +1026,9 @@
         0.6423148030438522,
         0.25981606546883573
       ],
-      "pe_ttm": null,
+      "pe_ttm": NaN,
       "pb": 0.7983,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 1.97,
       "pct_chg": 1.55,
       "amount": 150705.287
@@ -1047,9 +1047,9 @@
         0.6410544400588734,
         0.17667103905629006
       ],
-      "pe_ttm": null,
+      "pe_ttm": NaN,
       "pb": 25.4434,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 18.7,
       "pct_chg": 2.63,
       "amount": 369372.82
@@ -1068,9 +1068,9 @@
         0.6392988766315568,
         0.23355941383746437
       ],
-      "pe_ttm": null,
+      "pe_ttm": NaN,
       "pb": 118.8842,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 2.6,
       "pct_chg": 2.77,
       "amount": 81306.887
@@ -1131,9 +1131,9 @@
         0.395497153884429,
         0.1263087063967201
       ],
-      "pe_ttm": null,
+      "pe_ttm": NaN,
       "pb": 6.1286,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 20.03,
       "pct_chg": 1.88,
       "amount": 269461.068
@@ -1194,7 +1194,7 @@
         0.2636848919291573,
         0.4729455485300479
       ],
-      "pe_ttm": null,
+      "pe_ttm": NaN,
       "pb": 4.0222,
       "dv_ratio": 1.1361,
       "close": 52.81,
@@ -1215,9 +1215,9 @@
         0.6205183365449835,
         0.1413611406485773
       ],
-      "pe_ttm": null,
+      "pe_ttm": NaN,
       "pb": 4.5035,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 6.59,
       "pct_chg": 2.65,
       "amount": 113588.345
@@ -1238,7 +1238,7 @@
       ],
       "pe_ttm": 374.7278,
       "pb": 4.4746,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 2.6,
       "pct_chg": 5.26,
       "amount": 550443.042
@@ -1278,9 +1278,9 @@
         0.614847785321465,
         0.20705005857943812
       ],
-      "pe_ttm": null,
+      "pe_ttm": NaN,
       "pb": 2.6295,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 3.52,
       "pct_chg": 1.44,
       "amount": 141760.08
@@ -1448,7 +1448,7 @@
       ],
       "pe_ttm": 88.3776,
       "pb": 1.7487,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 8.54,
       "pct_chg": 1.43,
       "amount": 194842.902
@@ -1467,9 +1467,9 @@
         0.19945525438195702,
         0.4487944180274664
       ],
-      "pe_ttm": null,
+      "pe_ttm": NaN,
       "pb": 1.8076,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 4.99,
       "pct_chg": 1.84,
       "amount": 958131.888
@@ -1509,9 +1509,9 @@
         0.597600260921666,
         0.18811287977284394
       ],
-      "pe_ttm": null,
+      "pe_ttm": NaN,
       "pb": 0.3394,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 5.0,
       "pct_chg": 1.63,
       "amount": 1236738.602
@@ -1553,7 +1553,7 @@
       ],
       "pe_ttm": 196.8982,
       "pb": 1.1414,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 2.25,
       "pct_chg": 3.69,
       "amount": 132575.25
@@ -1593,9 +1593,9 @@
         0.5894110105057591,
         0.2533429635020176
       ],
-      "pe_ttm": null,
+      "pe_ttm": NaN,
       "pb": 1.038,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 4.07,
       "pct_chg": 1.5,
       "amount": 102755.94
@@ -1677,9 +1677,9 @@
         0.5854929221200834,
         0.161529365249551
       ],
-      "pe_ttm": null,
+      "pe_ttm": NaN,
       "pb": 3.9972,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 41.72,
       "pct_chg": 4.17,
       "amount": 1059543.295
@@ -1761,9 +1761,9 @@
         0.5783027935634387,
         0.26090047824085655
       ],
-      "pe_ttm": null,
+      "pe_ttm": NaN,
       "pb": 1.6883,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 8.77,
       "pct_chg": 1.98,
       "amount": 130057.121
@@ -1805,7 +1805,7 @@
       ],
       "pe_ttm": 501.5386,
       "pb": 3.2362,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 49.4,
       "pct_chg": 7.34,
       "amount": 745748.028
@@ -1824,9 +1824,9 @@
         0.2883344988873684,
         0.4222186896791837
       ],
-      "pe_ttm": null,
+      "pe_ttm": NaN,
       "pb": 10.0068,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 45.88,
       "pct_chg": 7.3,
       "amount": 903438.139
@@ -1845,9 +1845,9 @@
         0.2416541152884981,
         0.4218531784924452
       ],
-      "pe_ttm": null,
+      "pe_ttm": NaN,
       "pb": 2.7282,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 8.78,
       "pct_chg": 4.65,
       "amount": 512876.963
@@ -1868,7 +1868,7 @@
       ],
       "pe_ttm": 5.975,
       "pb": 3.2401,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 4.16,
       "pct_chg": 2.46,
       "amount": 186228.413
@@ -1929,9 +1929,9 @@
         0.569366193547767,
         0.26046969162611394
       ],
-      "pe_ttm": null,
+      "pe_ttm": NaN,
       "pb": 3.0547,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 2.44,
       "pct_chg": 2.09,
       "amount": 98004.356
@@ -1950,7 +1950,7 @@
         0.5680073183289511,
         0.21354291173648493
       ],
-      "pe_ttm": null,
+      "pe_ttm": NaN,
       "pb": 1.6903,
       "dv_ratio": 0.1783,
       "close": 5.61,
@@ -1971,9 +1971,9 @@
         0.5680517327111633,
         0.1886208070015396
       ],
-      "pe_ttm": null,
+      "pe_ttm": NaN,
       "pb": 5.5756,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 6.29,
       "pct_chg": 2.11,
       "amount": 151351.326
@@ -1994,7 +1994,7 @@
       ],
       "pe_ttm": 157.2095,
       "pb": 4.2255,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 25.44,
       "pct_chg": 2.87,
       "amount": 134416.983
@@ -2097,9 +2097,9 @@
         0.5605637261092113,
         0.21314703269076396
       ],
-      "pe_ttm": null,
+      "pe_ttm": NaN,
       "pb": 0.6553,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 4.92,
       "pct_chg": 2.71,
       "amount": 101498.827
@@ -2227,7 +2227,7 @@
       ],
       "pe_ttm": 18.8767,
       "pb": 1.7514,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 10.8,
       "pct_chg": 1.5,
       "amount": 86471.826
@@ -2332,7 +2332,7 @@
       ],
       "pe_ttm": 20.0427,
       "pb": 0.4825,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 5.55,
       "pct_chg": 1.65,
       "amount": 246289.553
@@ -2374,7 +2374,7 @@
       ],
       "pe_ttm": 14.9241,
       "pb": 1.4285,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 2.53,
       "pct_chg": 1.61,
       "amount": 97535.845
@@ -2458,7 +2458,7 @@
       ],
       "pe_ttm": 19.2741,
       "pb": 1.876,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 5.07,
       "pct_chg": 4.11,
       "amount": 798972.018
@@ -2479,7 +2479,7 @@
       ],
       "pe_ttm": 29.0001,
       "pb": 2.0227,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 8.42,
       "pct_chg": 3.57,
       "amount": 822325.283
@@ -2752,7 +2752,7 @@
       ],
       "pe_ttm": 19.7374,
       "pb": 1.5669,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 3.52,
       "pct_chg": 1.15,
       "amount": 83414.432
@@ -2794,7 +2794,7 @@
       ],
       "pe_ttm": 15.4572,
       "pb": 1.3701,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 4.93,
       "pct_chg": 4.23,
       "amount": 256551.222
@@ -2920,7 +2920,7 @@
       ],
       "pe_ttm": 12.2356,
       "pb": 2.2218,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 13.26,
       "pct_chg": 3.76,
       "amount": 406560.216
@@ -3046,7 +3046,7 @@
       ],
       "pe_ttm": 5.975,
       "pb": 3.2401,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 4.16,
       "pct_chg": 2.46,
       "amount": 186228.413
@@ -3191,7 +3191,7 @@
         0.3579817532119558,
         0.46490955487278296
       ],
-      "pe_ttm": null,
+      "pe_ttm": NaN,
       "pb": 0.6068,
       "dv_ratio": 0.8803,
       "close": 5.68,
@@ -3424,7 +3424,7 @@
       ],
       "pe_ttm": 32.1595,
       "pb": 1.2315,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 2.99,
       "pct_chg": 4.18,
       "amount": 314758.984
@@ -3506,7 +3506,7 @@
         0.40722699897098,
         0.3113508833692051
       ],
-      "pe_ttm": null,
+      "pe_ttm": NaN,
       "pb": 0.6539,
       "dv_ratio": 2.739,
       "close": 4.51,
@@ -3550,7 +3550,7 @@
       ],
       "pe_ttm": 25.8209,
       "pb": 1.5277,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 5.38,
       "pct_chg": 5.28,
       "amount": 239568.779
@@ -3571,7 +3571,7 @@
       ],
       "pe_ttm": 22.3272,
       "pb": 6.4762,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 22.12,
       "pct_chg": 5.18,
       "amount": 776549.604
@@ -3592,7 +3592,7 @@
       ],
       "pe_ttm": 20.9054,
       "pb": 1.1596,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 7.1,
       "pct_chg": 4.72,
       "amount": 149117.183
@@ -3613,7 +3613,7 @@
       ],
       "pe_ttm": 15.7135,
       "pb": 1.7195,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 4.07,
       "pct_chg": 4.63,
       "amount": 2933266.852
@@ -3737,9 +3737,9 @@
         0.5047805930279567,
         0.28105578373056866
       ],
-      "pe_ttm": null,
+      "pe_ttm": NaN,
       "pb": 1.1176,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 4.93,
       "pct_chg": 1.65,
       "amount": 112490.963
@@ -3926,7 +3926,7 @@
         0.4480333739927383,
         0.204033672654544
       ],
-      "pe_ttm": null,
+      "pe_ttm": NaN,
       "pb": 0.9424,
       "dv_ratio": 0.1178,
       "close": 3.35,
@@ -3968,9 +3968,9 @@
         0.4939699098960834,
         0.24560475682762153
       ],
-      "pe_ttm": null,
+      "pe_ttm": NaN,
       "pb": 0.466,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 2.66,
       "pct_chg": 1.53,
       "amount": 222518.153
@@ -3989,9 +3989,9 @@
         0.521991711296234,
         0.1942936682926175
       ],
-      "pe_ttm": null,
+      "pe_ttm": NaN,
       "pb": 1.1899,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 6.21,
       "pct_chg": 4.9,
       "amount": 263413.056
@@ -4010,9 +4010,9 @@
         0.44587627542523417,
         0.25010768103336584
       ],
-      "pe_ttm": null,
+      "pe_ttm": NaN,
       "pb": 4.3513,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 14.33,
       "pct_chg": 3.77,
       "amount": 292137.782
@@ -4115,9 +4115,9 @@
         0.5605637261092113,
         0.21314703269076396
       ],
-      "pe_ttm": null,
+      "pe_ttm": NaN,
       "pb": 0.6553,
-      "dv_ratio": null,
+      "dv_ratio": NaN,
       "close": 4.92,
       "pct_chg": 2.71,
       "amount": 101498.827

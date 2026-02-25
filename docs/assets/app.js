@@ -13,13 +13,22 @@ async function loadData() {
     }
 }
 
+function fmt(v, decimals) {
+    if (v == null || v === undefined || (typeof v === 'number' && isNaN(v))) return '--';
+    return typeof v === 'number' ? v.toFixed(decimals) : String(v);
+}
+
 function renderPage() {
     if (!currentData) return;
 
     // 日期
-    const d = currentData.trade_date;
-    document.getElementById('report-date').textContent =
-        `${d.slice(0,4)}-${d.slice(4,6)}-${d.slice(6,8)}`;
+    const d = currentData.trade_date || '';
+    if (d.length >= 8) {
+        document.getElementById('report-date').textContent =
+            `${d.slice(0,4)}-${d.slice(4,6)}-${d.slice(6,8)}`;
+    } else {
+        document.getElementById('report-date').textContent = '暂无数据';
+    }
 
     renderSummary();
     renderTop3();
@@ -54,24 +63,27 @@ function renderTop3() {
     const el = document.getElementById('top3-grid');
     const top3 = currentData.top3_buy || [];
 
-    el.innerHTML = top3.map((s, i) => `
+    el.innerHTML = top3.map((s, i) => {
+        const signalClass = s.signal === '即将启动' ? 'signal-up'
+                          : s.signal === '即将下跌' ? 'signal-down' : '';
+        return `
         <div class="top3-card">
             <div>
                 <span class="stock-code">#${i+1} ${s.ts_code}</span>
                 <span class="stock-name">${s.name}</span>
             </div>
             <div class="metrics">
-                <div class="metric">信号: <span class="val signal-up">${s.signal}</span></div>
-                <div class="metric">置信度: <span class="val">${(s.confidence*100).toFixed(0)}%</span></div>
-                <div class="metric">技术分: <span class="val">${s.tech_score.toFixed(0)}</span></div>
-                <div class="metric">低估分: <span class="val">${s.undervalue_score.toFixed(0)}</span></div>
-                <div class="metric">行业: <span class="val">${s.industry}</span></div>
-                <div class="metric">PE: <span class="val">${s.pe_ttm.toFixed(1)}</span></div>
-                <div class="metric">收盘: <span class="val">${s.close.toFixed(2)}</span></div>
-                <div class="metric">涨跌: <span class="val ${s.pct_chg>0?'pct-up':'pct-down'}">${s.pct_chg>0?'+':''}${s.pct_chg.toFixed(2)}%</span></div>
+                <div class="metric">信号: <span class="val ${signalClass}">${s.signal}</span></div>
+                <div class="metric">置信度: <span class="val">${fmt(s.confidence*100,0)}%</span></div>
+                <div class="metric">技术分: <span class="val">${fmt(s.tech_score,0)}</span></div>
+                <div class="metric">低估分: <span class="val">${fmt(s.undervalue_score,0)}</span></div>
+                <div class="metric">行业: <span class="val">${s.industry||'--'}</span></div>
+                <div class="metric">PE: <span class="val">${fmt(s.pe_ttm,1)}</span></div>
+                <div class="metric">收盘: <span class="val">${fmt(s.close,2)}</span></div>
+                <div class="metric">涨跌: <span class="val ${s.pct_chg>0?'pct-up':'pct-down'}">${s.pct_chg>0?'+':''}${fmt(s.pct_chg,2)}%</span></div>
             </div>
-        </div>
-    `).join('') || '<p class="muted">暂无推荐</p>';
+        </div>`;
+    }).join('') || '<p class="muted">暂无推荐</p>';
 }
 
 function renderSectorChart() {
@@ -129,14 +141,14 @@ function renderTable(tab) {
             <td>${i+1}</td>
             <td>${s.ts_code}</td>
             <td>${s.name}</td>
-            <td>${s.industry}</td>
+            <td>${s.industry||'--'}</td>
             <td class="${signalClass}">${s.signal}</td>
-            <td>${(s.confidence*100).toFixed(0)}%</td>
-            <td>${s.tech_score.toFixed(0)}</td>
-            <td>${s.undervalue_score.toFixed(0)}</td>
-            <td>${s.pe_ttm.toFixed(1)}</td>
-            <td>${s.close.toFixed(2)}</td>
-            <td class="${pctClass}">${s.pct_chg>0?'+':''}${s.pct_chg.toFixed(2)}%</td>
+            <td>${fmt(s.confidence*100,0)}%</td>
+            <td>${fmt(s.tech_score,0)}</td>
+            <td>${fmt(s.undervalue_score,0)}</td>
+            <td>${fmt(s.pe_ttm,1)}</td>
+            <td>${fmt(s.close,2)}</td>
+            <td class="${pctClass}">${s.pct_chg>0?'+':''}${fmt(s.pct_chg,2)}%</td>
         </tr>`;
     }).join('');
 }

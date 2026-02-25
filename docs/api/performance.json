@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "date": "20260225",
+    "performance": {},
+    "top3": [
+      {"ts_code": "600008.SH", "name": "首创环保", "signal": "观望", "confidence": 0.82},
+      {"ts_code": "600909.SH", "name": "华安证券", "signal": "即将下跌", "confidence": 0.614},
+      {"ts_code": "601333.SH", "name": "广深铁路", "signal": "观望", "confidence": 0.753}
+    ]
+  }
+]
