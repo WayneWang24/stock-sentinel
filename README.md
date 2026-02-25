@@ -4,8 +4,8 @@
 
 ## 在线查看
 
-🔗 [每日分析主页](https://wayneWang24.github.io/a-stock-daily/)
-📊 [策略表现追踪](https://wayneWang24.github.io/a-stock-daily/performance.html)
+🔗 [每日分析主页](https://wayneWang24.github.io/stock-sentinel/)
+📊 [策略表现追踪](https://wayneWang24.github.io/stock-sentinel/performance.html)
 
 ## 内容说明
 
