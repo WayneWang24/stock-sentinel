@@ -1,4 +1,4 @@
-// Megathink A股每日分析 - 前端逻辑
+// Stock Sentinel - A股每日分析前端逻辑
 let currentData = null;
 let currentTab = 'launch';
 
