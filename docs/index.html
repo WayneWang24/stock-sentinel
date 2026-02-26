@@ -68,6 +68,44 @@
                     <tbody id="v29-trades-tbody"></tbody>
                 </table>
             </section>
+
+            <!-- 模拟盘概览 -->
+            <section class="section" id="paper-section" style="display:none;">
+                <h2>模拟盘实况</h2>
+                <div class="kpi-cards" id="paper-kpis"></div>
+            </section>
+
+            <!-- 操作记录 (双视图: 交易卡片 / 流水明细) -->
+            <section class="section" id="paper-trades-section" style="display:none;">
+                <div class="section-header-row">
+                    <h2>操作记录</h2>
+                    <div class="view-toggle">
+                        <button class="view-btn active" data-view="card" onclick="switchTradeView('card')">交易卡片</button>
+                        <button class="view-btn" data-view="flow" onclick="switchTradeView('flow')">流水明细</button>
+                    </div>
+                </div>
+                <!-- 交易卡片视图 -->
+                <div id="paired-trades-view"></div>
+                <!-- 流水明细视图 -->
+                <div id="flow-trades-view" style="display:none;">
+                    <table class="data-table paper-trades-table" id="paper-trades-table">
+                        <thead>
+                            <tr>
+                                <th>日期</th><th>代码</th><th>名称</th><th>方向</th>
+                                <th>价格</th><th>数量</th><th>金额</th><th>费用</th>
+                                <th>盈亏</th><th>说明</th>
+                            </tr>
+                        </thead>
+                        <tbody id="paper-trades-tbody"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 净值走势 -->
+            <section class="section" id="equity-section" style="display:none;">
+                <h2>净值走势</h2>
+                <div id="equity-chart" style="height:300px;"></div>
+            </section>
         </div>
 
         <!-- ========== Tab 2: 市场全景 ========== -->

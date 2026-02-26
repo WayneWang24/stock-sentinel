@@ -174,6 +174,41 @@
                 </table>
             </section>
 
+            <!-- ========== 模拟盘 ========== -->
+            <section class="section" id="sec-paper-overview" style="display:none;">
+                <h2>模拟盘概览</h2>
+                <div class="kpi-cards" id="paper-ops-kpis"></div>
+            </section>
+
+            <section class="section" id="sec-paper-holdings" style="display:none;">
+                <h2>模拟盘持仓</h2>
+                <table class="ops-table" id="tbl-paper-holdings">
+                    <thead>
+                        <tr>
+                            <th>代码</th><th>名称</th><th>买入日</th>
+                            <th>买入价</th><th>止盈价</th><th>止损价</th>
+                            <th>股数</th><th>持仓天</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </section>
+
+            <section class="section" id="sec-paper-trades" style="display:none;">
+                <h2>模拟盘交易历史</h2>
+                <table class="ops-table" id="tbl-paper-trades">
+                    <thead>
+                        <tr>
+                            <th>代码</th><th>名称</th><th>买入日</th>
+                            <th>买入价</th><th>卖出价</th><th>股数</th>
+                            <th>买入金额</th><th>卖出金额</th><th>佣金</th>
+                            <th>印花税</th><th>盈亏%</th><th>结果</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </section>
+
             <footer>
                 <p>Private operations view - encrypted at rest</p>
             </footer>
@@ -325,6 +360,73 @@ function renderOps(data) {
             <td>${reason}</td>
         </tr>`;
     }).join('');
+
+    // 模拟盘
+    renderPaperOps(data);
+}
+
+function renderPaperOps(data) {
+    const ps = data.paper_stats;
+    if (!ps) return;
+
+    // KPI 概览
+    document.getElementById('sec-paper-overview').style.display = '';
+    const returnPct = (ps.net_return * 100).toFixed(2);
+    const returnSign = ps.net_return >= 0 ? '+' : '';
+    const returnCls = ps.net_return >= 0 ? 'green' : 'red';
+    const cards = [
+        { label: '总资产', value: ps.total_equity.toLocaleString(), cls: '' },
+        { label: '净值', value: `${(ps.nav || 1).toFixed(4)} <small style="font-size:0.8rem" class="${returnCls}">${returnSign}${returnPct}%</small>`, cls: returnCls },
+        { label: '交易笔数', value: ps.total_trades, cls: '' },
+        { label: '胜率', value: (ps.win_rate * 100).toFixed(1) + '%', cls: '' },
+        { label: '最大回撤', value: (ps.max_drawdown * 100).toFixed(2) + '%', cls: 'red' },
+    ];
+    document.getElementById('paper-ops-kpis').innerHTML = cards.map(c => `
+        <div class="kpi-card">
+            <div class="kpi-value ${c.cls}">${c.value}</div>
+            <div class="kpi-label">${c.label}</div>
+        </div>
+    `).join('');
+
+    // 持仓
+    const holdings = data.paper_holdings || [];
+    if (holdings.length) {
+        document.getElementById('sec-paper-holdings').style.display = '';
+        document.querySelector('#tbl-paper-holdings tbody').innerHTML = holdings.map(h => `<tr>
+            <td>${h.ts_code}</td><td>${h.name || ''}</td><td>${h.buy_date || ''}</td>
+            <td class="price-buy">${fmt(h.buy_price)}</td>
+            <td class="price-tp">${fmt(h.tp_price)}</td>
+            <td class="price-sl">${fmt(h.sl_price)}</td>
+            <td>${h.shares || 0}</td>
+            <td>${h.hold_days || 0}</td>
+        </tr>`).join('');
+    }
+
+    // 配对交易历史 (倒序)
+    const paired = (data.paper_paired_trades || []).slice().reverse();
+    if (paired.length) {
+        document.getElementById('sec-paper-trades').style.display = '';
+        const exitMap = { 'confirm_fail': '确认失败', 'tp': 'TP', 'sl': 'SL', 'timeout': '超时' };
+        document.querySelector('#tbl-paper-trades tbody').innerHTML = paired.map(t => {
+            const pnl = t.pnl_pct || 0;
+            const cls = pnl > 0 ? 'pct-up' : pnl < 0 ? 'pct-down' : '';
+            const reason = t.status === 'holding' ? '<span style="color:var(--blue)">持仓中</span>' :
+                (exitMap[t.exit_reason] || t.exit_reason || '');
+            const totalComm = (t.buy_commission || 0) + (t.sell_commission || 0);
+            return `<tr>
+                <td>${t.ts_code}</td><td>${t.name || ''}</td><td>${t.buy_date || ''}</td>
+                <td class="price-buy">${fmt(t.buy_price)}</td>
+                <td>${t.status === 'holding' ? '--' : fmt(t.sell_price)}</td>
+                <td>${t.shares || 0}</td>
+                <td>${(t.buy_amount || 0).toLocaleString()}</td>
+                <td>${t.status === 'holding' ? '--' : (t.sell_amount || 0).toLocaleString()}</td>
+                <td>${totalComm.toFixed(2)}</td>
+                <td>${(t.stamp_tax || 0).toFixed(2)}</td>
+                <td class="${cls}">${(pnl * 100).toFixed(2)}%</td>
+                <td>${reason}</td>
+            </tr>`;
+        }).join('');
+    }
 }
 
 function fmt(v) { return v != null ? Number(v).toFixed(2) : '--'; }

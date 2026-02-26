@@ -234,6 +234,126 @@ header h1 { font-size: 1.5rem; }
     gap: 15px; margin-bottom: 15px;
 }
 
+/* ==================== 模拟盘样式 ==================== */
+
+/* 操作记录表: 买入/卖出行左竖线 */
+.paper-trades-table .paper-row-buy td:first-child {
+    border-left: 3px solid var(--green);
+}
+.paper-trades-table .paper-row-sell td:first-child {
+    border-left: 3px solid var(--red);
+}
+
+/* Section 标题行 (标题+切换按钮) */
+.section-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #333;
+}
+.section-header-row h2 {
+    margin: 0; padding: 0; border: none;
+}
+
+/* 视图切换按钮 */
+.view-toggle { display: flex; gap: 4px; }
+.view-btn {
+    background: var(--surface);
+    color: var(--text-muted);
+    border: 1px solid #444;
+    border-radius: 4px;
+    padding: 4px 12px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.view-btn:hover { color: var(--text); }
+.view-btn.active {
+    background: var(--card);
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+/* 交易卡片 */
+.trade-group { margin-bottom: 20px; }
+.trade-group-date {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    padding-left: 4px;
+}
+.trade-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
+}
+.trade-card {
+    background: var(--surface);
+    border-radius: 8px;
+    padding: 14px 16px;
+    border-left: 4px solid var(--blue);
+}
+.trade-card-win { border-left-color: var(--green); }
+.trade-card-loss { border-left-color: var(--red); }
+.trade-card-holding { border-left-color: var(--blue); }
+
+.trade-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.trade-card-code { font-weight: bold; font-size: 0.95rem; }
+.trade-card-name { color: var(--text-muted); font-size: 0.85rem; margin-left: 6px; }
+
+.trade-card-badge {
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 3px;
+    background: var(--card);
+    color: var(--text-muted);
+}
+.badge-cf { background: #3d2020; color: #f0a500; }
+.badge-hold { background: #1a3a5c; color: var(--blue); }
+
+.trade-card-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+}
+.trade-card-price { font-size: 1rem; }
+.trade-card-pnl { font-size: 1.1rem; font-weight: bold; }
+
+.trade-card-amounts {
+    display: flex;
+    gap: 14px;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #2a2a4a;
+}
+.trade-card-amounts b { color: var(--text); }
+
+.trade-card-footer {
+    display: flex;
+    gap: 12px;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+/* KPI 卡片子文本 (收益率/胜率) */
+.paper-kpi-sub {
+    font-size: 0.9rem;
+    font-weight: normal;
+}
+.paper-kpi-sub.green { color: var(--green); }
+.paper-kpi-sub.red { color: var(--red); }
+.kpi-value.red { color: var(--red); }
+
 /* ==================== 历史表现 Tab ==================== */
 
 .kpi-cards {
