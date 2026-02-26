@@ -1,0 +1,197 @@
+{
+  "strategy": "v29",
+  "description": "极致确认持仓策略 - 500天样本外回测",
+  "updated_at": "2026-02-26",
+  "backtest_period": {
+    "start": "2024-02",
+    "end": "2026-02",
+    "total_days": 500
+  },
+  "summary": {
+    "TP10_SL5": {
+      "trades": 47,
+      "tp_rate": 0.9574,
+      "sl_rate": 0.0426,
+      "avg_return": 0.0936,
+      "avg_hold_days": 1.3
+    },
+    "TP8_SL3": {
+      "trades": 47,
+      "tp_rate": 0.9787,
+      "sl_rate": 0.0213,
+      "avg_return": 0.0777,
+      "avg_hold_days": 1.1
+    }
+  },
+  "monthly": [
+    {
+      "month": "2024-03",
+      "trades": 3,
+      "tp_rate": 1.0,
+      "avg_return": 0.1
+    },
+    {
+      "month": "2024-05",
+      "trades": 2,
+      "tp_rate": 1.0,
+      "avg_return": 0.1
+    },
+    {
+      "month": "2024-07",
+      "trades": 1,
+      "tp_rate": 1.0,
+      "avg_return": 0.1
+    },
+    {
+      "month": "2024-08",
+      "trades": 1,
+      "tp_rate": 1.0,
+      "avg_return": 0.1
+    },
+    {
+      "month": "2024-10",
+      "trades": 1,
+      "tp_rate": 1.0,
+      "avg_return": 0.1
+    },
+    {
+      "month": "2025-01",
+      "trades": 1,
+      "tp_rate": 1.0,
+      "avg_return": 0.1
+    },
+    {
+      "month": "2025-02",
+      "trades": 2,
+      "tp_rate": 1.0,
+      "avg_return": 0.1
+    },
+    {
+      "month": "2025-03",
+      "trades": 6,
+      "tp_rate": 1.0,
+      "avg_return": 0.1
+    },
+    {
+      "month": "2025-04",
+      "trades": 3,
+      "tp_rate": 1.0,
+      "avg_return": 0.1
+    },
+    {
+      "month": "2025-05",
+      "trades": 5,
+      "tp_rate": 0.8,
+      "avg_return": 0.07
+    },
+    {
+      "month": "2025-06",
+      "trades": 3,
+      "tp_rate": 1.0,
+      "avg_return": 0.1
+    },
+    {
+      "month": "2025-07",
+      "trades": 3,
+      "tp_rate": 1.0,
+      "avg_return": 0.1
+    },
+    {
+      "month": "2025-08",
+      "trades": 1,
+      "tp_rate": 1.0,
+      "avg_return": 0.1
+    },
+    {
+      "month": "2025-09",
+      "trades": 2,
+      "tp_rate": 1.0,
+      "avg_return": 0.1
+    },
+    {
+      "month": "2025-10",
+      "trades": 2,
+      "tp_rate": 1.0,
+      "avg_return": 0.1
+    },
+    {
+      "month": "2025-11",
+      "trades": 3,
+      "tp_rate": 1.0,
+      "avg_return": 0.1
+    },
+    {
+      "month": "2025-12",
+      "trades": 3,
+      "tp_rate": 0.6667,
+      "avg_return": 0.05
+    },
+    {
+      "month": "2026-01",
+      "trades": 4,
+      "tp_rate": 1.0,
+      "avg_return": 0.1
+    },
+    {
+      "month": "2026-02",
+      "trades": 1,
+      "tp_rate": 1.0,
+      "avg_return": 0.1
+    }
+  ],
+  "confirmation_funnel": [
+    {
+      "stage": "v22c 全部选中",
+      "trades": 786,
+      "tp_rate": 0.3702
+    },
+    {
+      "stage": "日内确认通过",
+      "trades": 342,
+      "tp_rate": 0.3421
+    },
+    {
+      "stage": "强确认持仓 (v29)",
+      "trades": 47,
+      "tp_rate": 0.9574
+    }
+  ],
+  "return_distribution": {
+    "labels": [
+      "-6%~-4%",
+      "-4%~-2%",
+      "-2%~0%",
+      "0%~2%",
+      "2%~4%",
+      "4%~6%",
+      "6%~8%",
+      "8%~10%",
+      "10%+"
+    ],
+    "counts": [
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      45
+    ]
+  },
+  "hold_days_distribution": {
+    "days": [
+      "1天",
+      "2天",
+      "3天",
+      "4天"
+    ],
+    "counts": [
+      39,
+      4,
+      2,
+      2
+    ]
+  }
+}

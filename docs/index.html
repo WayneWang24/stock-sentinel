@@ -15,6 +15,8 @@
                 <span id="report-date">加载中...</span>
                 <span class="sep">|</span>
                 <a href="performance.html">策略表现追踪</a>
+                <span class="sep">|</span>
+                <a href="v29.html">v29 策略表现</a>
             </div>
         </header>
 
@@ -31,6 +33,22 @@
         <section class="section">
             <h2>热门板块资金流</h2>
             <div id="sector-chart" style="height: 350px;"></div>
+        </section>
+
+        <!-- 板块选股 -->
+        <section class="section">
+            <h2>板块选股推荐</h2>
+            <div id="sector-picks-grid"></div>
+            <table class="data-table" id="sector-picks-table" style="display:none;">
+                <thead>
+                    <tr>
+                        <th>#</th><th>代码</th><th>名称</th><th>板块</th>
+                        <th>类型</th><th>涨跌%</th><th>成交额(万)</th>
+                        <th>评分</th><th>标记</th>
+                    </tr>
+                </thead>
+                <tbody id="sector-picks-tbody"></tbody>
+            </table>
         </section>
 
         <!-- Tab: 即将启动 / 最低估 -->
