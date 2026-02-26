@@ -1,8 +1,44 @@
 {
-  "date": null,
-  "updated_at": "2026-02-26T10:56:12",
-  "phase": "idle",
-  "candidates": [],
+  "date": "20260225",
+  "updated_at": "2026-02-26T12:38:39",
+  "phase": "scan",
+  "candidates": [
+    {
+      "ts_code": "600230.SH",
+      "name": "沧州大化",
+      "industry": "化工原料",
+      "close": 23.5,
+      "signal_strength": "strong"
+    },
+    {
+      "ts_code": "600078.SH",
+      "name": "澄星股份",
+      "industry": "化工原料",
+      "close": 13.46,
+      "signal_strength": "strong"
+    },
+    {
+      "ts_code": "002470.SZ",
+      "name": "金正大",
+      "industry": "农药化肥",
+      "close": 2.56,
+      "signal_strength": "strong"
+    },
+    {
+      "ts_code": "000758.SZ",
+      "name": "中色股份",
+      "industry": "铅锌",
+      "close": 8.49,
+      "signal_strength": "normal"
+    },
+    {
+      "ts_code": "600470.SH",
+      "name": "六国化工",
+      "industry": "农药化肥",
+      "close": 7.84,
+      "signal_strength": "normal"
+    }
+  ],
   "pending_confirm": [],
   "holdings": [],
   "recent_trades": [],
