@@ -99,7 +99,12 @@ function renderSignalTab() {
         statsEl.innerHTML = '<span class="stat-item muted">暂无实盘记录</span>';
     }
 
-    // 候选
+    // 候选 — 显示具体买入日期
+    const buyDateStr = signalData.buy_date ? fmtDate(signalData.buy_date) : '次日';
+    document.getElementById('v29-candidates-title').textContent =
+        signalData.candidates && signalData.candidates.length > 0
+            ? `${buyDateStr} 买入候选`
+            : '买入候选';
     renderV29Cards('v29-candidates', signalData.candidates, 'candidate');
     // 持仓
     renderV29Cards('v29-holdings', signalData.holdings, 'holding');
