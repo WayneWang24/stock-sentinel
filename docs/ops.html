@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Sentinel - Ops</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <style>
+        /* 密码输入区 */
+        .auth-box {
+            max-width: 400px;
+            margin: 100px auto;
+            background: var(--surface);
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+        }
+        .auth-box h2 { margin-bottom: 20px; font-size: 1.3rem; }
+        .auth-box input {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--bg);
+            border: 1px solid #444;
+            border-radius: 6px;
+            color: var(--text);
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+        .auth-box input:focus { outline: none; border-color: var(--accent); }
+        .auth-box button {
+            width: 100%;
+            padding: 12px;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .auth-box button:hover { opacity: 0.9; }
+        .auth-error {
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-top: 10px;
+            display: none;
+        }
+
+        /* 操作记录内容 */
+        #ops-content { display: none; }
+
+        /* 操作备忘卡片 */
+        .ops-memo {
+            background: var(--card);
+            border-radius: 6px;
+            padding: 10px 14px;
+            margin-top: 8px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            border-left: 3px solid var(--blue);
+        }
+        .ops-memo b { color: var(--text); }
+
+        /* 详情表格 */
+        .ops-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+        .ops-table th, .ops-table td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #2a2a4a;
+            text-align: right;
+        }
+        .ops-table th {
+            background: var(--surface);
+            color: var(--text-muted);
+            position: sticky;
+            top: 0;
+        }
+        .ops-table td:nth-child(1),
+        .ops-table td:nth-child(2),
+        .ops-table th:nth-child(1),
+        .ops-table th:nth-child(2) { text-align: left; }
+
+        /* 价格高亮 */
+        .price-buy { color: var(--blue); }
+        .price-tp { color: var(--green); }
+        .price-sl { color: var(--red); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Stock Sentinel <span style="color:var(--text-muted); font-size:0.9rem;">/ Ops</span></h1>
+            <div class="header-meta">
+                <a href="index.html">Dashboard</a>
+            </div>
+        </header>
+
+        <!-- 密码输入 -->
+        <div id="auth-box" class="auth-box">
+            <h2>Private Operations</h2>
+            <p class="muted" style="margin-bottom:20px;">Enter password to decrypt trading records</p>
+            <input type="password" id="pwd-input" placeholder="Password" autocomplete="off">
+            <button onclick="doDecrypt()">Unlock</button>
+            <p id="auth-error" class="auth-error"></p>
+        </div>
+
+        <!-- 解密后内容 -->
+        <div id="ops-content">
+            <!-- 状态横幅 -->
+            <div class="status-banner" id="ops-banner">
+                <div class="banner-phase" id="ops-phase">--</div>
+                <div class="banner-stats" id="ops-stats"></div>
+            </div>
+
+            <!-- 候选股 -->
+            <section class="section" id="sec-candidates" style="display:none;">
+                <h2>候选股详情</h2>
+                <table class="ops-table" id="tbl-candidates">
+                    <thead>
+                        <tr>
+                            <th>代码</th><th>名称</th><th>行业</th>
+                            <th>收盘价</th><th>QS</th><th>VR</th>
+                            <th>板块联动</th><th>板块排名</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <div id="candidates-memo"></div>
+            </section>
+
+            <!-- 待确认 -->
+            <section class="section" id="sec-pending" style="display:none;">
+                <h2>待确认</h2>
+                <table class="ops-table" id="tbl-pending">
+                    <thead>
+                        <tr>
+                            <th>代码</th><th>名称</th><th>买入日</th>
+                            <th>买入价</th><th>QS</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </section>
+
+            <!-- 持仓 -->
+            <section class="section" id="sec-holdings" style="display:none;">
+                <h2>持仓详情</h2>
+                <table class="ops-table" id="tbl-holdings">
+                    <thead>
+                        <tr>
+                            <th>代码</th><th>名称</th><th>买入日</th>
+                            <th>买入价</th><th>止盈价</th><th>止损价</th>
+                            <th>持仓天</th><th>盈亏%</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </section>
+
+            <!-- 完整交易历史 -->
+            <section class="section">
+                <h2>完整交易历史</h2>
+                <table class="ops-table" id="tbl-history">
+                    <thead>
+                        <tr>
+                            <th>代码</th><th>名称</th><th>买入日</th>
+                            <th>买入价</th><th>卖出价</th><th>持仓天</th>
+                            <th>盈亏%</th><th>结果</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </section>
+
+            <footer>
+                <p>Private operations view - encrypted at rest</p>
+            </footer>
+        </div>
+    </div>
+
+<script>
+const ITER = 100000;
+
+// 按 Enter 触发解密
+document.getElementById('pwd-input').addEventListener('keydown', e => {
+    if (e.key === 'Enter') doDecrypt();
+});
+
+async function doDecrypt() {
+    const pwd = document.getElementById('pwd-input').value;
+    const errEl = document.getElementById('auth-error');
+    errEl.style.display = 'none';
+
+    if (!pwd) { showError('请输入密码'); return; }
+
+    try {
+        const resp = await fetch('api/v29_ops.json');
+        if (!resp.ok) { showError('数据文件未找到'); return; }
+        const enc = await resp.json();
+
+        const salt = b64ToArr(enc.salt);
+        const iv = b64ToArr(enc.iv);
+        const ct = b64ToArr(enc.ct);
+        const iter = enc.iter || ITER;
+
+        const keyMaterial = await crypto.subtle.importKey(
+            'raw', new TextEncoder().encode(pwd), 'PBKDF2', false, ['deriveKey']
+        );
+        const key = await crypto.subtle.deriveKey(
+            { name: 'PBKDF2', salt, iterations: iter, hash: 'SHA-256' },
+            keyMaterial,
+            { name: 'AES-GCM', length: 256 },
+            false,
+            ['decrypt']
+        );
+        const decrypted = await crypto.subtle.decrypt({ name: 'AES-GCM', iv }, key, ct);
+        const data = JSON.parse(new TextDecoder().decode(decrypted));
+
+        document.getElementById('auth-box').style.display = 'none';
+        document.getElementById('ops-content').style.display = 'block';
+        renderOps(data);
+    } catch (e) {
+        showError('密码错误或数据损坏');
+    }
+}
+
+function showError(msg) {
+    const el = document.getElementById('auth-error');
+    el.textContent = msg;
+    el.style.display = 'block';
+}
+
+function b64ToArr(b64) {
+    const bin = atob(b64);
+    const arr = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
+    return arr;
+}
+
+function renderOps(data) {
+    // 状态横幅
+    const phase = data.holdings?.length ? 'CHECK' :
+                  data.pending_confirm?.length ? 'CONFIRM' :
+                  data.candidates?.length ? 'SCAN' : 'IDLE';
+    document.getElementById('ops-phase').textContent = phase;
+
+    const s = data.stats || {};
+    document.getElementById('ops-stats').innerHTML = [
+        `<span class="stat-item">总交易 <b>${s.total_trades || 0}</b></span>`,
+        `<span class="stat-item">止盈率 <b>${((s.tp_rate || 0) * 100).toFixed(1)}%</b></span>`,
+        `<span class="stat-item">平均收益 <b>${((s.avg_pnl || 0) * 100).toFixed(2)}%</b></span>`,
+        `<span class="stat-item">更新 <b>${data.updated_at || '--'}</b></span>`,
+    ].join('');
+
+    // 候选股
+    if (data.candidates?.length) {
+        document.getElementById('sec-candidates').style.display = '';
+        const tbody = document.querySelector('#tbl-candidates tbody');
+        tbody.innerHTML = data.candidates.map(c => `<tr>
+            <td>${c.ts_code}</td><td>${c.name}</td><td>${c.industry || ''}</td>
+            <td>${fmt(c.close)}</td>
+            <td><b>${c.quality_score || '--'}</b></td>
+            <td>${fmt(c.volume_ratio)}</td>
+            <td>${c.sector_limit_count || '--'}</td>
+            <td>${c.sector_rank || '--'}</td>
+        </tr>`).join('');
+
+        // 操作备忘
+        document.getElementById('candidates-memo').innerHTML = data.candidates.map(c => {
+            const suggestBuy = c.close ? (c.close * 1.005).toFixed(2) : '--';
+            return `<div class="ops-memo">
+                <b>${c.name}</b> (${c.ts_code}) -
+                建议挂单 <b class="price-buy">${suggestBuy}</b>
+                (昨收 ${fmt(c.close)}, QS=${c.quality_score || '--'})
+            </div>`;
+        }).join('');
+    }
+
+    // 待确认
+    if (data.pending_confirm?.length) {
+        document.getElementById('sec-pending').style.display = '';
+        const tbody = document.querySelector('#tbl-pending tbody');
+        tbody.innerHTML = data.pending_confirm.map(p => `<tr>
+            <td>${p.ts_code}</td><td>${p.name}</td><td>${p.buy_date || ''}</td>
+            <td class="price-buy">${fmt(p.buy_price)}</td>
+            <td><b>${p.quality_score || '--'}</b></td>
+        </tr>`).join('');
+    }
+
+    // 持仓
+    if (data.holdings?.length) {
+        document.getElementById('sec-holdings').style.display = '';
+        const tbody = document.querySelector('#tbl-holdings tbody');
+        tbody.innerHTML = data.holdings.map(h => {
+            const pnl = h.pnl_pct || 0;
+            const cls = pnl > 0 ? 'pct-up' : pnl < 0 ? 'pct-down' : '';
+            return `<tr>
+                <td>${h.ts_code}</td><td>${h.name}</td><td>${h.buy_date || ''}</td>
+                <td class="price-buy">${fmt(h.buy_price)}</td>
+                <td class="price-tp">${fmt(h.tp_price)}</td>
+                <td class="price-sl">${fmt(h.sl_price)}</td>
+                <td>${h.hold_days || 0}</td>
+                <td class="${cls}">${(pnl * 100).toFixed(2)}%</td>
+            </tr>`;
+        }).join('');
+    }
+
+    // 完整交易历史 (倒序)
+    const history = (data.history || []).slice().reverse();
+    const tbody = document.querySelector('#tbl-history tbody');
+    tbody.innerHTML = history.map(t => {
+        const pnl = t.pnl_pct || 0;
+        const cls = pnl > 0 ? 'pct-up' : pnl < 0 ? 'pct-down' : '';
+        const reason = t.exit_reason === 'tp' ? '<span class="badge-tp">TP</span>' :
+                       t.exit_reason === 'sl' ? '<span class="badge-sl">SL</span>' :
+                       t.exit_reason || '';
+        return `<tr>
+            <td>${t.ts_code}</td><td>${t.name}</td><td>${t.buy_date || ''}</td>
+            <td class="price-buy">${fmt(t.buy_price)}</td>
+            <td>${fmt(t.sell_price || t.exit_price)}</td>
+            <td>${t.hold_days || 0}</td>
+            <td class="${cls}">${(pnl * 100).toFixed(2)}%</td>
+            <td>${reason}</td>
+        </tr>`;
+    }).join('');
+}
+
+function fmt(v) { return v != null ? Number(v).toFixed(2) : '--'; }
+</script>
+</body>
+</html>
