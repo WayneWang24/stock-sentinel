@@ -3,77 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stock Sentinel - A股每日分析</title>
+    <title>Stock Sentinel - A股策略分析</title>
     <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Stock Sentinel - A股每日分析</h1>
+            <h1>Stock Sentinel</h1>
             <div class="header-meta">
-                <span id="report-date">加载中...</span>
+                <span id="header-date">--</span>
                 <span class="sep">|</span>
-                <a href="performance.html">策略表现追踪</a>
-                <span class="sep">|</span>
-                <a href="v29.html">v29 策略表现</a>
+                <a href="https://github.com/WayneWang24/stock-sentinel">GitHub</a>
             </div>
         </header>
 
-        <!-- 策略摘要 -->
-        <section class="summary-cards" id="summary-cards"></section>
+        <!-- 顶部 Tab 导航 -->
+        <nav class="main-tabs">
+            <button class="main-tab active" data-tab="signal" onclick="switchMainTab('signal')">v29 信号</button>
+            <button class="main-tab" data-tab="market" onclick="switchMainTab('market')">市场全景</button>
+            <button class="main-tab" data-tab="history" onclick="switchMainTab('history')">历史表现</button>
+        </nav>
 
-        <!-- Top 3 推荐 -->
-        <section class="section">
-            <h2>Top 3 最佳买入推荐</h2>
-            <div class="top3-grid" id="top3-grid"></div>
-        </section>
-
-        <!-- 板块资金流 -->
-        <section class="section">
-            <h2>热门板块资金流</h2>
-            <div id="sector-chart" style="height: 350px;"></div>
-        </section>
-
-        <!-- 板块选股 -->
-        <section class="section">
-            <h2>板块选股推荐</h2>
-            <div id="sector-picks-grid"></div>
-            <table class="data-table" id="sector-picks-table" style="display:none;">
-                <thead>
-                    <tr>
-                        <th>#</th><th>代码</th><th>名称</th><th>板块</th>
-                        <th>类型</th><th>涨跌%</th><th>成交额(万)</th>
-                        <th>评分</th><th>标记</th>
-                    </tr>
-                </thead>
-                <tbody id="sector-picks-tbody"></tbody>
-            </table>
-        </section>
-
-        <!-- Tab: 即将启动 / 最低估 -->
-        <section class="section">
-            <div class="tab-header">
-                <button class="tab-btn active" onclick="switchTab('launch')">
-                    即将启动 Top 100
-                </button>
-                <button class="tab-btn" onclick="switchTab('undervalue')">
-                    最低估 Top 100
-                </button>
+        <!-- ========== Tab 1: v29 信号 ========== -->
+        <div id="tab-signal" class="tab-panel active">
+            <!-- 状态横幅 -->
+            <div class="status-banner" id="v29-banner">
+                <div class="banner-phase" id="v29-phase">加载中...</div>
+                <div class="banner-stats" id="v29-stats"></div>
             </div>
-            <div id="tab-content">
-                <table class="data-table" id="stock-table">
+
+            <!-- 三栏卡片 -->
+            <div class="v29-sections">
+                <section class="v29-section">
+                    <h3>明日买入候选</h3>
+                    <div id="v29-candidates" class="v29-cards">
+                        <p class="muted">暂无数据</p>
+                    </div>
+                </section>
+                <section class="v29-section">
+                    <h3>持仓中</h3>
+                    <div id="v29-holdings" class="v29-cards">
+                        <p class="muted">暂无持仓</p>
+                    </div>
+                </section>
+                <section class="v29-section">
+                    <h3>待确认</h3>
+                    <div id="v29-pending" class="v29-cards">
+                        <p class="muted">暂无待确认</p>
+                    </div>
+                </section>
+            </div>
+
+            <!-- 近期战绩 -->
+            <section class="section">
+                <h2>近期战绩</h2>
+                <table class="data-table" id="v29-trades-table">
                     <thead>
                         <tr>
-                            <th>#</th><th>代码</th><th>名称</th><th>行业</th>
-                            <th>信号</th><th>置信度</th><th>技术分</th>
-                            <th>低估分</th><th>PE</th><th>收盘价</th><th>涨跌%</th>
+                            <th>代码</th><th>名称</th><th>买入日</th>
+                            <th>持仓天数</th><th>盈亏</th><th>结果</th>
                         </tr>
                     </thead>
-                    <tbody id="stock-tbody"></tbody>
+                    <tbody id="v29-trades-tbody"></tbody>
                 </table>
+            </section>
+        </div>
+
+        <!-- ========== Tab 2: 市场全景 ========== -->
+        <div id="tab-market" class="tab-panel">
+            <section class="summary-cards" id="summary-cards"></section>
+
+            <section class="section">
+                <h2>Top 3 推荐</h2>
+                <div class="top3-grid" id="top3-grid"></div>
+            </section>
+
+            <section class="section">
+                <h2>热门板块资金流</h2>
+                <div id="sector-chart" style="height: 350px;"></div>
+            </section>
+
+            <section class="section">
+                <h2>板块选股推荐</h2>
+                <div id="sector-picks-grid"></div>
+                <table class="data-table" id="sector-picks-table" style="display:none;">
+                    <thead>
+                        <tr>
+                            <th>#</th><th>代码</th><th>名称</th><th>板块</th>
+                            <th>类型</th><th>涨跌%</th><th>成交额(万)</th>
+                            <th>评分</th><th>标记</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sector-picks-tbody"></tbody>
+                </table>
+            </section>
+
+            <section class="section">
+                <div class="tab-header">
+                    <button class="tab-btn active" onclick="switchSubTab('launch')">即将启动 Top 100</button>
+                    <button class="tab-btn" onclick="switchSubTab('undervalue')">最低估 Top 100</button>
+                </div>
+                <div id="sub-tab-content">
+                    <table class="data-table" id="stock-table">
+                        <thead>
+                            <tr>
+                                <th>#</th><th>代码</th><th>名称</th><th>行业</th>
+                                <th>信号</th><th>置信度</th><th>技术分</th>
+                                <th>低估分</th><th>PE</th><th>收盘价</th><th>涨跌%</th>
+                            </tr>
+                        </thead>
+                        <tbody id="stock-tbody"></tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+
+        <!-- ========== Tab 3: 历史表现 ========== -->
+        <div id="tab-history" class="tab-panel">
+            <p id="backtest-info" class="muted" style="margin-top: 15px;"></p>
+
+            <div class="kpi-cards" id="kpi-cards"></div>
+
+            <section class="section">
+                <h2>止盈/止损方案对比</h2>
+                <table class="compare-table" id="compare-table">
+                    <thead>
+                        <tr>
+                            <th>方案</th><th>交易笔数</th><th>止盈率</th>
+                            <th>平均收益</th><th>平均持仓</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </section>
+
+            <div class="chart-row">
+                <div class="chart-box">
+                    <h3>月度止盈率</h3>
+                    <div id="monthly-chart" style="height: 320px;"></div>
+                </div>
+                <div class="chart-box">
+                    <h3>确认漏斗</h3>
+                    <div id="funnel-chart" style="height: 320px;"></div>
+                </div>
             </div>
-        </section>
+
+            <div class="chart-row">
+                <div class="chart-box">
+                    <h3>收益分布</h3>
+                    <div id="return-dist-chart" style="height: 320px;"></div>
+                </div>
+                <div class="chart-box">
+                    <h3>持仓天数分布</h3>
+                    <div id="hold-days-chart" style="height: 320px;"></div>
+                </div>
+            </div>
+
+            <section class="section">
+                <h2>月度明细</h2>
+                <table class="data-table" id="monthly-table">
+                    <thead>
+                        <tr>
+                            <th style="text-align:left;">月份</th>
+                            <th>交易笔数</th><th>止盈率</th><th>平均收益</th>
+                        </tr>
+                    </thead>
+                    <tbody id="monthly-tbody"></tbody>
+                </table>
+            </section>
+
+            <div class="disclaimer">
+                <strong>免责声明：</strong>以上数据基于历史回测，不代表未来表现。
+                回测结果可能存在过拟合风险，实际交易中可能因流动性、滑点、手续费等因素产生偏差。
+                本页面仅供研究参考，不构成任何投资建议。投资有风险，入市需谨慎。
+            </div>
+        </div>
 
         <footer>
             <p>由 Stock Sentinel 分析引擎自动生成 | 数据仅供参考，不构成投资建议</p>

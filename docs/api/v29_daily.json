@@ -1,0 +1,17 @@
+{
+  "date": null,
+  "updated_at": "2026-02-26T10:56:12",
+  "phase": "idle",
+  "candidates": [],
+  "pending_confirm": [],
+  "holdings": [],
+  "recent_trades": [],
+  "live_stats": {
+    "total_trades": 0,
+    "tp_count": 0,
+    "sl_count": 0,
+    "tp_rate": 0,
+    "avg_pnl": 0,
+    "streak": 0
+  }
+}
