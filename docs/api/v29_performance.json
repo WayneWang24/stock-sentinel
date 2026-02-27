@@ -1,7 +1,7 @@
 {
   "strategy": "v29",
   "description": "极致确认持仓策略 - 500天样本外回测",
-  "updated_at": "2026-02-26",
+  "updated_at": "2026-02-27",
   "backtest_period": {
     "start": "2024-02",
     "end": "2026-02",
