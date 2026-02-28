@@ -1,7 +1,8 @@
-// Stock Sentinel - 三 Tab 合一前端逻辑
+// Stock Sentinel - 四 Tab 合一前端逻辑
 // Tab 1: v29 信号 (api/v29_daily.json)
-// Tab 2: 市场全景 (api/latest.json)
-// Tab 3: 历史表现 (api/v29_performance.json)
+// Tab 2: v30 回测 (api/v30_backtest.json)
+// Tab 3: 市场全景 (api/latest.json)
+// Tab 4: 历史表现 (api/v29_performance.json)
 
 const ACCENT = '#e94560';
 const GREEN = '#cc2929';   // A股红涨
@@ -11,6 +12,7 @@ const MUTED = '#888';
 
 // 缓存已加载的数据
 let signalData = null;
+let v30Data = null;
 let marketData = null;
 let historyData = null;
 let currentSubTab = 'launch';
@@ -30,6 +32,7 @@ function switchMainTab(tab) {
     window.location.hash = tab;
     // 懒加载
     if (tab === 'signal' && !signalData) loadSignalData();
+    if (tab === 'v30' && !v30Data) loadV30Data();
     if (tab === 'market' && !marketData) loadMarketData();
     if (tab === 'history' && !historyData) loadHistoryData();
 }
@@ -412,7 +415,229 @@ function renderEquityCurve() {
     window.addEventListener('resize', () => chart.resize());
 }
 
-// ======================== Tab 2: 市场全景 ========================
+// ======================== Tab 2: v30 回测 ========================
+
+async function loadV30Data() {
+    try {
+        const resp = await fetch('api/v30_backtest.json');
+        v30Data = await resp.json();
+        renderV30Tab();
+    } catch (e) {
+        document.getElementById('v30-kpi-cards').innerHTML = '<p class="muted">数据加载失败</p>';
+        console.error('v30_backtest.json 加载失败:', e);
+    }
+}
+
+function renderV30Tab() {
+    if (!v30Data) return;
+
+    const bp = v30Data.backtest_period;
+    document.getElementById('v30-backtest-info').textContent =
+        `v30.2 ${v30Data.strategy} | 回测: ${bp.start} ~ ${bp.end} (${bp.trade_days} 交易日) | 更新: ${v30Data.updated_at}`;
+
+    renderV30KPI();
+    renderV30Equity();
+    renderV30MonthlyChart();
+    renderV30ExitChart();
+    renderV30ReturnDist();
+    renderV30MonthlyTable();
+    renderV30Trades();
+}
+
+function renderV30KPI() {
+    const s = v30Data.summary;
+    const retCls = s.total_return >= 0 ? 'green' : 'red';
+    const cards = [
+        { label: '总收益', value: '+' + s.total_return + '%', cls: retCls },
+        { label: '年化收益', value: '+' + s.annual_return + '%', cls: retCls },
+        { label: 'Sharpe', value: s.sharpe, cls: s.sharpe >= 1.5 ? 'green' : '' },
+        { label: '最大回撤', value: s.max_drawdown + '%', cls: 'red' },
+        { label: '胜率', value: s.win_rate + '%', cls: s.win_rate >= 50 ? 'green' : '' },
+        { label: '交易笔数', value: s.total_trades + '笔', cls: '' },
+        { label: '平均持仓', value: s.avg_days_held + '天', cls: '' },
+        { label: '平均盈亏', value: (s.avg_pnl_pct > 0 ? '+' : '') + s.avg_pnl_pct + '%', cls: s.avg_pnl_pct > 0 ? 'green' : 'red' },
+    ];
+    document.getElementById('v30-kpi-cards').innerHTML = cards.map(c => `
+        <div class="kpi-card">
+            <div class="kpi-value ${c.cls}">${c.value}</div>
+            <div class="kpi-label">${c.label}</div>
+        </div>
+    `).join('');
+}
+
+function renderV30Equity() {
+    const chart = echarts.init(document.getElementById('v30-equity-chart'));
+    const nav = v30Data.daily_nav;
+    const dates = nav.map(d => fmtDate(d.date));
+    const navs = nav.map(d => d.nav);
+    const dds = nav.map(d => -(d.drawdown * 100));
+
+    chart.setOption({
+        tooltip: {
+            trigger: 'axis',
+            formatter: function(params) {
+                let s = params[0].axisValue + '<br/>';
+                params.forEach(p => {
+                    if (p.seriesIndex === 0) s += p.marker + '净值: ' + p.value.toFixed(4) + '<br/>';
+                    else s += p.marker + '回撤: ' + (-p.value).toFixed(2) + '%<br/>';
+                });
+                return s;
+            }
+        },
+        legend: { data: ['净值', '回撤'], textStyle: { color: MUTED } },
+        xAxis: { type: 'category', data: dates, axisLabel: { color: MUTED } },
+        yAxis: [
+            { type: 'value', name: '净值', axisLabel: { color: MUTED }, scale: true },
+            { type: 'value', name: '回撤(%)', axisLabel: { color: MUTED, formatter: '{value}%' }, max: 0 },
+        ],
+        series: [
+            {
+                name: '净值', type: 'line', smooth: true,
+                data: navs, yAxisIndex: 0,
+                lineStyle: { color: ACCENT, width: 2 },
+                itemStyle: { color: ACCENT },
+                symbol: 'none',
+                markLine: {
+                    silent: true,
+                    data: [{ yAxis: 1.0, lineStyle: { color: '#666', type: 'dashed' } }],
+                    label: { formatter: '基准', color: '#666' }
+                },
+            },
+            {
+                name: '回撤', type: 'bar',
+                data: dds, yAxisIndex: 1,
+                itemStyle: { color: 'rgba(0,184,148,0.3)' },
+                barMaxWidth: 4,
+            },
+        ],
+        dataZoom: [{ type: 'inside', start: 0, end: 100 }],
+        grid: { left: '8%', right: '8%', bottom: '8%' },
+        backgroundColor: 'transparent',
+    });
+    window.addEventListener('resize', () => chart.resize());
+}
+
+function renderV30MonthlyChart() {
+    const chart = echarts.init(document.getElementById('v30-monthly-chart'));
+    const monthly = v30Data.monthly_returns;
+    const months = monthly.map(m => m.month);
+    const returns = monthly.map(m => m.return_pct);
+
+    chart.setOption({
+        tooltip: {
+            trigger: 'axis',
+            formatter: function(params) {
+                const p = params[0];
+                const m = monthly[p.dataIndex];
+                return p.axisValue + '<br/>'
+                    + p.marker + '收益: ' + m.return_pct + '%<br/>'
+                    + '交易: ' + m.trades + '笔 | 胜率: ' + m.win_rate + '%';
+            }
+        },
+        xAxis: { type: 'category', data: months, axisLabel: { color: MUTED, rotate: 45 } },
+        yAxis: { type: 'value', name: '月收益(%)', axisLabel: { color: MUTED, formatter: '{value}%' } },
+        series: [{
+            type: 'bar',
+            data: returns.map(v => ({
+                value: v,
+                itemStyle: { color: v >= 0 ? GREEN : RED },
+            })),
+            barMaxWidth: 40,
+            label: {
+                show: true, position: 'top', color: MUTED, fontSize: 10,
+                formatter: function(p) { return p.value > 0 ? '+' + p.value + '%' : p.value + '%'; }
+            },
+        }],
+        grid: { left: '8%', right: '5%', bottom: '15%' },
+        backgroundColor: 'transparent',
+    });
+    window.addEventListener('resize', () => chart.resize());
+}
+
+function renderV30ExitChart() {
+    const chart = echarts.init(document.getElementById('v30-exit-chart'));
+    const reasons = v30Data.exit_reasons;
+    const nameMap = {
+        'stop_loss': '止损', 'take_profit_2': '止盈12%', 'timeout': '超时',
+        'distribution': '派发', 'distribution_surge': '放量派发', 'backtest_end': '回测结束'
+    };
+    const data = Object.entries(reasons)
+        .filter(([k]) => k !== 'backtest_end')
+        .map(([k, v]) => ({ name: nameMap[k] || k, value: v }))
+        .sort((a, b) => b.value - a.value);
+
+    chart.setOption({
+        tooltip: { trigger: 'item', formatter: '{b}: {c}笔 ({d}%)' },
+        series: [{
+            type: 'pie', radius: ['35%', '65%'],
+            data: data,
+            label: { color: MUTED, formatter: '{b}\n{c}笔' },
+            itemStyle: { borderColor: '#1a1a2e', borderWidth: 2 },
+        }],
+        backgroundColor: 'transparent',
+    });
+    window.addEventListener('resize', () => chart.resize());
+}
+
+function renderV30ReturnDist() {
+    const chart = echarts.init(document.getElementById('v30-return-dist-chart'));
+    const dist = v30Data.return_distribution;
+    chart.setOption({
+        tooltip: { trigger: 'axis', formatter: '{b}: {c}笔' },
+        xAxis: { type: 'category', data: dist.labels, axisLabel: { color: MUTED, fontSize: 10 } },
+        yAxis: { type: 'value', name: '笔数', axisLabel: { color: MUTED }, minInterval: 1 },
+        series: [{
+            type: 'bar',
+            data: dist.counts.map((c, i) => ({
+                value: c,
+                itemStyle: { color: dist.labels[i].startsWith('<') || dist.labels[i].startsWith('-') ? 'rgba(0,184,148,0.8)' : 'rgba(204,41,41,0.8)' },
+            })),
+            barMaxWidth: 40,
+            label: { show: true, position: 'top', color: MUTED, formatter: '{c}' },
+        }],
+        grid: { left: '12%', right: '5%', bottom: '12%' },
+        backgroundColor: 'transparent',
+    });
+    window.addEventListener('resize', () => chart.resize());
+}
+
+function renderV30MonthlyTable() {
+    const tbody = document.getElementById('v30-monthly-tbody');
+    tbody.innerHTML = v30Data.monthly_returns.map(m => {
+        const retCls = m.return_pct > 0 ? 'pct-up' : m.return_pct < 0 ? 'pct-down' : '';
+        return `<tr>
+            <td style="text-align:left;">${m.month}</td>
+            <td class="${retCls}">${m.return_pct > 0 ? '+' : ''}${m.return_pct}%</td>
+            <td>${m.trades}</td>
+            <td>${m.win_rate}%</td>
+        </tr>`;
+    }).join('');
+}
+
+function renderV30Trades() {
+    const tbody = document.getElementById('v30-trades-tbody');
+    const trades = v30Data.completed_trades;
+    const nameMap = {
+        'stop_loss': '止损', 'take_profit_2': '止盈', 'timeout': '超时',
+        'distribution': '派发', 'distribution_surge': '放量派发', 'backtest_end': '结束'
+    };
+    // 最新在前
+    tbody.innerHTML = trades.slice().reverse().map(t => {
+        const cls = pctClass(t.pnl_pct);
+        const reason = nameMap[t.exit_reason] || t.exit_reason;
+        const reasonBadge = t.exit_reason === 'take_profit_2' ? 'badge-tp' : t.exit_reason === 'stop_loss' ? 'badge-sl' : '';
+        return `<tr>
+            <td>${t.ts_code}</td>
+            <td>${t.name}</td>
+            <td>${fmtDate(t.sell_date)}</td>
+            <td>${t.days_held}天</td>
+            <td class="${cls}">${t.pnl_pct > 0 ? '+' : ''}${t.pnl_pct}%</td>
+            <td><span class="${reasonBadge}">${reason}</span></td>
+        </tr>`;
+    }).join('');
+}
+
+// ======================== Tab 3: 市场全景 ========================
 
 async function loadMarketData() {
     try {
@@ -782,7 +1007,7 @@ function renderMonthlyTable() {
 function init() {
     // 根据 URL hash 决定初始 tab
     const hash = window.location.hash.replace('#', '') || 'signal';
-    const validTabs = ['signal', 'market', 'history'];
+    const validTabs = ['signal', 'v30', 'market', 'history'];
     const tab = validTabs.includes(hash) ? hash : 'signal';
     switchMainTab(tab);
 }

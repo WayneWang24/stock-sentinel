@@ -21,6 +21,7 @@
         <!-- 顶部 Tab 导航 -->
         <nav class="main-tabs">
             <button class="main-tab active" data-tab="signal" onclick="switchMainTab('signal')">Sentinel v29</button>
+            <button class="main-tab" data-tab="v30" onclick="switchMainTab('v30')">Sentinel v30</button>
             <button class="main-tab" data-tab="market" onclick="switchMainTab('market')">市场全景</button>
             <button class="main-tab" data-tab="history" onclick="switchMainTab('history')">历史表现</button>
         </nav>
@@ -108,7 +109,67 @@
             </section>
         </div>
 
-        <!-- ========== Tab 2: 市场全景 ========== -->
+        <!-- ========== Tab 2: v30 策略回测 ========== -->
+        <div id="tab-v30" class="tab-panel">
+            <p id="v30-backtest-info" class="muted" style="margin-top: 15px;"></p>
+
+            <div class="kpi-cards" id="v30-kpi-cards"></div>
+
+            <section class="section">
+                <h2>净值走势</h2>
+                <div id="v30-equity-chart" style="height: 350px;"></div>
+            </section>
+
+            <section class="section">
+                <h2>月度收益</h2>
+                <div id="v30-monthly-chart" style="height: 320px;"></div>
+            </section>
+
+            <div class="chart-row">
+                <div class="chart-box">
+                    <h3>出场原因分布</h3>
+                    <div id="v30-exit-chart" style="height: 300px;"></div>
+                </div>
+                <div class="chart-box">
+                    <h3>收益分布</h3>
+                    <div id="v30-return-dist-chart" style="height: 300px;"></div>
+                </div>
+            </div>
+
+            <section class="section">
+                <h2>月度明细</h2>
+                <table class="data-table" id="v30-monthly-table">
+                    <thead>
+                        <tr>
+                            <th style="text-align:left;">月份</th>
+                            <th>收益率</th><th>交易笔数</th><th>胜率</th>
+                        </tr>
+                    </thead>
+                    <tbody id="v30-monthly-tbody"></tbody>
+                </table>
+            </section>
+
+            <section class="section">
+                <h2>交易记录</h2>
+                <table class="data-table" id="v30-trades-table">
+                    <thead>
+                        <tr>
+                            <th>代码</th><th>名称</th><th>卖出日</th>
+                            <th>持仓天数</th><th>盈亏</th><th>出场原因</th>
+                        </tr>
+                    </thead>
+                    <tbody id="v30-trades-tbody"></tbody>
+                </table>
+            </section>
+
+            <div class="disclaimer">
+                <strong>免责声明：</strong>以上数据基于历史回测 (样本外 2025/01-2026/02)，不代表未来表现。
+                回测结果可能存在过拟合风险，实际交易中可能因流动性、滑点、手续费等因素产生偏差。
+                本页面仅供研究参考，不构成任何投资建议。投资有风险，入市需谨慎。
+            </div>
+        </div>
+
+        <!-- ========== Tab 3: 市场全景 ========== -->
         <div id="tab-market" class="tab-panel">
             <section class="summary-cards" id="summary-cards"></section>
 
@@ -157,7 +218,7 @@
             </section>
         </div>
 
-        <!-- ========== Tab 3: 历史表现 ========== -->
+        <!-- ========== Tab 4: 历史表现 ========== -->
         <div id="tab-history" class="tab-panel">
             <p id="backtest-info" class="muted" style="margin-top: 15px;"></p>
 
