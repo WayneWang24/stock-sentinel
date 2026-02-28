@@ -9,6 +9,7 @@ const BLUE = '#4a90d9';
 const MUTED = '#888';
 
 let v30Data = null;
+let paperData = null;
 let marketData = null;
 let currentSubTab = 'launch';
 
@@ -22,7 +23,10 @@ function switchMainTab(tab) {
         panel.classList.toggle('active', panel.id === 'tab-' + tab);
     });
     window.location.hash = tab;
-    if (tab === 'v30' && !v30Data) loadV30Data();
+    if (tab === 'v30') {
+        if (!v30Data) loadV30Data();
+        if (!paperData) loadPaperData();
+    }
     if (tab === 'market' && !marketData) loadMarketData();
 }
 
@@ -272,6 +276,278 @@ function renderV30Trades() {
             <td>${t.days_held}天</td>
             <td class="${cls}">${t.pnl_pct > 0 ? '+' : ''}${t.pnl_pct}%</td>
             <td><span class="${reasonBadge}">${reason}</span></td>
+        </tr>`;
+    }).join('');
+}
+
+// ======================== 模拟盘实况 ========================
+
+async function loadPaperData() {
+    try {
+        const resp = await fetch('api/v30_paper.json');
+        paperData = await resp.json();
+        renderPaperSection();
+    } catch (e) {
+        console.error('v30_paper.json 加载失败:', e);
+    }
+}
+
+function renderPaperSection() {
+    if (!paperData) return;
+    renderPaperKPIs();
+    renderPaperHoldings();
+    renderPaperCandidates();
+    renderPaperEquity();
+    renderPairedTrades();
+    renderPaperTrades();
+}
+
+function renderPaperKPIs() {
+    const s = paperData.paper_stats;
+    if (!s) return;
+
+    document.getElementById('paper-section').style.display = '';
+    const returnPct = (s.net_return * 100).toFixed(2);
+    const returnSign = s.net_return >= 0 ? '+' : '';
+    const returnCls = s.net_return >= 0 ? 'green' : 'red';
+
+    const cards = [
+        { label: '总资产', value: s.total_equity.toLocaleString(), cls: '' },
+        { label: '净值 (收益率)', value: `${s.nav.toFixed(4)} <small class="paper-kpi-sub ${returnCls}">${returnSign}${returnPct}%</small>`, cls: returnCls },
+        { label: '最大回撤', value: (s.max_drawdown * 100).toFixed(2) + '%', cls: 'red' },
+        { label: '持仓 / 胜率', value: `${s.positions}仓 <small class="paper-kpi-sub">${s.total_trades}笔 ${(s.win_rate * 100).toFixed(0)}%</small>`, cls: '' },
+    ];
+    document.getElementById('paper-kpis').innerHTML = cards.map(c => `
+        <div class="kpi-card">
+            <div class="kpi-value ${c.cls}">${c.value}</div>
+            <div class="kpi-label">${c.label}</div>
+        </div>
+    `).join('');
+}
+
+function renderPaperHoldings() {
+    const holdings = paperData.holdings;
+    if (!holdings || !holdings.length) return;
+
+    document.getElementById('paper-holdings-section').style.display = '';
+    const el = document.getElementById('paper-holdings');
+    el.innerHTML = holdings.map(h => {
+        const pnl = h.pnl_pct;
+        const pnlText = (pnl >= 0 ? '+' : '') + (pnl * 100).toFixed(2) + '%';
+        const borderCls = pnl >= 0 ? 'trade-card-win' : 'trade-card-loss';
+        return `
+        <div class="trade-card ${borderCls}" style="margin-bottom:10px;">
+            <div class="trade-card-top">
+                <div>
+                    <span class="trade-card-code">${h.ts_code}</span>
+                    <span class="trade-card-name">${h.name}</span>
+                </div>
+                <span class="trade-card-badge badge-hold">${h.sector_name}</span>
+            </div>
+            <div class="trade-card-body">
+                <div class="trade-card-price">${h.buy_price.toFixed(2)} → ${h.current_price.toFixed(2)}</div>
+                <div class="trade-card-pnl ${pctClass(pnl)}">${pnlText}</div>
+            </div>
+            <div class="trade-card-footer">
+                <span>${h.shares}股</span>
+                <span>成本 ${h.buy_cost.toLocaleString()}</span>
+                <span>市值 ${h.market_value.toLocaleString()}</span>
+                <span>持仓${h.days_held}天</span>
+                <span>买入 ${fmtDate(h.buy_date)}</span>
+            </div>
+        </div>`;
+    }).join('');
+}
+
+function renderPaperCandidates() {
+    const candidates = paperData.candidates;
+    if (!candidates || !candidates.length) return;
+
+    document.getElementById('paper-candidates-section').style.display = '';
+    const el = document.getElementById('paper-candidates');
+    el.innerHTML = candidates.map(c => `
+        <div class="v29-card">
+            <div class="v29-card-header">
+                <span class="v29-card-code">${c.ts_code}</span>
+                <span class="v29-card-name">${c.name}</span>
+            </div>
+            <div class="v29-card-meta">
+                <span>${c.sector_name}</span>
+                <span>评分 ${fmt(c.stock_score, 0)}</span>
+            </div>
+            <div class="v29-card-price">${fmt(c.close, 2)}</div>
+        </div>
+    `).join('');
+}
+
+function renderPaperEquity() {
+    const curve = paperData.equity_curve;
+    if (!curve || curve.length < 2) return;
+
+    document.getElementById('paper-equity-section').style.display = '';
+    const chart = echarts.init(document.getElementById('paper-equity-chart'));
+
+    const dates = curve.map(p => fmtDate(p.date));
+    const navs = curve.map(p => p.nav);
+    const dds = curve.map(p => -(p.drawdown * 100));
+
+    chart.setOption({
+        tooltip: {
+            trigger: 'axis',
+            formatter: function(params) {
+                let s = params[0].axisValue + '<br/>';
+                params.forEach(p => {
+                    if (p.seriesIndex === 0) s += p.marker + '净值: ' + p.value.toFixed(4) + '<br/>';
+                    else s += p.marker + '回撤: ' + (-p.value).toFixed(2) + '%<br/>';
+                });
+                return s;
+            }
+        },
+        legend: { data: ['净值', '回撤'], textStyle: { color: MUTED } },
+        xAxis: { type: 'category', data: dates, axisLabel: { color: MUTED } },
+        yAxis: [
+            { type: 'value', name: '净值', axisLabel: { color: MUTED }, scale: true },
+            { type: 'value', name: '回撤(%)', axisLabel: { color: MUTED, formatter: '{value}%' }, max: 0 },
+        ],
+        series: [
+            {
+                name: '净值', type: 'line', smooth: true,
+                data: navs, yAxisIndex: 0,
+                lineStyle: { color: ACCENT, width: 2 },
+                itemStyle: { color: ACCENT },
+                symbol: 'circle', symbolSize: 6,
+            },
+            {
+                name: '回撤', type: 'bar',
+                data: dds, yAxisIndex: 1,
+                itemStyle: { color: 'rgba(0,184,148,0.4)' },
+                barMaxWidth: 30,
+            },
+        ],
+        grid: { left: '10%', right: '10%', bottom: '10%' },
+        backgroundColor: 'transparent',
+    });
+    window.addEventListener('resize', () => chart.resize());
+}
+
+function renderPairedTrades() {
+    const paired = paperData.paper_paired_trades;
+    if (!paired || !paired.length) return;
+
+    document.getElementById('paper-trades-section').style.display = '';
+    const container = document.getElementById('paired-trades-view');
+
+    const groups = {};
+    paired.forEach(t => {
+        const d = t.buy_date || 'unknown';
+        if (!groups[d]) groups[d] = [];
+        groups[d].push(t);
+    });
+
+    const sortedDates = Object.keys(groups).sort().reverse();
+    container.innerHTML = sortedDates.map(date => {
+        const trades = groups[date];
+        return `
+            <div class="trade-group">
+                <div class="trade-group-date">${fmtDate(date)}</div>
+                <div class="trade-cards-grid">
+                    ${trades.map(t => renderTradeCard(t)).join('')}
+                </div>
+            </div>
+        `;
+    }).join('');
+}
+
+function renderTradeCard(t) {
+    const isHolding = t.status === 'holding';
+    const pnl = t.pnl_pct || 0;
+    const borderClass = isHolding ? 'trade-card-holding' : pnl >= 0 ? 'trade-card-win' : 'trade-card-loss';
+
+    const exitReasonMap = {
+        'take_profit_2': '止盈', 'stop_loss': '止损',
+        'distribution': '派发', 'distribution_surge': '放量派发', 'timeout': '超时',
+    };
+    const reasonText = isHolding ? '持仓中' : (exitReasonMap[t.exit_reason] || t.exit_reason || '--');
+    const reasonBadge = isHolding ? 'badge-hold' :
+        t.exit_reason === 'take_profit_2' ? 'badge-tp' :
+        t.exit_reason === 'stop_loss' ? 'badge-sl' : '';
+
+    const pnlText = `<span class="${pctClass(pnl)}">${pnl > 0 ? '+' : ''}${(pnl * 100).toFixed(2)}%</span>`;
+    const arrow = isHolding ? '' : ` → ${t.exit_price.toFixed(2)}`;
+    const holdText = t.hold_days ? `${t.hold_days}天` : '';
+
+    const buyAmt = t.buy_amount || 0;
+    const sellAmt = t.sell_amount || 0;
+    const netPnl = isHolding ? 0 : (sellAmt - buyAmt);
+
+    return `
+        <div class="trade-card ${borderClass}">
+            <div class="trade-card-top">
+                <div>
+                    <span class="trade-card-code">${t.ts_code}</span>
+                    <span class="trade-card-name">${t.name}</span>
+                </div>
+                <span class="trade-card-badge ${reasonBadge}">${reasonText}</span>
+            </div>
+            <div class="trade-card-body">
+                <div class="trade-card-price">${t.entry_price.toFixed(2)}${arrow}</div>
+                <div class="trade-card-pnl">${pnlText}</div>
+            </div>
+            <div class="trade-card-amounts">
+                <span>买入 <b>${buyAmt.toLocaleString()}</b></span>
+                ${!isHolding ? `<span>卖出 <b>${sellAmt.toLocaleString()}</b></span>` : ''}
+                ${!isHolding ? `<span class="${netPnl >= 0 ? 'pct-up' : 'pct-down'}">净盈亏 ${netPnl >= 0 ? '+' : ''}${netPnl.toFixed(0)}</span>` : ''}
+            </div>
+            <div class="trade-card-footer">
+                <span>${t.shares}股</span>
+                ${holdText ? `<span>持仓${holdText}</span>` : ''}
+                <span>佣金 ${t.commission.toFixed(2)}</span>
+                ${t.stamp > 0 ? `<span>印花税 ${t.stamp.toFixed(2)}</span>` : ''}
+            </div>
+        </div>
+    `;
+}
+
+function switchTradeView(view) {
+    document.querySelectorAll('.view-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.view === view);
+    });
+    document.getElementById('paired-trades-view').style.display = view === 'card' ? '' : 'none';
+    document.getElementById('flow-trades-view').style.display = view === 'flow' ? '' : 'none';
+}
+
+function renderPaperTrades() {
+    const trades = paperData.paper_trades;
+    if (!trades || !trades.length) return;
+
+    document.getElementById('paper-trades-section').style.display = '';
+    const tbody = document.getElementById('paper-trades-tbody');
+
+    const exitReasonMap = {
+        'take_profit_2': '止盈', 'stop_loss': '止损',
+        'distribution': '派发', 'distribution_surge': '放量派发', 'timeout': '超时',
+    };
+
+    tbody.innerHTML = trades.slice().reverse().map(t => {
+        const isBuy = t.direction === 'buy';
+        const dirClass = isBuy ? 'paper-row-buy' : 'paper-row-sell';
+        const dirText = isBuy ? '买入' : '卖出';
+        const pnlText = t.pnl_pct != null && !isBuy
+            ? `<span class="${pctClass(t.pnl_pct)}">${t.pnl_pct > 0 ? '+' : ''}${(t.pnl_pct * 100).toFixed(2)}%</span>`
+            : '--';
+        const reason = t.exit_reason ? (exitReasonMap[t.exit_reason] || t.exit_reason) : '--';
+
+        return `<tr class="${dirClass}">
+            <td>${fmtDate(t.date)}</td>
+            <td>${t.ts_code}</td>
+            <td>${t.name}</td>
+            <td>${dirText}</td>
+            <td>${fmt(t.price, 2)}</td>
+            <td>${t.shares}</td>
+            <td>${t.amount.toLocaleString()}</td>
+            <td>${fmt(t.fee, 2)}</td>
+            <td>${pnlText}</td>
+            <td>${isBuy ? '--' : reason}</td>
         </tr>`;
     }).join('');
 }

@@ -404,6 +404,19 @@ header h1 { font-size: 1.5rem; }
     border-left: 3px solid var(--accent);
 }
 
+/* ==================== 模拟盘分割线 ==================== */
+.paper-divider {
+    display: flex; align-items: center; gap: 15px;
+    margin: 40px 0 20px;
+}
+.paper-divider::before, .paper-divider::after {
+    content: ''; flex: 1; height: 1px; background: #444;
+}
+.paper-divider span {
+    font-size: 1.1rem; font-weight: bold; color: var(--accent);
+    white-space: nowrap;
+}
+
 /* ==================== 通用样式 ==================== */
 
 /* Table */

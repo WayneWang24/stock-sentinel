@@ -77,6 +77,57 @@
                 </table>
             </section>
 
+            <!-- ========== 模拟盘实况 ========== -->
+            <div class="paper-divider">
+                <span>模拟盘实况</span>
+            </div>
+
+            <section class="section" id="paper-section" style="display:none;">
+                <div class="kpi-cards" id="paper-kpis"></div>
+            </section>
+
+            <!-- 持仓 -->
+            <section class="section" id="paper-holdings-section" style="display:none;">
+                <h2>当前持仓</h2>
+                <div id="paper-holdings" class="v29-cards"></div>
+            </section>
+
+            <!-- 候选 -->
+            <section class="section" id="paper-candidates-section" style="display:none;">
+                <h2 id="paper-candidates-title">买入候选</h2>
+                <div id="paper-candidates" class="v29-cards"></div>
+            </section>
+
+            <!-- 净值走势 -->
+            <section class="section" id="paper-equity-section" style="display:none;">
+                <h2>模拟盘净值</h2>
+                <div id="paper-equity-chart" style="height:300px;"></div>
+            </section>
+
+            <!-- 操作记录 -->
+            <section class="section" id="paper-trades-section" style="display:none;">
+                <div class="section-header-row">
+                    <h2>操作记录</h2>
+                    <div class="view-toggle">
+                        <button class="view-btn active" data-view="card" onclick="switchTradeView('card')">交易卡片</button>
+                        <button class="view-btn" data-view="flow" onclick="switchTradeView('flow')">流水明细</button>
+                    </div>
+                </div>
+                <div id="paired-trades-view"></div>
+                <div id="flow-trades-view" style="display:none;">
+                    <table class="data-table paper-trades-table" id="paper-trades-table">
+                        <thead>
+                            <tr>
+                                <th>日期</th><th>代码</th><th>名称</th><th>方向</th>
+                                <th>价格</th><th>数量</th><th>金额</th><th>费用</th>
+                                <th>盈亏</th><th>说明</th>
+                            </tr>
+                        </thead>
+                        <tbody id="paper-trades-tbody"></tbody>
+                    </table>
+                </div>
+            </section>
+
             <div class="disclaimer">
                 <strong>免责声明：</strong>以上数据基于历史回测 (样本外 2025/01-2026/02)，不代表未来表现。
                 回测结果可能存在过拟合风险，实际交易中可能因流动性、滑点、手续费等因素产生偏差。
