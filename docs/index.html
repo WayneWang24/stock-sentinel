@@ -20,97 +20,12 @@
 
         <!-- 顶部 Tab 导航 -->
         <nav class="main-tabs">
-            <button class="main-tab active" data-tab="signal" onclick="switchMainTab('signal')">Sentinel v29</button>
-            <button class="main-tab" data-tab="v30" onclick="switchMainTab('v30')">Sentinel v30</button>
+            <button class="main-tab active" data-tab="v30" onclick="switchMainTab('v30')">策略回测</button>
             <button class="main-tab" data-tab="market" onclick="switchMainTab('market')">市场全景</button>
-            <button class="main-tab" data-tab="history" onclick="switchMainTab('history')">历史表现</button>
         </nav>
 
-        <!-- ========== Tab 1: v29 信号 ========== -->
-        <div id="tab-signal" class="tab-panel active">
-            <!-- 状态横幅 -->
-            <div class="status-banner" id="v29-banner">
-                <div class="banner-phase" id="v29-phase">加载中...</div>
-                <div class="banner-stats" id="v29-stats"></div>
-            </div>
-
-            <!-- 三栏卡片 -->
-            <div class="v29-sections">
-                <section class="v29-section">
-                    <h3 id="v29-candidates-title">买入候选</h3>
-                    <div id="v29-candidates" class="v29-cards">
-                        <p class="muted">暂无数据</p>
-                    </div>
-                </section>
-                <section class="v29-section">
-                    <h3>持仓中</h3>
-                    <div id="v29-holdings" class="v29-cards">
-                        <p class="muted">暂无持仓</p>
-                    </div>
-                </section>
-                <section class="v29-section">
-                    <h3>待确认</h3>
-                    <div id="v29-pending" class="v29-cards">
-                        <p class="muted">暂无待确认</p>
-                    </div>
-                </section>
-            </div>
-
-            <!-- 近期战绩 -->
-            <section class="section">
-                <h2>近期战绩</h2>
-                <table class="data-table" id="v29-trades-table">
-                    <thead>
-                        <tr>
-                            <th>代码</th><th>名称</th><th>买入日</th>
-                            <th>持仓天数</th><th>盈亏</th><th>结果</th>
-                        </tr>
-                    </thead>
-                    <tbody id="v29-trades-tbody"></tbody>
-                </table>
-            </section>
-
-            <!-- 模拟盘概览 -->
-            <section class="section" id="paper-section" style="display:none;">
-                <h2>模拟盘实况</h2>
-                <div class="kpi-cards" id="paper-kpis"></div>
-            </section>
-
-            <!-- 操作记录 (双视图: 交易卡片 / 流水明细) -->
-            <section class="section" id="paper-trades-section" style="display:none;">
-                <div class="section-header-row">
-                    <h2>操作记录</h2>
-                    <div class="view-toggle">
-                        <button class="view-btn active" data-view="card" onclick="switchTradeView('card')">交易卡片</button>
-                        <button class="view-btn" data-view="flow" onclick="switchTradeView('flow')">流水明细</button>
-                    </div>
-                </div>
-                <!-- 交易卡片视图 -->
-                <div id="paired-trades-view"></div>
-                <!-- 流水明细视图 -->
-                <div id="flow-trades-view" style="display:none;">
-                    <table class="data-table paper-trades-table" id="paper-trades-table">
-                        <thead>
-                            <tr>
-                                <th>日期</th><th>代码</th><th>名称</th><th>方向</th>
-                                <th>价格</th><th>数量</th><th>金额</th><th>费用</th>
-                                <th>盈亏</th><th>说明</th>
-                            </tr>
-                        </thead>
-                        <tbody id="paper-trades-tbody"></tbody>
-                    </table>
-                </div>
-            </section>
-
-            <!-- 净值走势 -->
-            <section class="section" id="equity-section" style="display:none;">
-                <h2>净值走势</h2>
-                <div id="equity-chart" style="height:300px;"></div>
-            </section>
-        </div>
-
-        <!-- ========== Tab 2: v30 策略回测 ========== -->
-        <div id="tab-v30" class="tab-panel">
+        <!-- ========== Tab 1: v30 策略回测 ========== -->
+        <div id="tab-v30" class="tab-panel active">
             <p id="v30-backtest-info" class="muted" style="margin-top: 15px;"></p>
 
             <div class="kpi-cards" id="v30-kpi-cards"></div>
@@ -169,7 +84,7 @@
             </div>
         </div>
 
-        <!-- ========== Tab 3: 市场全景 ========== -->
+        <!-- ========== Tab 2: 市场全景 ========== -->
         <div id="tab-market" class="tab-panel">
             <section class="summary-cards" id="summary-cards"></section>
 
@@ -216,67 +131,6 @@
                     </table>
                 </div>
             </section>
-        </div>
-
-        <!-- ========== Tab 4: 历史表现 ========== -->
-        <div id="tab-history" class="tab-panel">
-            <p id="backtest-info" class="muted" style="margin-top: 15px;"></p>
-
-            <div class="kpi-cards" id="kpi-cards"></div>
-
-            <section class="section">
-                <h2>止盈/止损方案对比</h2>
-                <table class="compare-table" id="compare-table">
-                    <thead>
-                        <tr>
-                            <th>方案</th><th>交易笔数</th><th>止盈率</th>
-                            <th>平均收益</th><th>平均持仓</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-            </section>
-
-            <div class="chart-row">
-                <div class="chart-box">
-                    <h3>月度止盈率</h3>
-                    <div id="monthly-chart" style="height: 320px;"></div>
-                </div>
-                <div class="chart-box">
-                    <h3>确认漏斗</h3>
-                    <div id="funnel-chart" style="height: 320px;"></div>
-                </div>
-            </div>
-
-            <div class="chart-row">
-                <div class="chart-box">
-                    <h3>收益分布</h3>
-                    <div id="return-dist-chart" style="height: 320px;"></div>
-                </div>
-                <div class="chart-box">
-                    <h3>持仓天数分布</h3>
-                    <div id="hold-days-chart" style="height: 320px;"></div>
-                </div>
-            </div>
-
-            <section class="section">
-                <h2>月度明细</h2>
-                <table class="data-table" id="monthly-table">
-                    <thead>
-                        <tr>
-                            <th style="text-align:left;">月份</th>
-                            <th>交易笔数</th><th>止盈率</th><th>平均收益</th>
-                        </tr>
-                    </thead>
-                    <tbody id="monthly-tbody"></tbody>
-                </table>
-            </section>
-
-            <div class="disclaimer">
-                <strong>免责声明：</strong>以上数据基于历史回测，不代表未来表现。
-                回测结果可能存在过拟合风险，实际交易中可能因流动性、滑点、手续费等因素产生偏差。
-                本页面仅供研究参考，不构成任何投资建议。投资有风险，入市需谨慎。
-            </div>
         </div>
 
         <footer>
