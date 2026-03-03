@@ -1,20 +1,20 @@
 {
-  "date": "20260302",
+  "date": "20260303",
   "version": "v30.3",
   "tracking_period": {
     "start": "20260302",
     "end": "20260530",
     "months": 3,
-    "tracking_days": 1,
+    "tracking_days": 2,
     "total_trading_days": 65
   },
   "paper_stats": {
-    "total_equity": 100000.0,
-    "cash": 100000.0,
-    "market_value": 0.0,
-    "nav": 1.0,
-    "net_return": 0.0,
-    "max_drawdown": 0.0,
+    "total_equity": 99224.0,
+    "cash": 80095.0,
+    "market_value": 19129.0,
+    "nav": 0.9922,
+    "net_return": -0.0078,
+    "max_drawdown": 0.0078,
     "total_trades": 0,
     "win_rate": 0,
     "sharpe": 0,
@@ -26,12 +26,12 @@
       "name": "豫光金铅",
       "sector_name": "铅锌",
       "buy_price": 18.09,
-      "current_price": 18.09,
-      "pnl_pct": 0.0,
+      "current_price": 17.39,
+      "pnl_pct": -0.0387,
       "shares": 1100,
       "buy_cost": 19904.99,
-      "market_value": 19899.0,
-      "days_held": 0,
+      "market_value": 19129.0,
+      "days_held": 1,
       "buy_date": "20260303"
     }
   ],
@@ -45,11 +45,11 @@
       "buy_date": "20260303",
       "sell_date": "",
       "entry_price": 18.09,
-      "exit_price": 18.09,
+      "exit_price": 17.39,
       "shares": 1100,
-      "pnl_pct": 0.0,
+      "pnl_pct": -0.0387,
       "exit_reason": "",
-      "hold_days": 0,
+      "hold_days": 1,
       "buy_amount": 19899.0,
       "sell_amount": 0,
       "commission": 5.0,
@@ -75,14 +75,25 @@
       "date": "20260302",
       "nav": 1.0,
       "drawdown": 0.0
+    },
+    {
+      "date": "20260303",
+      "nav": 0.99224,
+      "drawdown": 0.00776
     }
   ],
   "effectiveness": {
-    "weekly_returns": [],
+    "weekly_returns": [
+      {
+        "start": "20260302",
+        "end": "20260303",
+        "return_pct": -0.78
+      }
+    ],
     "monthly_returns": [
       {
         "month": "2026-03",
-        "return_pct": 0.0
+        "return_pct": -0.78
       }
     ],
     "rolling_win_rate": [],
