@@ -1,20 +1,20 @@
 {
-  "date": "20260303",
+  "date": "20260304",
   "version": "v30.3",
   "tracking_period": {
     "start": "20260302",
     "end": "20260530",
     "months": 3,
-    "tracking_days": 2,
+    "tracking_days": 3,
     "total_trading_days": 65
   },
   "paper_stats": {
-    "total_equity": 99224.0,
+    "total_equity": 98465.0,
     "cash": 80095.0,
-    "market_value": 19129.0,
-    "nav": 0.9922,
-    "net_return": -0.0078,
-    "max_drawdown": 0.0078,
+    "market_value": 18370.0,
+    "nav": 0.9847,
+    "net_return": -0.0153,
+    "max_drawdown": 0.0154,
     "total_trades": 0,
     "win_rate": 0,
     "sharpe": 0,
@@ -26,17 +26,22 @@
       "name": "豫光金铅",
       "sector_name": "铅锌",
       "buy_price": 18.09,
-      "current_price": 17.39,
-      "pnl_pct": -0.0387,
+      "current_price": 16.7,
+      "pnl_pct": -0.0768,
       "shares": 1100,
       "buy_cost": 19904.99,
-      "market_value": 19129.0,
-      "days_held": 1,
+      "market_value": 18370.0,
+      "days_held": 2,
       "buy_date": "20260303"
     }
   ],
   "candidates": [],
-  "pending_sells": [],
+  "pending_sells": [
+    {
+      "ts_code": "600531.SH",
+      "reason": "stop_loss"
+    }
+  ],
   "paper_paired_trades": [
     {
       "ts_code": "600531.SH",
@@ -45,11 +50,11 @@
       "buy_date": "20260303",
       "sell_date": "",
       "entry_price": 18.09,
-      "exit_price": 17.39,
+      "exit_price": 16.7,
       "shares": 1100,
-      "pnl_pct": -0.0387,
+      "pnl_pct": -0.0768,
       "exit_reason": "",
-      "hold_days": 1,
+      "hold_days": 2,
       "buy_amount": 19899.0,
       "sell_amount": 0,
       "commission": 5.0,
@@ -80,20 +85,25 @@
       "date": "20260303",
       "nav": 0.99224,
       "drawdown": 0.00776
+    },
+    {
+      "date": "20260304",
+      "nav": 0.98465,
+      "drawdown": 0.01535
     }
   ],
   "effectiveness": {
     "weekly_returns": [
       {
         "start": "20260302",
-        "end": "20260303",
-        "return_pct": -0.78
+        "end": "20260304",
+        "return_pct": -1.53
       }
     ],
     "monthly_returns": [
       {
         "month": "2026-03",
-        "return_pct": -0.78
+        "return_pct": -1.53
       }
     ],
     "rolling_win_rate": [],
