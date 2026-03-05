@@ -9,15 +9,15 @@
     "total_trading_days": 65
   },
   "paper_stats": {
-    "total_equity": 99968.0,
-    "cash": 99968.0,
+    "total_equity": 97418.0,
+    "cash": 97418.0,
     "market_value": 0.0,
-    "nav": 0.9997,
-    "net_return": -0.0003,
-    "max_drawdown": 0.0154,
+    "nav": 0.9742,
+    "net_return": -0.0258,
+    "max_drawdown": 0.0258,
     "total_trades": 1,
     "win_rate": 0.0,
-    "sharpe": -0.07,
+    "sharpe": -21.99,
     "positions": 0
   },
   "holdings": [],
@@ -29,17 +29,17 @@
       "name": "豫光金铅",
       "status": "closed",
       "buy_date": "20260303",
-      "sell_date": "20260305",
-      "entry_price": 18.09,
-      "exit_price": 18.09,
-      "shares": 1100,
-      "pnl_pct": 0.0,
+      "sell_date": "20260304",
+      "entry_price": 18.6,
+      "exit_price": 16.04,
+      "shares": 1000,
+      "pnl_pct": -0.1374,
       "exit_reason": "stop_loss",
-      "hold_days": 2,
-      "buy_amount": 19899.0,
-      "sell_amount": 19899.0,
+      "hold_days": 1,
+      "buy_amount": 18600.0,
+      "sell_amount": 16040.0,
       "commission": 10.0,
-      "stamp": 19.9
+      "stamp": 16.04
     }
   ],
   "paper_trades": [
@@ -48,23 +48,23 @@
       "ts_code": "600531.SH",
       "name": "豫光金铅",
       "direction": "buy",
-      "price": 18.09,
-      "shares": 1100,
-      "amount": 19899.0,
-      "fee": 5.99,
+      "price": 18.6,
+      "shares": 1000,
+      "amount": 18600.0,
+      "fee": 5.93,
       "pnl_pct": null,
       "exit_reason": ""
     },
     {
-      "date": "20260305",
+      "date": "20260304",
       "ts_code": "600531.SH",
       "name": "豫光金铅",
       "direction": "sell",
-      "price": 18.09,
-      "shares": 1100,
-      "amount": 19899.0,
-      "fee": 25.89,
-      "pnl_pct": 0.0,
+      "price": 16.04,
+      "shares": 1000,
+      "amount": 16040.0,
+      "fee": 21.84,
+      "pnl_pct": -0.1374,
       "exit_reason": "stop_loss"
     }
   ],
@@ -76,18 +76,18 @@
     },
     {
       "date": "20260303",
-      "nav": 0.99224,
-      "drawdown": 0.00776
+      "nav": 0.987855,
+      "drawdown": 0.012145
     },
     {
       "date": "20260304",
-      "nav": 0.98465,
-      "drawdown": 0.01535
+      "nav": 0.974176,
+      "drawdown": 0.025824
     },
     {
       "date": "20260305",
-      "nav": 0.999681,
-      "drawdown": 0.000319
+      "nav": 0.974176,
+      "drawdown": 0.025824
     }
   ],
   "effectiveness": {
@@ -95,13 +95,13 @@
       {
         "start": "20260302",
         "end": "20260305",
-        "return_pct": -0.03
+        "return_pct": -2.58
       }
     ],
     "monthly_returns": [
       {
         "month": "2026-03",
-        "return_pct": -0.03
+        "return_pct": -2.58
       }
     ],
     "rolling_win_rate": [],
@@ -109,7 +109,7 @@
       "stop_loss": {
         "count": 1,
         "wins": 0,
-        "avg_pnl": 0.0,
+        "avg_pnl": -13.74,
         "win_rate": 0.0
       }
     }
