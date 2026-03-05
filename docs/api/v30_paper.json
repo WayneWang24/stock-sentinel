@@ -1,64 +1,45 @@
 {
-  "date": "20260304",
+  "date": "20260305",
   "version": "v30.3",
   "tracking_period": {
     "start": "20260302",
     "end": "20260530",
     "months": 3,
-    "tracking_days": 3,
+    "tracking_days": 4,
     "total_trading_days": 65
   },
   "paper_stats": {
-    "total_equity": 98465.0,
-    "cash": 80095.0,
-    "market_value": 18370.0,
-    "nav": 0.9847,
-    "net_return": -0.0153,
+    "total_equity": 99968.0,
+    "cash": 99968.0,
+    "market_value": 0.0,
+    "nav": 0.9997,
+    "net_return": -0.0003,
     "max_drawdown": 0.0154,
-    "total_trades": 0,
-    "win_rate": 0,
-    "sharpe": 0,
-    "positions": 1
+    "total_trades": 1,
+    "win_rate": 0.0,
+    "sharpe": -0.07,
+    "positions": 0
   },
-  "holdings": [
-    {
-      "ts_code": "600531.SH",
-      "name": "豫光金铅",
-      "sector_name": "铅锌",
-      "buy_price": 18.09,
-      "current_price": 16.7,
-      "pnl_pct": -0.0768,
-      "shares": 1100,
-      "buy_cost": 19904.99,
-      "market_value": 18370.0,
-      "days_held": 2,
-      "buy_date": "20260303"
-    }
-  ],
+  "holdings": [],
   "candidates": [],
-  "pending_sells": [
-    {
-      "ts_code": "600531.SH",
-      "reason": "stop_loss"
-    }
-  ],
+  "pending_sells": [],
   "paper_paired_trades": [
     {
       "ts_code": "600531.SH",
       "name": "豫光金铅",
-      "status": "holding",
+      "status": "closed",
       "buy_date": "20260303",
-      "sell_date": "",
+      "sell_date": "20260305",
       "entry_price": 18.09,
-      "exit_price": 16.7,
+      "exit_price": 18.09,
       "shares": 1100,
-      "pnl_pct": -0.0768,
-      "exit_reason": "",
+      "pnl_pct": 0.0,
+      "exit_reason": "stop_loss",
       "hold_days": 2,
       "buy_amount": 19899.0,
-      "sell_amount": 0,
-      "commission": 5.0,
-      "stamp": 0
+      "sell_amount": 19899.0,
+      "commission": 10.0,
+      "stamp": 19.9
     }
   ],
   "paper_trades": [
@@ -73,6 +54,18 @@
       "fee": 5.99,
       "pnl_pct": null,
       "exit_reason": ""
+    },
+    {
+      "date": "20260305",
+      "ts_code": "600531.SH",
+      "name": "豫光金铅",
+      "direction": "sell",
+      "price": 18.09,
+      "shares": 1100,
+      "amount": 19899.0,
+      "fee": 25.89,
+      "pnl_pct": 0.0,
+      "exit_reason": "stop_loss"
     }
   ],
   "equity_curve": [
@@ -90,23 +83,35 @@
       "date": "20260304",
       "nav": 0.98465,
       "drawdown": 0.01535
+    },
+    {
+      "date": "20260305",
+      "nav": 0.999681,
+      "drawdown": 0.000319
     }
   ],
   "effectiveness": {
     "weekly_returns": [
       {
         "start": "20260302",
-        "end": "20260304",
-        "return_pct": -1.53
+        "end": "20260305",
+        "return_pct": -0.03
       }
     ],
     "monthly_returns": [
       {
         "month": "2026-03",
-        "return_pct": -1.53
+        "return_pct": -0.03
       }
     ],
     "rolling_win_rate": [],
-    "by_exit_reason": {}
+    "by_exit_reason": {
+      "stop_loss": {
+        "count": 1,
+        "wins": 0,
+        "avg_pnl": 0.0,
+        "win_rate": 0.0
+      }
+    }
   }
 }
