@@ -1,11 +1,11 @@
 {
-  "date": "20260305",
+  "date": "20260306",
   "version": "v30.3",
   "tracking_period": {
     "start": "20260302",
     "end": "20260530",
     "months": 3,
-    "tracking_days": 4,
+    "tracking_days": 5,
     "total_trading_days": 65
   },
   "paper_stats": {
@@ -17,7 +17,7 @@
     "max_drawdown": 0.0258,
     "total_trades": 1,
     "win_rate": 0.0,
-    "sharpe": -21.99,
+    "sharpe": -15.59,
     "positions": 0
   },
   "holdings": [],
@@ -88,13 +88,18 @@
       "date": "20260305",
       "nav": 0.974176,
       "drawdown": 0.025824
+    },
+    {
+      "date": "20260306",
+      "nav": 0.974176,
+      "drawdown": 0.025824
     }
   ],
   "effectiveness": {
     "weekly_returns": [
       {
         "start": "20260302",
-        "end": "20260305",
+        "end": "20260306",
         "return_pct": -2.58
       }
     ],
