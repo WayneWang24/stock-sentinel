@@ -314,6 +314,7 @@ function renderPaperLive() {
     renderPaperHoldings();
     renderPaperCandidates();
     renderPaperPendingSells();
+    renderDailyActions();
     renderPairedTrades();
     renderPaperTrades();
 
@@ -564,6 +565,129 @@ function renderPaperPendingSells() {
             </div>
         </div>
     `).join('');
+}
+
+function renderDailyActions() {
+    const actions = paperData.daily_actions;
+    if (!actions || !actions.length) return;
+
+    const container = document.getElementById('daily-actions-view');
+    if (!container) return;
+    document.getElementById('daily-actions-section').style.display = '';
+
+    // 按日期分组 (倒序)
+    const groups = {};
+    actions.forEach(a => {
+        const d = a.date;
+        if (!groups[d]) groups[d] = [];
+        groups[d].push(a);
+    });
+
+    const sortedDates = Object.keys(groups).sort().reverse();
+    container.innerHTML = sortedDates.map(date => {
+        const items = groups[date];
+        return `
+            <div class="trade-group">
+                <div class="trade-group-date">${fmtDate(date)}</div>
+                <div class="trade-cards-grid">
+                    ${items.map(a => renderActionCard(a)).join('')}
+                </div>
+            </div>
+        `;
+    }).join('');
+}
+
+function renderActionCard(a) {
+    const exitReasonMap = {
+        'take_profit_2': '止盈', 'stop_loss': '止损',
+        'distribution': '派发', 'distribution_surge': '放量派发',
+        'timeout': '超时', 'manual_sell': '手动卖出',
+    };
+
+    if (a.type === 'buy') {
+        return `
+            <div class="trade-card action-card-buy">
+                <div class="trade-card-top">
+                    <div>
+                        <span class="trade-card-code">${a.ts_code}</span>
+                        <span class="trade-card-name">${a.name}</span>
+                    </div>
+                    <span class="trade-card-badge badge-buy">买入</span>
+                </div>
+                <div class="trade-card-body">
+                    <div class="trade-card-price">${a.price.toFixed(2)} × ${a.shares}股</div>
+                    <div style="font-size:0.85rem;color:var(--text-muted)">¥${a.amount.toLocaleString()}</div>
+                </div>
+                <div class="trade-card-footer">
+                    <span>NAV ${a.nav.toFixed(4)}</span>
+                    <span>现金 ${Math.round(a.cash).toLocaleString()}</span>
+                    <span>持仓 ${a.positions}只</span>
+                </div>
+            </div>
+        `;
+    }
+
+    if (a.type === 'sell') {
+        const pnl = a.pnl_pct || 0;
+        const reason = exitReasonMap[a.exit_reason] || a.exit_reason || '--';
+        const badgeClass = a.exit_reason === 'stop_loss' ? 'badge-sl' :
+            a.exit_reason === 'take_profit_2' ? 'badge-tp' : '';
+        return `
+            <div class="trade-card ${pnl >= 0 ? 'action-card-sell-win' : 'action-card-sell-loss'}">
+                <div class="trade-card-top">
+                    <div>
+                        <span class="trade-card-code">${a.ts_code}</span>
+                        <span class="trade-card-name">${a.name}</span>
+                    </div>
+                    <span class="trade-card-badge ${badgeClass}">卖出 · ${reason}</span>
+                </div>
+                <div class="trade-card-body">
+                    <div class="trade-card-price">${a.price.toFixed(2)} × ${a.shares}股</div>
+                    <div class="trade-card-pnl"><span class="${pctClass(pnl)}">${pnl > 0 ? '+' : ''}${(pnl * 100).toFixed(2)}%</span></div>
+                </div>
+                <div class="trade-card-footer">
+                    <span>NAV ${a.nav.toFixed(4)}</span>
+                    <span>现金 ${Math.round(a.cash).toLocaleString()}</span>
+                    <span>持仓 ${a.positions}只</span>
+                </div>
+            </div>
+        `;
+    }
+
+    if (a.type === 'holding') {
+        return `
+            <div class="trade-card action-card-holding">
+                <div class="trade-card-top">
+                    <div><span class="trade-card-code">持仓观望</span></div>
+                    <span class="trade-card-badge badge-hold">持有 ${a.positions}只</span>
+                </div>
+                <div class="trade-card-body">
+                    <div style="color:var(--text-muted);font-size:0.9rem">等待出场信号</div>
+                    <div style="font-size:0.9rem">NAV ${a.nav.toFixed(4)}</div>
+                </div>
+                <div class="trade-card-footer">
+                    <span>现金 ${Math.round(a.cash).toLocaleString()}</span>
+                </div>
+            </div>
+        `;
+    }
+
+    // standby — 空仓
+    return `
+        <div class="trade-card action-card-standby">
+            <div class="trade-card-top">
+                <div><span class="trade-card-code">空仓观望</span></div>
+                <span class="trade-card-badge badge-standby">等待机会</span>
+            </div>
+            <div class="trade-card-body">
+                <div style="color:var(--text-muted);font-size:0.9rem">市场过滤不入场</div>
+                <div style="font-size:0.9rem">NAV ${a.nav.toFixed(4)}</div>
+            </div>
+            <div class="trade-card-footer">
+                <span>现金 ${Math.round(a.cash).toLocaleString()}</span>
+            </div>
+        </div>
+    `;
 }
 
 function renderPairedTrades() {

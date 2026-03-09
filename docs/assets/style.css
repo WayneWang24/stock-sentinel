@@ -299,6 +299,15 @@ header h1 { font-size: 1.5rem; }
 .trade-card-loss { border-left-color: var(--red); }
 .trade-card-holding { border-left-color: var(--blue); }
 
+/* 每日操作卡片 */
+.action-card-buy { border-left-color: var(--green); }
+.action-card-sell-win { border-left-color: var(--green); }
+.action-card-sell-loss { border-left-color: var(--red); }
+.action-card-holding { border-left-color: var(--blue); }
+.action-card-standby { border-left-color: #555; opacity: 0.85; }
+.badge-buy { background: #2d1a1a; color: var(--green); }
+.badge-standby { background: #2a2a3a; color: #888; }
+
 .trade-card-top {
     display: flex;
     justify-content: space-between;

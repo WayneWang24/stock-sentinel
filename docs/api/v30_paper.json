@@ -68,6 +68,62 @@
       "exit_reason": "stop_loss"
     }
   ],
+  "daily_actions": [
+    {
+      "date": "20260302",
+      "type": "standby",
+      "nav": 1.0,
+      "cash": 100000.0,
+      "positions": 0
+    },
+    {
+      "date": "20260303",
+      "type": "buy",
+      "ts_code": "600531.SH",
+      "name": "豫光金铅",
+      "price": 18.6,
+      "shares": 1000,
+      "amount": 18600.0,
+      "nav": 0.987855,
+      "cash": 81395.49,
+      "positions": 1
+    },
+    {
+      "date": "20260304",
+      "type": "sell",
+      "ts_code": "600531.SH",
+      "name": "豫光金铅",
+      "price": 16.04,
+      "shares": 1000,
+      "amount": 16040.0,
+      "pnl_pct": -0.1374,
+      "exit_reason": "stop_loss",
+      "nav": 0.974176,
+      "cash": 97417.59,
+      "positions": 0
+    },
+    {
+      "date": "20260305",
+      "type": "standby",
+      "nav": 0.974176,
+      "cash": 97417.59,
+      "positions": 0
+    },
+    {
+      "date": "20260306",
+      "type": "standby",
+      "nav": 0.974176,
+      "cash": 97417.59,
+      "positions": 0
+    },
+    {
+      "date": "20260309",
+      "type": "standby",
+      "nav": 0.974176,
+      "cash": 97417.59,
+      "positions": 0
+    }
+  ],
   "equity_curve": [
     {
       "date": "20260302",
