@@ -1,11 +1,11 @@
 {
-  "date": "20260309",
+  "date": "20260310",
   "version": "v30.3",
   "tracking_period": {
     "start": "20260302",
     "end": "20260530",
     "months": 3,
-    "tracking_days": 6,
+    "tracking_days": 7,
     "total_trading_days": 65
   },
   "paper_stats": {
@@ -17,7 +17,7 @@
     "max_drawdown": 0.0258,
     "total_trades": 1,
     "win_rate": 0.0,
-    "sharpe": -12.73,
+    "sharpe": -11.03,
     "positions": 0
   },
   "holdings": [],
@@ -122,6 +122,13 @@
       "nav": 0.974176,
       "cash": 97417.59,
       "positions": 0
+    },
+    {
+      "date": "20260310",
+      "type": "standby",
+      "nav": 0.974176,
+      "cash": 97417.59,
+      "positions": 0
     }
   ],
   "equity_curve": [
@@ -154,6 +161,11 @@
       "date": "20260309",
       "nav": 0.974176,
       "drawdown": 0.025824
+    },
+    {
+      "date": "20260310",
+      "nav": 0.974176,
+      "drawdown": 0.025824
     }
   ],
   "effectiveness": {
@@ -162,6 +174,11 @@
         "start": "20260302",
         "end": "20260309",
         "return_pct": -2.58
+      },
+      {
+        "start": "20260309",
+        "end": "20260310",
+        "return_pct": 0.0
       }
     ],
     "monthly_returns": [
