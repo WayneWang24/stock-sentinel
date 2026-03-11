@@ -21,7 +21,43 @@
     "positions": 0
   },
   "holdings": [],
-  "candidates": [],
+  "candidates": [
+    {
+      "ts_code": "603281.SH",
+      "name": "江瀚新材",
+      "sector_name": "化工原料",
+      "close": 29.83,
+      "stock_score": 58.3
+    },
+    {
+      "ts_code": "688133.SH",
+      "name": "泰坦科技",
+      "sector_name": "化工原料",
+      "close": 23.04,
+      "stock_score": 56.3
+    },
+    {
+      "ts_code": "603192.SH",
+      "name": "汇得科技",
+      "sector_name": "化工原料",
+      "close": 25.78,
+      "stock_score": 53.8
+    },
+    {
+      "ts_code": "003002.SZ",
+      "name": "壶化股份",
+      "sector_name": "化工原料",
+      "close": 26.35,
+      "stock_score": 53.4
+    },
+    {
+      "ts_code": "688550.SH",
+      "name": "瑞联新材",
+      "sector_name": "化工原料",
+      "close": 45.04,
+      "stock_score": 52.6
+    }
+  ],
   "pending_sells": [],
   "paper_paired_trades": [
     {
