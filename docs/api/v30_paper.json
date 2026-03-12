@@ -1,64 +1,73 @@
 {
-  "date": "20260311",
+  "date": "20260312",
   "version": "v30.3",
   "tracking_period": {
     "start": "20260302",
     "end": "20260530",
     "months": 3,
-    "tracking_days": 8,
+    "tracking_days": 9,
     "total_trading_days": 65
   },
   "paper_stats": {
-    "total_equity": 97418.0,
-    "cash": 97418.0,
-    "market_value": 0.0,
-    "nav": 0.9742,
-    "net_return": -0.0258,
+    "total_equity": 99451.0,
+    "cash": 42922.0,
+    "market_value": 56529.0,
+    "nav": 0.9945,
+    "net_return": -0.0055,
     "max_drawdown": 0.0258,
     "total_trades": 1,
     "win_rate": 0.0,
-    "sharpe": -9.87,
-    "positions": 0
+    "sharpe": -1.02,
+    "positions": 3
   },
-  "holdings": [],
-  "candidates": [
+  "holdings": [
     {
       "ts_code": "603281.SH",
       "name": "江瀚新材",
       "sector_name": "化工原料",
-      "close": 29.83,
-      "stock_score": 58.3
+      "buy_price": 29.91,
+      "current_price": 32.81,
+      "pnl_pct": 0.097,
+      "shares": 600,
+      "buy_cost": 17951.83,
+      "market_value": 19686.0,
+      "days_held": 1,
+      "buy_date": "20260312"
     },
     {
       "ts_code": "688133.SH",
       "name": "泰坦科技",
       "sector_name": "化工原料",
-      "close": 23.04,
-      "stock_score": 56.3
+      "buy_price": 23.09,
+      "current_price": 23.4,
+      "pnl_pct": 0.0134,
+      "shares": 800,
+      "buy_cost": 18480.38,
+      "market_value": 18720.0,
+      "days_held": 1,
+      "buy_date": "20260312"
     },
     {
       "ts_code": "603192.SH",
       "name": "汇得科技",
       "sector_name": "化工原料",
-      "close": 25.78,
-      "stock_score": 53.8
-    },
-    {
-      "ts_code": "003002.SZ",
-      "name": "壶化股份",
-      "sector_name": "化工原料",
-      "close": 26.35,
-      "stock_score": 53.4
-    },
-    {
-      "ts_code": "688550.SH",
-      "name": "瑞联新材",
-      "sector_name": "化工原料",
-      "close": 45.04,
-      "stock_score": 52.6
+      "buy_price": 25.8,
+      "current_price": 25.89,
+      "pnl_pct": 0.0035,
+      "shares": 700,
+      "buy_cost": 18062.94,
+      "market_value": 18123.0,
+      "days_held": 1,
+      "buy_date": "20260312"
     }
   ],
-  "pending_sells": [],
+  "candidates": [],
+  "pending_sells": [
+    {
+      "ts_code": "603281.SH",
+      "reason": "distribution_surge"
+    }
+  ],
   "paper_paired_trades": [
     {
       "ts_code": "600531.SH",
@@ -76,6 +85,57 @@
       "sell_amount": 16040.0,
       "commission": 10.0,
       "stamp": 16.04
+    },
+    {
+      "ts_code": "603281.SH",
+      "name": "江瀚新材",
+      "status": "holding",
+      "buy_date": "20260312",
+      "sell_date": "",
+      "entry_price": 29.91,
+      "exit_price": 32.81,
+      "shares": 600,
+      "pnl_pct": 0.097,
+      "exit_reason": "",
+      "hold_days": 1,
+      "buy_amount": 17946.0,
+      "sell_amount": 0,
+      "commission": 5.0,
+      "stamp": 0
+    },
+    {
+      "ts_code": "688133.SH",
+      "name": "泰坦科技",
+      "status": "holding",
+      "buy_date": "20260312",
+      "sell_date": "",
+      "entry_price": 23.09,
+      "exit_price": 23.4,
+      "shares": 800,
+      "pnl_pct": 0.0134,
+      "exit_reason": "",
+      "hold_days": 1,
+      "buy_amount": 18472.0,
+      "sell_amount": 0,
+      "commission": 5.0,
+      "stamp": 0
+    },
+    {
+      "ts_code": "603192.SH",
+      "name": "汇得科技",
+      "status": "holding",
+      "buy_date": "20260312",
+      "sell_date": "",
+      "entry_price": 25.8,
+      "exit_price": 25.89,
+      "shares": 700,
+      "pnl_pct": 0.0035,
+      "exit_reason": "",
+      "hold_days": 1,
+      "buy_amount": 18060.0,
+      "sell_amount": 0,
+      "commission": 5.0,
+      "stamp": 0
     }
   ],
   "paper_trades": [
@@ -102,6 +162,42 @@
       "fee": 21.84,
       "pnl_pct": -0.1374,
       "exit_reason": "stop_loss"
+    },
+    {
+      "date": "20260312",
+      "ts_code": "603281.SH",
+      "name": "江瀚新材",
+      "direction": "buy",
+      "price": 29.91,
+      "shares": 600,
+      "amount": 17946.0,
+      "fee": 5.9,
+      "pnl_pct": null,
+      "exit_reason": ""
+    },
+    {
+      "date": "20260312",
+      "ts_code": "688133.SH",
+      "name": "泰坦科技",
+      "direction": "buy",
+      "price": 23.09,
+      "shares": 800,
+      "amount": 18472.0,
+      "fee": 5.92,
+      "pnl_pct": null,
+      "exit_reason": ""
+    },
+    {
+      "date": "20260312",
+      "ts_code": "603192.SH",
+      "name": "汇得科技",
+      "direction": "buy",
+      "price": 25.8,
+      "shares": 700,
+      "amount": 18060.0,
+      "fee": 5.9,
+      "pnl_pct": null,
+      "exit_reason": ""
     }
   ],
   "daily_actions": [
@@ -172,6 +268,42 @@
       "nav": 0.974176,
       "cash": 97417.59,
       "positions": 0
+    },
+    {
+      "date": "20260312",
+      "type": "buy",
+      "ts_code": "603281.SH",
+      "name": "江瀚新材",
+      "price": 29.91,
+      "shares": 600,
+      "amount": 17946.0,
+      "nav": 0.994514,
+      "cash": 42922.44,
+      "positions": 3
+    },
+    {
+      "date": "20260312",
+      "type": "buy",
+      "ts_code": "688133.SH",
+      "name": "泰坦科技",
+      "price": 23.09,
+      "shares": 800,
+      "amount": 18472.0,
+      "nav": 0.994514,
+      "cash": 42922.44,
+      "positions": 3
+    },
+    {
+      "date": "20260312",
+      "type": "buy",
+      "ts_code": "603192.SH",
+      "name": "汇得科技",
+      "price": 25.8,
+      "shares": 700,
+      "amount": 18060.0,
+      "nav": 0.994514,
+      "cash": 42922.44,
+      "positions": 3
     }
   ],
   "equity_curve": [
@@ -214,6 +346,11 @@
       "date": "20260311",
       "nav": 0.974176,
       "drawdown": 0.025824
+    },
+    {
+      "date": "20260312",
+      "nav": 0.994514,
+      "drawdown": 0.005486
     }
   ],
   "effectiveness": {
@@ -225,14 +362,14 @@
       },
       {
         "start": "20260309",
-        "end": "20260311",
-        "return_pct": 0.0
+        "end": "20260312",
+        "return_pct": 2.09
       }
     ],
     "monthly_returns": [
       {
         "month": "2026-03",
-        "return_pct": -2.58
+        "return_pct": -0.55
       }
     ],
     "rolling_win_rate": [],
