@@ -1,50 +1,37 @@
 {
-  "date": "20260312",
+  "date": "20260313",
   "version": "v30.3",
   "tracking_period": {
     "start": "20260302",
     "end": "20260530",
     "months": 3,
-    "tracking_days": 9,
+    "tracking_days": 10,
     "total_trading_days": 65
   },
   "paper_stats": {
-    "total_equity": 99451.0,
-    "cash": 42922.0,
-    "market_value": 56529.0,
-    "nav": 0.9945,
-    "net_return": -0.0055,
-    "max_drawdown": 0.0258,
-    "total_trades": 1,
+    "total_equity": 97370.0,
+    "cash": 60845.0,
+    "market_value": 36525.0,
+    "nav": 0.9737,
+    "net_return": -0.0263,
+    "max_drawdown": 0.0263,
+    "total_trades": 2,
     "win_rate": 0.0,
-    "sharpe": -1.02,
-    "positions": 3
+    "sharpe": -4.03,
+    "positions": 2
   },
   "holdings": [
-    {
-      "ts_code": "603281.SH",
-      "name": "江瀚新材",
-      "sector_name": "化工原料",
-      "buy_price": 29.91,
-      "current_price": 32.81,
-      "pnl_pct": 0.097,
-      "shares": 600,
-      "buy_cost": 17951.83,
-      "market_value": 19686.0,
-      "days_held": 1,
-      "buy_date": "20260312"
-    },
     {
       "ts_code": "688133.SH",
       "name": "泰坦科技",
       "sector_name": "化工原料",
       "buy_price": 23.09,
-      "current_price": 23.4,
-      "pnl_pct": 0.0134,
+      "current_price": 22.95,
+      "pnl_pct": -0.0061,
       "shares": 800,
       "buy_cost": 18480.38,
-      "market_value": 18720.0,
-      "days_held": 1,
+      "market_value": 18360.0,
+      "days_held": 3,
       "buy_date": "20260312"
     },
     {
@@ -52,22 +39,17 @@
       "name": "汇得科技",
       "sector_name": "化工原料",
       "buy_price": 25.8,
-      "current_price": 25.89,
-      "pnl_pct": 0.0035,
+      "current_price": 25.95,
+      "pnl_pct": 0.0058,
       "shares": 700,
       "buy_cost": 18062.94,
-      "market_value": 18123.0,
-      "days_held": 1,
+      "market_value": 18165.0,
+      "days_held": 3,
       "buy_date": "20260312"
     }
   ],
   "candidates": [],
-  "pending_sells": [
-    {
-      "ts_code": "603281.SH",
-      "reason": "distribution_surge"
-    }
-  ],
+  "pending_sells": [],
   "paper_paired_trades": [
     {
       "ts_code": "600531.SH",
@@ -89,19 +71,19 @@
     {
       "ts_code": "603281.SH",
       "name": "江瀚新材",
-      "status": "holding",
+      "status": "closed",
       "buy_date": "20260312",
-      "sell_date": "",
+      "sell_date": "20260313",
       "entry_price": 29.91,
-      "exit_price": 32.81,
+      "exit_price": 29.91,
       "shares": 600,
-      "pnl_pct": 0.097,
-      "exit_reason": "",
+      "pnl_pct": 0.0,
+      "exit_reason": "distribution_surge",
       "hold_days": 1,
       "buy_amount": 17946.0,
-      "sell_amount": 0,
-      "commission": 5.0,
-      "stamp": 0
+      "sell_amount": 17946.0,
+      "commission": 10.0,
+      "stamp": 17.95
     },
     {
       "ts_code": "688133.SH",
@@ -110,11 +92,11 @@
       "buy_date": "20260312",
       "sell_date": "",
       "entry_price": 23.09,
-      "exit_price": 23.4,
+      "exit_price": 22.95,
       "shares": 800,
-      "pnl_pct": 0.0134,
+      "pnl_pct": -0.0061,
       "exit_reason": "",
-      "hold_days": 1,
+      "hold_days": 3,
       "buy_amount": 18472.0,
       "sell_amount": 0,
       "commission": 5.0,
@@ -127,11 +109,11 @@
       "buy_date": "20260312",
       "sell_date": "",
       "entry_price": 25.8,
-      "exit_price": 25.89,
+      "exit_price": 25.95,
       "shares": 700,
-      "pnl_pct": 0.0035,
+      "pnl_pct": 0.0058,
       "exit_reason": "",
-      "hold_days": 1,
+      "hold_days": 3,
       "buy_amount": 18060.0,
       "sell_amount": 0,
       "commission": 5.0,
@@ -198,6 +180,18 @@
       "fee": 5.9,
       "pnl_pct": null,
       "exit_reason": ""
+    },
+    {
+      "date": "20260313",
+      "ts_code": "603281.SH",
+      "name": "江瀚新材",
+      "direction": "sell",
+      "price": 29.91,
+      "shares": 600,
+      "amount": 17946.0,
+      "fee": 23.85,
+      "pnl_pct": 0.0,
+      "exit_reason": "distribution_surge"
     }
   ],
   "daily_actions": [
@@ -304,6 +298,20 @@
       "nav": 0.994514,
       "cash": 42922.44,
       "positions": 3
+    },
+    {
+      "date": "20260313",
+      "type": "sell",
+      "ts_code": "603281.SH",
+      "name": "江瀚新材",
+      "price": 29.91,
+      "shares": 600,
+      "amount": 17946.0,
+      "pnl_pct": 0.0,
+      "exit_reason": "distribution_surge",
+      "nav": 0.973696,
+      "cash": 60844.6,
+      "positions": 2
     }
   ],
   "equity_curve": [
@@ -351,6 +359,11 @@
       "date": "20260312",
       "nav": 0.994514,
       "drawdown": 0.005486
+    },
+    {
+      "date": "20260313",
+      "nav": 0.973696,
+      "drawdown": 0.026304
     }
   ],
   "effectiveness": {
@@ -362,14 +375,14 @@
       },
       {
         "start": "20260309",
-        "end": "20260312",
-        "return_pct": 2.09
+        "end": "20260313",
+        "return_pct": -0.05
       }
     ],
     "monthly_returns": [
       {
         "month": "2026-03",
-        "return_pct": -0.55
+        "return_pct": -2.63
       }
     ],
     "rolling_win_rate": [],
@@ -378,6 +391,12 @@
         "count": 1,
         "wins": 0,
         "avg_pnl": -13.74,
+        "win_rate": 0.0
+      },
+      "distribution_surge": {
+        "count": 1,
+        "wins": 0,
+        "avg_pnl": 0.0,
         "win_rate": 0.0
       }
     }
