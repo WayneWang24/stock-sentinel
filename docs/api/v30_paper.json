@@ -1,23 +1,23 @@
 {
-  "date": "20260313",
+  "date": "20260316",
   "version": "v30.3",
   "tracking_period": {
     "start": "20260302",
     "end": "20260530",
     "months": 3,
-    "tracking_days": 10,
+    "tracking_days": 11,
     "total_trading_days": 65
   },
   "paper_stats": {
-    "total_equity": 97370.0,
+    "total_equity": 97878.0,
     "cash": 60845.0,
-    "market_value": 36525.0,
-    "nav": 0.9737,
-    "net_return": -0.0263,
+    "market_value": 37033.0,
+    "nav": 0.9788,
+    "net_return": -0.0212,
     "max_drawdown": 0.0263,
     "total_trades": 2,
     "win_rate": 0.0,
-    "sharpe": -4.03,
+    "sharpe": -2.98,
     "positions": 2
   },
   "holdings": [
@@ -26,12 +26,12 @@
       "name": "泰坦科技",
       "sector_name": "化工原料",
       "buy_price": 23.09,
-      "current_price": 22.95,
-      "pnl_pct": -0.0061,
+      "current_price": 22.99,
+      "pnl_pct": -0.0043,
       "shares": 800,
       "buy_cost": 18480.38,
-      "market_value": 18360.0,
-      "days_held": 3,
+      "market_value": 18392.0,
+      "days_held": 4,
       "buy_date": "20260312"
     },
     {
@@ -39,16 +39,38 @@
       "name": "汇得科技",
       "sector_name": "化工原料",
       "buy_price": 25.8,
-      "current_price": 25.95,
-      "pnl_pct": 0.0058,
+      "current_price": 26.63,
+      "pnl_pct": 0.0322,
       "shares": 700,
       "buy_cost": 18062.94,
-      "market_value": 18165.0,
-      "days_held": 3,
+      "market_value": 18641.0,
+      "days_held": 4,
       "buy_date": "20260312"
     }
   ],
-  "candidates": [],
+  "candidates": [
+    {
+      "ts_code": "301039.SZ",
+      "name": "中集车辆",
+      "sector_name": "汽车整车",
+      "close": 9.1,
+      "stock_score": 58.0
+    },
+    {
+      "ts_code": "600375.SH",
+      "name": "汉马科技",
+      "sector_name": "汽车整车",
+      "close": 5.63,
+      "stock_score": 56.0
+    },
+    {
+      "ts_code": "600686.SH",
+      "name": "金龙汽车",
+      "sector_name": "汽车整车",
+      "close": 16.94,
+      "stock_score": 53.2
+    }
+  ],
   "pending_sells": [],
   "paper_paired_trades": [
     {
@@ -92,11 +114,11 @@
       "buy_date": "20260312",
       "sell_date": "",
       "entry_price": 23.09,
-      "exit_price": 22.95,
+      "exit_price": 22.99,
       "shares": 800,
-      "pnl_pct": -0.0061,
+      "pnl_pct": -0.0043,
       "exit_reason": "",
-      "hold_days": 3,
+      "hold_days": 4,
       "buy_amount": 18472.0,
       "sell_amount": 0,
       "commission": 5.0,
@@ -109,11 +131,11 @@
       "buy_date": "20260312",
       "sell_date": "",
       "entry_price": 25.8,
-      "exit_price": 25.95,
+      "exit_price": 26.63,
       "shares": 700,
-      "pnl_pct": 0.0058,
+      "pnl_pct": 0.0322,
       "exit_reason": "",
-      "hold_days": 3,
+      "hold_days": 4,
       "buy_amount": 18060.0,
       "sell_amount": 0,
       "commission": 5.0,
@@ -312,6 +334,13 @@
       "nav": 0.973696,
       "cash": 60844.6,
       "positions": 2
+    },
+    {
+      "date": "20260316",
+      "type": "holding",
+      "nav": 0.978776,
+      "cash": 60844.6,
+      "positions": 2
     }
   ],
   "equity_curve": [
@@ -364,6 +393,11 @@
       "date": "20260313",
       "nav": 0.973696,
       "drawdown": 0.026304
+    },
+    {
+      "date": "20260316",
+      "nav": 0.978776,
+      "drawdown": 0.021224
     }
   ],
   "effectiveness": {
@@ -375,14 +409,14 @@
       },
       {
         "start": "20260309",
-        "end": "20260313",
-        "return_pct": -0.05
+        "end": "20260316",
+        "return_pct": 0.47
       }
     ],
     "monthly_returns": [
       {
         "month": "2026-03",
-        "return_pct": -2.63
+        "return_pct": -2.12
       }
     ],
     "rolling_win_rate": [],
