@@ -1,11 +1,11 @@
 {
-  "date": "20260327",
+  "date": "20260330",
   "version": "v30.3",
   "tracking_period": {
     "start": "20260302",
     "end": "20260530",
     "months": 3,
-    "tracking_days": 20,
+    "tracking_days": 21,
     "total_trading_days": 65
   },
   "paper_stats": {
@@ -17,11 +17,47 @@
     "max_drawdown": 0.053,
     "total_trades": 8,
     "win_rate": 0.125,
-    "sharpe": -6.58,
+    "sharpe": -6.38,
     "positions": 0
   },
   "holdings": [],
-  "candidates": [],
+  "candidates": [
+    {
+      "ts_code": "688100.SH",
+      "name": "威胜信息",
+      "sector_name": "通信设备",
+      "close": 36.62,
+      "stock_score": 61.2
+    },
+    {
+      "ts_code": "002396.SZ",
+      "name": "星网锐捷",
+      "sector_name": "通信设备",
+      "close": 26.06,
+      "stock_score": 56.9
+    },
+    {
+      "ts_code": "603341.SH",
+      "name": "龙旗科技",
+      "sector_name": "通信设备",
+      "close": 37.83,
+      "stock_score": 56.4
+    },
+    {
+      "ts_code": "688080.SH",
+      "name": "映翰通",
+      "sector_name": "通信设备",
+      "close": 51.55,
+      "stock_score": 56.3
+    },
+    {
+      "ts_code": "300310.SZ",
+      "name": "宜通世纪",
+      "sector_name": "通信设备",
+      "close": 5.92,
+      "stock_score": 54.9
+    }
+  ],
   "pending_sells": [],
   "paper_paired_trades": [
     {
@@ -647,6 +683,13 @@
       "nav": 0.947035,
       "cash": 94703.5,
       "positions": 0
+    },
+    {
+      "date": "20260330",
+      "type": "standby",
+      "nav": 0.947035,
+      "cash": 94703.5,
+      "positions": 0
     }
   ],
   "equity_curve": [
@@ -749,6 +792,11 @@
       "date": "20260327",
       "nav": 0.947035,
       "drawdown": 0.052965
+    },
+    {
+      "date": "20260330",
+      "nav": 0.947035,
+      "drawdown": 0.052965
     }
   ],
   "effectiveness": {
@@ -770,7 +818,7 @@
       },
       {
         "start": "20260323",
-        "end": "20260327",
+        "end": "20260330",
         "return_pct": 0.0
       }
     ],
