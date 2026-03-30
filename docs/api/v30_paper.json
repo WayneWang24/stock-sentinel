@@ -9,53 +9,78 @@
     "total_trading_days": 65
   },
   "paper_stats": {
-    "total_equity": 94704.0,
-    "cash": 94704.0,
-    "market_value": 0.0,
-    "nav": 0.947,
-    "net_return": -0.053,
+    "total_equity": 95638.0,
+    "cash": 21636.0,
+    "market_value": 74002.0,
+    "nav": 0.9564,
+    "net_return": -0.0436,
     "max_drawdown": 0.053,
-    "total_trades": 8,
-    "win_rate": 0.125,
-    "sharpe": -6.38,
-    "positions": 0
+    "total_trades": 9,
+    "win_rate": 0.1111,
+    "sharpe": -4.83,
+    "positions": 4
   },
-  "holdings": [],
-  "candidates": [
+  "holdings": [
     {
       "ts_code": "688100.SH",
       "name": "威胜信息",
       "sector_name": "通信设备",
-      "close": 36.62,
-      "stock_score": 61.2
+      "buy_price": 36.54,
+      "current_price": 36.62,
+      "pnl_pct": 0.0022,
+      "shares": 500,
+      "buy_cost": 18274.16,
+      "market_value": 18310.0,
+      "days_held": 2,
+      "buy_date": "20260330"
     },
+    {
+      "ts_code": "603341.SH",
+      "name": "龙旗科技",
+      "sector_name": "通信设备",
+      "buy_price": 37.56,
+      "current_price": 37.83,
+      "pnl_pct": 0.0072,
+      "shares": 500,
+      "buy_cost": 18784.7,
+      "market_value": 18915.0,
+      "days_held": 2,
+      "buy_date": "20260330"
+    },
+    {
+      "ts_code": "688080.SH",
+      "name": "映翰通",
+      "sector_name": "通信设备",
+      "buy_price": 50.94,
+      "current_price": 51.55,
+      "pnl_pct": 0.012,
+      "shares": 300,
+      "buy_cost": 15288.03,
+      "market_value": 15465.0,
+      "days_held": 1,
+      "buy_date": "20260330"
+    },
+    {
+      "ts_code": "300310.SZ",
+      "name": "宜通世纪",
+      "sector_name": "通信设备",
+      "buy_price": 5.74,
+      "current_price": 5.92,
+      "pnl_pct": 0.0314,
+      "shares": 3600,
+      "buy_cost": 20654.66,
+      "market_value": 21312.0,
+      "days_held": 1,
+      "buy_date": "20260330"
+    }
+  ],
+  "candidates": [
     {
       "ts_code": "002396.SZ",
       "name": "星网锐捷",
       "sector_name": "通信设备",
       "close": 26.06,
       "stock_score": 56.9
-    },
-    {
-      "ts_code": "603341.SH",
-      "name": "龙旗科技",
-      "sector_name": "通信设备",
-      "close": 37.83,
-      "stock_score": 56.4
-    },
-    {
-      "ts_code": "688080.SH",
-      "name": "映翰通",
-      "sector_name": "通信设备",
-      "close": 51.55,
-      "stock_score": 56.3
-    },
-    {
-      "ts_code": "300310.SZ",
-      "name": "宜通世纪",
-      "sector_name": "通信设备",
-      "close": 5.92,
-      "stock_score": 54.9
     }
   ],
   "pending_sells": [],
@@ -195,6 +220,91 @@
       "sell_amount": 16796.0,
       "commission": 10.0,
       "stamp": 16.8
+    },
+    {
+      "ts_code": "002396.SZ",
+      "name": "星网锐捷",
+      "status": "closed",
+      "buy_date": "20260330",
+      "sell_date": "20260330",
+      "entry_price": 26.04,
+      "exit_price": 25.98,
+      "shares": 700,
+      "pnl_pct": -0.0022,
+      "exit_reason": "stop_loss",
+      "hold_days": 1,
+      "buy_amount": 18228.0,
+      "sell_amount": 18186.0,
+      "commission": 10.0,
+      "stamp": 18.19
+    },
+    {
+      "ts_code": "688100.SH",
+      "name": "威胜信息",
+      "status": "holding",
+      "buy_date": "20260330",
+      "sell_date": "",
+      "entry_price": 36.54,
+      "exit_price": 36.62,
+      "shares": 500,
+      "pnl_pct": 0.0022,
+      "exit_reason": "",
+      "hold_days": 2,
+      "buy_amount": 18270.0,
+      "sell_amount": 0,
+      "commission": 5.0,
+      "stamp": 0
+    },
+    {
+      "ts_code": "603341.SH",
+      "name": "龙旗科技",
+      "status": "holding",
+      "buy_date": "20260330",
+      "sell_date": "",
+      "entry_price": 37.56,
+      "exit_price": 37.83,
+      "shares": 500,
+      "pnl_pct": 0.0072,
+      "exit_reason": "",
+      "hold_days": 2,
+      "buy_amount": 18780.0,
+      "sell_amount": 0,
+      "commission": 5.0,
+      "stamp": 0
+    },
+    {
+      "ts_code": "688080.SH",
+      "name": "映翰通",
+      "status": "holding",
+      "buy_date": "20260330",
+      "sell_date": "",
+      "entry_price": 50.94,
+      "exit_price": 51.55,
+      "shares": 300,
+      "pnl_pct": 0.012,
+      "exit_reason": "",
+      "hold_days": 1,
+      "buy_amount": 15282.0,
+      "sell_amount": 0,
+      "commission": 5.0,
+      "stamp": 0
+    },
+    {
+      "ts_code": "300310.SZ",
+      "name": "宜通世纪",
+      "status": "holding",
+      "buy_date": "20260330",
+      "sell_date": "",
+      "entry_price": 5.74,
+      "exit_price": 5.92,
+      "shares": 3600,
+      "pnl_pct": 0.0314,
+      "exit_reason": "",
+      "hold_days": 1,
+      "buy_amount": 20664.0,
+      "sell_amount": 0,
+      "commission": 5.0,
+      "stamp": 0
     }
   ],
   "paper_trades": [
@@ -389,6 +499,78 @@
       "fee": 22.64,
       "pnl_pct": -0.0272,
       "exit_reason": "distribution"
+    },
+    {
+      "date": "20260330",
+      "ts_code": "688100.SH",
+      "name": "威胜信息",
+      "direction": "buy",
+      "price": 36.54,
+      "shares": 500,
+      "amount": 18270.0,
+      "fee": 5.91,
+      "pnl_pct": null,
+      "exit_reason": ""
+    },
+    {
+      "date": "20260330",
+      "ts_code": "002396.SZ",
+      "name": "星网锐捷",
+      "direction": "buy",
+      "price": 26.04,
+      "shares": 700,
+      "amount": 18228.0,
+      "fee": 5.91,
+      "pnl_pct": null,
+      "exit_reason": ""
+    },
+    {
+      "date": "20260330",
+      "ts_code": "603341.SH",
+      "name": "龙旗科技",
+      "direction": "buy",
+      "price": 37.56,
+      "shares": 500,
+      "amount": 18780.0,
+      "fee": 5.94,
+      "pnl_pct": null,
+      "exit_reason": ""
+    },
+    {
+      "date": "20260330",
+      "ts_code": "002396.SZ",
+      "name": "星网锐捷",
+      "direction": "sell",
+      "price": 25.98,
+      "shares": 700,
+      "amount": 18186.0,
+      "fee": 24.1,
+      "pnl_pct": -0.0022,
+      "exit_reason": "stop_loss"
+    },
+    {
+      "date": "20260330",
+      "ts_code": "688080.SH",
+      "name": "映翰通",
+      "direction": "buy",
+      "price": 50.94,
+      "shares": 300,
+      "amount": 15282.0,
+      "fee": 5.76,
+      "pnl_pct": null,
+      "exit_reason": ""
+    },
+    {
+      "date": "20260330",
+      "ts_code": "300310.SZ",
+      "name": "宜通世纪",
+      "direction": "buy",
+      "price": 5.74,
+      "shares": 3600,
+      "amount": 20664.0,
+      "fee": 6.03,
+      "pnl_pct": null,
+      "exit_reason": ""
     }
   ],
   "daily_actions": [
@@ -686,10 +868,77 @@
     },
     {
       "date": "20260330",
-      "type": "standby",
-      "nav": 0.947035,
-      "cash": 94703.5,
-      "positions": 0
+      "type": "buy",
+      "ts_code": "688100.SH",
+      "name": "威胜信息",
+      "price": 36.54,
+      "shares": 500,
+      "amount": 18270.0,
+      "nav": 0.956375,
+      "cash": 21635.53,
+      "positions": 4
+    },
+    {
+      "date": "20260330",
+      "type": "buy",
+      "ts_code": "002396.SZ",
+      "name": "星网锐捷",
+      "price": 26.04,
+      "shares": 700,
+      "amount": 18228.0,
+      "nav": 0.956375,
+      "cash": 21635.53,
+      "positions": 4
+    },
+    {
+      "date": "20260330",
+      "type": "buy",
+      "ts_code": "603341.SH",
+      "name": "龙旗科技",
+      "price": 37.56,
+      "shares": 500,
+      "amount": 18780.0,
+      "nav": 0.956375,
+      "cash": 21635.53,
+      "positions": 4
+    },
+    {
+      "date": "20260330",
+      "type": "buy",
+      "ts_code": "688080.SH",
+      "name": "映翰通",
+      "price": 50.94,
+      "shares": 300,
+      "amount": 15282.0,
+      "nav": 0.956375,
+      "cash": 21635.53,
+      "positions": 4
+    },
+    {
+      "date": "20260330",
+      "type": "buy",
+      "ts_code": "300310.SZ",
+      "name": "宜通世纪",
+      "price": 5.74,
+      "shares": 3600,
+      "amount": 20664.0,
+      "nav": 0.956375,
+      "cash": 21635.53,
+      "positions": 4
+    },
+    {
+      "date": "20260330",
+      "type": "sell",
+      "ts_code": "002396.SZ",
+      "name": "星网锐捷",
+      "price": 25.98,
+      "shares": 700,
+      "amount": 18186.0,
+      "pnl_pct": -0.0022,
+      "exit_reason": "stop_loss",
+      "nav": 0.956375,
+      "cash": 21635.53,
+      "positions": 4
     }
   ],
   "equity_curve": [
@@ -795,8 +1044,8 @@
     },
     {
       "date": "20260330",
-      "nav": 0.947035,
-      "drawdown": 0.052965
+      "nav": 0.956375,
+      "drawdown": 0.043625
     }
   ],
   "effectiveness": {
@@ -819,13 +1068,13 @@
       {
         "start": "20260323",
         "end": "20260330",
-        "return_pct": 0.0
+        "return_pct": 0.99
       }
     ],
     "monthly_returns": [
       {
         "month": "2026-03",
-        "return_pct": -5.3
+        "return_pct": -4.36
       }
     ],
     "rolling_win_rate": [
@@ -848,13 +1097,18 @@
         "trade_index": 8,
         "win_rate": 0.0,
         "date": "20260323"
+      },
+      {
+        "trade_index": 9,
+        "win_rate": 0.0,
+        "date": "20260330"
       }
     ],
     "by_exit_reason": {
       "stop_loss": {
-        "count": 6,
+        "count": 7,
         "wins": 0,
-        "avg_pnl": -5.71,
+        "avg_pnl": -4.92,
         "win_rate": 0.0
       },
       "distribution_surge": {
