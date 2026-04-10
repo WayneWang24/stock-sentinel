@@ -1,23 +1,23 @@
 {
-  "date": "20260409",
+  "date": "20260410",
   "version": "v30.3",
   "tracking_period": {
     "start": "20260302",
     "end": "20260530",
     "months": 3,
-    "tracking_days": 27,
+    "tracking_days": 28,
     "total_trading_days": 65
   },
   "paper_stats": {
-    "total_equity": 99461.0,
+    "total_equity": 99620.0,
     "cash": 17095.0,
-    "market_value": 82366.0,
-    "nav": 0.9946,
-    "net_return": -0.0054,
+    "market_value": 82525.0,
+    "nav": 0.9962,
+    "net_return": -0.0038,
     "max_drawdown": 0.0623,
     "total_trades": 10,
     "win_rate": 0.2,
-    "sharpe": -0.13,
+    "sharpe": -0.06,
     "positions": 4
   },
   "holdings": [
@@ -26,12 +26,12 @@
       "name": "威胜信息",
       "sector_name": "通信设备",
       "buy_price": 36.54,
-      "current_price": 37.46,
-      "pnl_pct": 0.0252,
+      "current_price": 37.66,
+      "pnl_pct": 0.0307,
       "shares": 500,
       "buy_cost": 18274.16,
-      "market_value": 18730.0,
-      "days_held": 8,
+      "market_value": 18830.0,
+      "days_held": 9,
       "buy_date": "20260330"
     },
     {
@@ -39,12 +39,12 @@
       "name": "龙旗科技",
       "sector_name": "通信设备",
       "buy_price": 37.56,
-      "current_price": 38.36,
-      "pnl_pct": 0.0213,
+      "current_price": 38.55,
+      "pnl_pct": 0.0264,
       "shares": 500,
       "buy_cost": 18784.7,
-      "market_value": 19180.0,
-      "days_held": 8,
+      "market_value": 19275.0,
+      "days_held": 9,
       "buy_date": "20260330"
     },
     {
@@ -52,12 +52,12 @@
       "name": "宜通世纪",
       "sector_name": "通信设备",
       "buy_price": 5.74,
-      "current_price": 6.14,
-      "pnl_pct": 0.0697,
+      "current_price": 6.15,
+      "pnl_pct": 0.0714,
       "shares": 3600,
       "buy_cost": 20654.66,
-      "market_value": 22104.0,
-      "days_held": 7,
+      "market_value": 22140.0,
+      "days_held": 8,
       "buy_date": "20260330"
     },
     {
@@ -65,12 +65,12 @@
       "name": "星网锐捷",
       "sector_name": "通信设备",
       "buy_price": 25.99,
-      "current_price": 27.94,
-      "pnl_pct": 0.075,
+      "current_price": 27.85,
+      "pnl_pct": 0.0716,
       "shares": 800,
       "buy_cost": 20794.81,
-      "market_value": 22352.0,
-      "days_held": 6,
+      "market_value": 22280.0,
+      "days_held": 7,
       "buy_date": "20260331"
     }
   ],
@@ -254,11 +254,11 @@
       "buy_date": "20260330",
       "sell_date": "",
       "entry_price": 36.54,
-      "exit_price": 37.46,
+      "exit_price": 37.66,
       "shares": 500,
-      "pnl_pct": 0.0252,
+      "pnl_pct": 0.0307,
       "exit_reason": "",
-      "hold_days": 8,
+      "hold_days": 9,
       "buy_amount": 18270.0,
       "sell_amount": 0,
       "commission": 5.0,
@@ -271,11 +271,11 @@
       "buy_date": "20260330",
       "sell_date": "",
       "entry_price": 37.56,
-      "exit_price": 38.36,
+      "exit_price": 38.55,
       "shares": 500,
-      "pnl_pct": 0.0213,
+      "pnl_pct": 0.0264,
       "exit_reason": "",
-      "hold_days": 8,
+      "hold_days": 9,
       "buy_amount": 18780.0,
       "sell_amount": 0,
       "commission": 5.0,
@@ -288,11 +288,11 @@
       "buy_date": "20260330",
       "sell_date": "",
       "entry_price": 5.74,
-      "exit_price": 6.14,
+      "exit_price": 6.15,
       "shares": 3600,
-      "pnl_pct": 0.0697,
+      "pnl_pct": 0.0714,
       "exit_reason": "",
-      "hold_days": 7,
+      "hold_days": 8,
       "buy_amount": 20664.0,
       "sell_amount": 0,
       "commission": 5.0,
@@ -305,11 +305,11 @@
       "buy_date": "20260331",
       "sell_date": "",
       "entry_price": 25.99,
-      "exit_price": 27.94,
+      "exit_price": 27.85,
       "shares": 800,
-      "pnl_pct": 0.075,
+      "pnl_pct": 0.0716,
       "exit_reason": "",
-      "hold_days": 6,
+      "hold_days": 7,
       "buy_amount": 20792.0,
       "sell_amount": 0,
       "commission": 5.0,
@@ -1026,6 +1026,13 @@
       "nav": 0.994613,
       "cash": 17095.34,
       "positions": 4
+    },
+    {
+      "date": "20260410",
+      "type": "holding",
+      "nav": 0.996203,
+      "cash": 17095.34,
+      "positions": 4
     }
   ],
   "equity_curve": [
@@ -1163,6 +1170,11 @@
       "date": "20260409",
       "nav": 0.994613,
       "drawdown": 0.005387
+    },
+    {
+      "date": "20260410",
+      "nav": 0.996203,
+      "drawdown": 0.003797
     }
   ],
   "effectiveness": {
@@ -1194,8 +1206,8 @@
       },
       {
         "start": "20260408",
-        "end": "20260409",
-        "return_pct": -0.51
+        "end": "20260410",
+        "return_pct": -0.35
       }
     ],
     "monthly_returns": [
@@ -1205,7 +1217,7 @@
       },
       {
         "month": "2026-04",
-        "return_pct": 5.03
+        "return_pct": 5.2
       }
     ],
     "rolling_win_rate": [
