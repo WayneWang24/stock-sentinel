@@ -1,24 +1,24 @@
 {
-  "date": "20260413",
+  "date": "20260414",
   "version": "v30.3",
   "tracking_period": {
     "start": "20260302",
     "end": "20260530",
     "months": 3,
-    "tracking_days": 29,
+    "tracking_days": 30,
     "total_trading_days": 65
   },
   "paper_stats": {
-    "total_equity": 99700.0,
-    "cash": 17095.0,
-    "market_value": 82605.0,
-    "nav": 0.997,
-    "net_return": -0.003,
+    "total_equity": 102237.0,
+    "cash": 828.0,
+    "market_value": 101409.0,
+    "nav": 1.0224,
+    "net_return": 0.0224,
     "max_drawdown": 0.0623,
     "total_trades": 10,
     "win_rate": 0.2,
-    "sharpe": -0.03,
-    "positions": 4
+    "sharpe": 0.97,
+    "positions": 5
   },
   "holdings": [
     {
@@ -26,12 +26,12 @@
       "name": "威胜信息",
       "sector_name": "通信设备",
       "buy_price": 36.54,
-      "current_price": 36.87,
-      "pnl_pct": 0.009,
+      "current_price": 37.26,
+      "pnl_pct": 0.0197,
       "shares": 500,
       "buy_cost": 18274.16,
-      "market_value": 18435.0,
-      "days_held": 10,
+      "market_value": 18630.0,
+      "days_held": 11,
       "buy_date": "20260330"
     },
     {
@@ -39,12 +39,12 @@
       "name": "龙旗科技",
       "sector_name": "通信设备",
       "buy_price": 37.56,
-      "current_price": 38.34,
-      "pnl_pct": 0.0208,
+      "current_price": 39.29,
+      "pnl_pct": 0.0461,
       "shares": 500,
       "buy_cost": 18784.7,
-      "market_value": 19170.0,
-      "days_held": 10,
+      "market_value": 19645.0,
+      "days_held": 11,
       "buy_date": "20260330"
     },
     {
@@ -52,12 +52,12 @@
       "name": "宜通世纪",
       "sector_name": "通信设备",
       "buy_price": 5.74,
-      "current_price": 6.18,
-      "pnl_pct": 0.0767,
+      "current_price": 6.27,
+      "pnl_pct": 0.0923,
       "shares": 3600,
       "buy_cost": 20654.66,
-      "market_value": 22248.0,
-      "days_held": 9,
+      "market_value": 22572.0,
+      "days_held": 10,
       "buy_date": "20260330"
     },
     {
@@ -65,25 +65,35 @@
       "name": "星网锐捷",
       "sector_name": "通信设备",
       "buy_price": 25.99,
-      "current_price": 28.44,
-      "pnl_pct": 0.0943,
+      "current_price": 28.39,
+      "pnl_pct": 0.0923,
       "shares": 800,
       "buy_cost": 20794.81,
-      "market_value": 22752.0,
-      "days_held": 8,
+      "market_value": 22712.0,
+      "days_held": 9,
       "buy_date": "20260331"
-    }
-  ],
-  "candidates": [
+    },
     {
       "ts_code": "603527.SH",
       "name": "众源新材",
       "sector_name": "铜",
-      "close": 10.82,
-      "stock_score": 42.0
+      "buy_price": 10.84,
+      "current_price": 11.9,
+      "pnl_pct": 0.0978,
+      "shares": 1500,
+      "buy_cost": 16267.05,
+      "market_value": 17850.0,
+      "days_held": 1,
+      "buy_date": "20260414"
     }
   ],
-  "pending_sells": [],
+  "candidates": [],
+  "pending_sells": [
+    {
+      "ts_code": "603527.SH",
+      "reason": "distribution_surge"
+    }
+  ],
   "paper_paired_trades": [
     {
       "ts_code": "600531.SH",
@@ -262,11 +272,11 @@
       "buy_date": "20260330",
       "sell_date": "",
       "entry_price": 36.54,
-      "exit_price": 36.87,
+      "exit_price": 37.26,
       "shares": 500,
-      "pnl_pct": 0.009,
+      "pnl_pct": 0.0197,
       "exit_reason": "",
-      "hold_days": 10,
+      "hold_days": 11,
       "buy_amount": 18270.0,
       "sell_amount": 0,
       "commission": 5.0,
@@ -279,11 +289,11 @@
       "buy_date": "20260330",
       "sell_date": "",
       "entry_price": 37.56,
-      "exit_price": 38.34,
+      "exit_price": 39.29,
       "shares": 500,
-      "pnl_pct": 0.0208,
+      "pnl_pct": 0.0461,
       "exit_reason": "",
-      "hold_days": 10,
+      "hold_days": 11,
       "buy_amount": 18780.0,
       "sell_amount": 0,
       "commission": 5.0,
@@ -296,11 +306,11 @@
       "buy_date": "20260330",
       "sell_date": "",
       "entry_price": 5.74,
-      "exit_price": 6.18,
+      "exit_price": 6.27,
       "shares": 3600,
-      "pnl_pct": 0.0767,
+      "pnl_pct": 0.0923,
       "exit_reason": "",
-      "hold_days": 9,
+      "hold_days": 10,
       "buy_amount": 20664.0,
       "sell_amount": 0,
       "commission": 5.0,
@@ -313,12 +323,29 @@
       "buy_date": "20260331",
       "sell_date": "",
       "entry_price": 25.99,
-      "exit_price": 28.44,
+      "exit_price": 28.39,
       "shares": 800,
-      "pnl_pct": 0.0943,
+      "pnl_pct": 0.0923,
       "exit_reason": "",
-      "hold_days": 8,
+      "hold_days": 9,
       "buy_amount": 20792.0,
+      "sell_amount": 0,
+      "commission": 5.0,
+      "stamp": 0
+    },
+    {
+      "ts_code": "603527.SH",
+      "name": "众源新材",
+      "status": "holding",
+      "buy_date": "20260414",
+      "sell_date": "",
+      "entry_price": 10.84,
+      "exit_price": 11.9,
+      "shares": 1500,
+      "pnl_pct": 0.0978,
+      "exit_reason": "",
+      "hold_days": 1,
+      "buy_amount": 16260.0,
       "sell_amount": 0,
       "commission": 5.0,
       "stamp": 0
@@ -612,6 +639,18 @@
       "fee": 22.09,
       "pnl_pct": 0.0651,
       "exit_reason": "distribution_surge"
+    },
+    {
+      "date": "20260414",
+      "ts_code": "603527.SH",
+      "name": "众源新材",
+      "direction": "buy",
+      "price": 10.84,
+      "shares": 1500,
+      "amount": 16260.0,
+      "fee": 5.81,
+      "pnl_pct": null,
+      "exit_reason": ""
     }
   ],
   "daily_actions": [
@@ -1048,6 +1087,18 @@
       "nav": 0.997003,
       "cash": 17095.34,
       "positions": 4
+    },
+    {
+      "date": "20260414",
+      "type": "buy",
+      "ts_code": "603527.SH",
+      "name": "众源新材",
+      "price": 10.84,
+      "shares": 1500,
+      "amount": 16260.0,
+      "nav": 1.022373,
+      "cash": 828.29,
+      "positions": 5
     }
   ],
   "equity_curve": [
@@ -1195,6 +1246,11 @@
       "date": "20260413",
       "nav": 0.997003,
       "drawdown": 0.002997
+    },
+    {
+      "date": "20260414",
+      "nav": 1.022373,
+      "drawdown": 0.0
     }
   ],
   "effectiveness": {
@@ -1226,8 +1282,8 @@
       },
       {
         "start": "20260408",
-        "end": "20260413",
-        "return_pct": -0.27
+        "end": "20260414",
+        "return_pct": 2.27
       }
     ],
     "monthly_returns": [
@@ -1237,7 +1293,7 @@
       },
       {
         "month": "2026-04",
-        "return_pct": 5.28
+        "return_pct": 7.96
       }
     ],
     "rolling_win_rate": [
