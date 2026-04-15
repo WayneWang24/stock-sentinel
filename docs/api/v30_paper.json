@@ -1,24 +1,24 @@
 {
-  "date": "20260414",
+  "date": "20260415",
   "version": "v30.3",
   "tracking_period": {
     "start": "20260302",
     "end": "20260530",
     "months": 3,
-    "tracking_days": 30,
+    "tracking_days": 31,
     "total_trading_days": 65
   },
   "paper_stats": {
-    "total_equity": 102237.0,
-    "cash": 828.0,
-    "market_value": 101409.0,
-    "nav": 1.0224,
-    "net_return": 0.0224,
+    "total_equity": 102226.0,
+    "cash": 19071.0,
+    "market_value": 83155.0,
+    "nav": 1.0223,
+    "net_return": 0.0223,
     "max_drawdown": 0.0623,
-    "total_trades": 10,
-    "win_rate": 0.2,
-    "sharpe": 0.97,
-    "positions": 5
+    "total_trades": 11,
+    "win_rate": 0.2727,
+    "sharpe": 0.95,
+    "positions": 4
   },
   "holdings": [
     {
@@ -26,12 +26,12 @@
       "name": "威胜信息",
       "sector_name": "通信设备",
       "buy_price": 36.54,
-      "current_price": 37.26,
-      "pnl_pct": 0.0197,
+      "current_price": 38.2,
+      "pnl_pct": 0.0454,
       "shares": 500,
       "buy_cost": 18274.16,
-      "market_value": 18630.0,
-      "days_held": 11,
+      "market_value": 19100.0,
+      "days_held": 12,
       "buy_date": "20260330"
     },
     {
@@ -39,12 +39,12 @@
       "name": "龙旗科技",
       "sector_name": "通信设备",
       "buy_price": 37.56,
-      "current_price": 39.29,
-      "pnl_pct": 0.0461,
+      "current_price": 38.75,
+      "pnl_pct": 0.0317,
       "shares": 500,
       "buy_cost": 18784.7,
-      "market_value": 19645.0,
-      "days_held": 11,
+      "market_value": 19375.0,
+      "days_held": 12,
       "buy_date": "20260330"
     },
     {
@@ -52,12 +52,12 @@
       "name": "宜通世纪",
       "sector_name": "通信设备",
       "buy_price": 5.74,
-      "current_price": 6.27,
-      "pnl_pct": 0.0923,
+      "current_price": 6.16,
+      "pnl_pct": 0.0732,
       "shares": 3600,
       "buy_cost": 20654.66,
-      "market_value": 22572.0,
-      "days_held": 10,
+      "market_value": 22176.0,
+      "days_held": 11,
       "buy_date": "20260330"
     },
     {
@@ -65,35 +65,17 @@
       "name": "星网锐捷",
       "sector_name": "通信设备",
       "buy_price": 25.99,
-      "current_price": 28.39,
-      "pnl_pct": 0.0923,
+      "current_price": 28.13,
+      "pnl_pct": 0.0823,
       "shares": 800,
       "buy_cost": 20794.81,
-      "market_value": 22712.0,
-      "days_held": 9,
+      "market_value": 22504.0,
+      "days_held": 10,
       "buy_date": "20260331"
-    },
-    {
-      "ts_code": "603527.SH",
-      "name": "众源新材",
-      "sector_name": "铜",
-      "buy_price": 10.84,
-      "current_price": 11.9,
-      "pnl_pct": 0.0978,
-      "shares": 1500,
-      "buy_cost": 16267.05,
-      "market_value": 17850.0,
-      "days_held": 1,
-      "buy_date": "20260414"
     }
   ],
   "candidates": [],
-  "pending_sells": [
-    {
-      "ts_code": "603527.SH",
-      "reason": "distribution_surge"
-    }
-  ],
+  "pending_sells": [],
   "paper_paired_trades": [
     {
       "ts_code": "600531.SH",
@@ -266,17 +248,34 @@
       "stamp": 16.28
     },
     {
+      "ts_code": "603527.SH",
+      "name": "众源新材",
+      "status": "closed",
+      "buy_date": "20260414",
+      "sell_date": "20260415",
+      "entry_price": 10.84,
+      "exit_price": 12.18,
+      "shares": 1500,
+      "pnl_pct": 0.1234,
+      "exit_reason": "distribution_surge",
+      "hold_days": 1,
+      "buy_amount": 16260.0,
+      "sell_amount": 18270.0,
+      "commission": 10.0,
+      "stamp": 18.27
+    },
+    {
       "ts_code": "688100.SH",
       "name": "威胜信息",
       "status": "holding",
       "buy_date": "20260330",
       "sell_date": "",
       "entry_price": 36.54,
-      "exit_price": 37.26,
+      "exit_price": 38.2,
       "shares": 500,
-      "pnl_pct": 0.0197,
+      "pnl_pct": 0.0454,
       "exit_reason": "",
-      "hold_days": 11,
+      "hold_days": 12,
       "buy_amount": 18270.0,
       "sell_amount": 0,
       "commission": 5.0,
@@ -289,11 +288,11 @@
       "buy_date": "20260330",
       "sell_date": "",
       "entry_price": 37.56,
-      "exit_price": 39.29,
+      "exit_price": 38.75,
       "shares": 500,
-      "pnl_pct": 0.0461,
+      "pnl_pct": 0.0317,
       "exit_reason": "",
-      "hold_days": 11,
+      "hold_days": 12,
       "buy_amount": 18780.0,
       "sell_amount": 0,
       "commission": 5.0,
@@ -306,11 +305,11 @@
       "buy_date": "20260330",
       "sell_date": "",
       "entry_price": 5.74,
-      "exit_price": 6.27,
+      "exit_price": 6.16,
       "shares": 3600,
-      "pnl_pct": 0.0923,
+      "pnl_pct": 0.0732,
       "exit_reason": "",
-      "hold_days": 10,
+      "hold_days": 11,
       "buy_amount": 20664.0,
       "sell_amount": 0,
       "commission": 5.0,
@@ -323,29 +322,12 @@
       "buy_date": "20260331",
       "sell_date": "",
       "entry_price": 25.99,
-      "exit_price": 28.39,
+      "exit_price": 28.13,
       "shares": 800,
-      "pnl_pct": 0.0923,
+      "pnl_pct": 0.0823,
       "exit_reason": "",
-      "hold_days": 9,
+      "hold_days": 10,
       "buy_amount": 20792.0,
-      "sell_amount": 0,
-      "commission": 5.0,
-      "stamp": 0
-    },
-    {
-      "ts_code": "603527.SH",
-      "name": "众源新材",
-      "status": "holding",
-      "buy_date": "20260414",
-      "sell_date": "",
-      "entry_price": 10.84,
-      "exit_price": 11.9,
-      "shares": 1500,
-      "pnl_pct": 0.0978,
-      "exit_reason": "",
-      "hold_days": 1,
-      "buy_amount": 16260.0,
       "sell_amount": 0,
       "commission": 5.0,
       "stamp": 0
@@ -651,6 +633,18 @@
       "fee": 5.81,
       "pnl_pct": null,
       "exit_reason": ""
+    },
+    {
+      "date": "20260415",
+      "ts_code": "603527.SH",
+      "name": "众源新材",
+      "direction": "sell",
+      "price": 12.18,
+      "shares": 1500,
+      "amount": 18270.0,
+      "fee": 24.18,
+      "pnl_pct": 0.1234,
+      "exit_reason": "distribution_surge"
     }
   ],
   "daily_actions": [
@@ -1099,6 +1093,20 @@
       "nav": 1.022373,
       "cash": 828.29,
       "positions": 5
+    },
+    {
+      "date": "20260415",
+      "type": "sell",
+      "ts_code": "603527.SH",
+      "name": "众源新材",
+      "price": 12.18,
+      "shares": 1500,
+      "amount": 18270.0,
+      "pnl_pct": 0.1234,
+      "exit_reason": "distribution_surge",
+      "nav": 1.022258,
+      "cash": 19070.83,
+      "positions": 4
     }
   ],
   "equity_curve": [
@@ -1251,6 +1259,11 @@
       "date": "20260414",
       "nav": 1.022373,
       "drawdown": 0.0
+    },
+    {
+      "date": "20260415",
+      "nav": 1.022258,
+      "drawdown": 0.000112
     }
   ],
   "effectiveness": {
@@ -1282,8 +1295,8 @@
       },
       {
         "start": "20260408",
-        "end": "20260414",
-        "return_pct": 2.27
+        "end": "20260415",
+        "return_pct": 2.26
       }
     ],
     "monthly_returns": [
@@ -1293,7 +1306,7 @@
       },
       {
         "month": "2026-04",
-        "return_pct": 7.96
+        "return_pct": 7.95
       }
     ],
     "rolling_win_rate": [
@@ -1326,6 +1339,11 @@
         "trade_index": 10,
         "win_rate": 0.2,
         "date": "20260408"
+      },
+      {
+        "trade_index": 11,
+        "win_rate": 0.4,
+        "date": "20260415"
       }
     ],
     "by_exit_reason": {
@@ -1336,9 +1354,9 @@
         "win_rate": 0.0
       },
       "distribution_surge": {
-        "count": 2,
-        "wins": 2,
-        "avg_pnl": 8.2,
+        "count": 3,
+        "wins": 3,
+        "avg_pnl": 9.58,
         "win_rate": 1.0
       },
       "distribution": {
