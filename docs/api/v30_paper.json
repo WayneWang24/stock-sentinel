@@ -1,24 +1,24 @@
 {
-  "date": "20260415",
+  "date": "20260416",
   "version": "v30.3",
   "tracking_period": {
     "start": "20260302",
     "end": "20260530",
     "months": 3,
-    "tracking_days": 31,
+    "tracking_days": 32,
     "total_trading_days": 65
   },
   "paper_stats": {
-    "total_equity": 102226.0,
-    "cash": 19071.0,
-    "market_value": 83155.0,
-    "nav": 1.0223,
-    "net_return": 0.0223,
+    "total_equity": 103808.0,
+    "cash": 42305.0,
+    "market_value": 61503.0,
+    "nav": 1.0381,
+    "net_return": 0.0381,
     "max_drawdown": 0.0623,
-    "total_trades": 11,
-    "win_rate": 0.2727,
-    "sharpe": 0.95,
-    "positions": 4
+    "total_trades": 12,
+    "win_rate": 0.3333,
+    "sharpe": 1.5,
+    "positions": 3
   },
   "holdings": [
     {
@@ -26,12 +26,12 @@
       "name": "威胜信息",
       "sector_name": "通信设备",
       "buy_price": 36.54,
-      "current_price": 38.2,
-      "pnl_pct": 0.0454,
+      "current_price": 38.4,
+      "pnl_pct": 0.0509,
       "shares": 500,
       "buy_cost": 18274.16,
-      "market_value": 19100.0,
-      "days_held": 12,
+      "market_value": 19200.0,
+      "days_held": 13,
       "buy_date": "20260330"
     },
     {
@@ -39,12 +39,12 @@
       "name": "龙旗科技",
       "sector_name": "通信设备",
       "buy_price": 37.56,
-      "current_price": 38.75,
-      "pnl_pct": 0.0317,
+      "current_price": 39.03,
+      "pnl_pct": 0.0391,
       "shares": 500,
       "buy_cost": 18784.7,
-      "market_value": 19375.0,
-      "days_held": 12,
+      "market_value": 19515.0,
+      "days_held": 13,
       "buy_date": "20260330"
     },
     {
@@ -52,26 +52,13 @@
       "name": "宜通世纪",
       "sector_name": "通信设备",
       "buy_price": 5.74,
-      "current_price": 6.16,
-      "pnl_pct": 0.0732,
+      "current_price": 6.33,
+      "pnl_pct": 0.1028,
       "shares": 3600,
       "buy_cost": 20654.66,
-      "market_value": 22176.0,
-      "days_held": 11,
+      "market_value": 22788.0,
+      "days_held": 12,
       "buy_date": "20260330"
-    },
-    {
-      "ts_code": "002396.SZ",
-      "name": "星网锐捷",
-      "sector_name": "通信设备",
-      "buy_price": 25.99,
-      "current_price": 28.13,
-      "pnl_pct": 0.0823,
-      "shares": 800,
-      "buy_cost": 20794.81,
-      "market_value": 22504.0,
-      "days_held": 10,
-      "buy_date": "20260331"
     }
   ],
   "candidates": [],
@@ -265,17 +252,34 @@
       "stamp": 18.27
     },
     {
+      "ts_code": "002396.SZ",
+      "name": "星网锐捷",
+      "status": "closed",
+      "buy_date": "20260331",
+      "sell_date": "20260416",
+      "entry_price": 25.99,
+      "exit_price": 29.08,
+      "shares": 800,
+      "pnl_pct": 0.1189,
+      "exit_reason": "take_profit_2",
+      "hold_days": 11,
+      "buy_amount": 20792.0,
+      "sell_amount": 23264.0,
+      "commission": 10.0,
+      "stamp": 23.26
+    },
+    {
       "ts_code": "688100.SH",
       "name": "威胜信息",
       "status": "holding",
       "buy_date": "20260330",
       "sell_date": "",
       "entry_price": 36.54,
-      "exit_price": 38.2,
+      "exit_price": 38.4,
       "shares": 500,
-      "pnl_pct": 0.0454,
+      "pnl_pct": 0.0509,
       "exit_reason": "",
-      "hold_days": 12,
+      "hold_days": 13,
       "buy_amount": 18270.0,
       "sell_amount": 0,
       "commission": 5.0,
@@ -288,11 +292,11 @@
       "buy_date": "20260330",
       "sell_date": "",
       "entry_price": 37.56,
-      "exit_price": 38.75,
+      "exit_price": 39.03,
       "shares": 500,
-      "pnl_pct": 0.0317,
+      "pnl_pct": 0.0391,
       "exit_reason": "",
-      "hold_days": 12,
+      "hold_days": 13,
       "buy_amount": 18780.0,
       "sell_amount": 0,
       "commission": 5.0,
@@ -305,29 +309,12 @@
       "buy_date": "20260330",
       "sell_date": "",
       "entry_price": 5.74,
-      "exit_price": 6.16,
+      "exit_price": 6.33,
       "shares": 3600,
-      "pnl_pct": 0.0732,
+      "pnl_pct": 0.1028,
       "exit_reason": "",
-      "hold_days": 11,
+      "hold_days": 12,
       "buy_amount": 20664.0,
-      "sell_amount": 0,
-      "commission": 5.0,
-      "stamp": 0
-    },
-    {
-      "ts_code": "002396.SZ",
-      "name": "星网锐捷",
-      "status": "holding",
-      "buy_date": "20260331",
-      "sell_date": "",
-      "entry_price": 25.99,
-      "exit_price": 28.13,
-      "shares": 800,
-      "pnl_pct": 0.0823,
-      "exit_reason": "",
-      "hold_days": 10,
-      "buy_amount": 20792.0,
       "sell_amount": 0,
       "commission": 5.0,
       "stamp": 0
@@ -645,6 +632,18 @@
       "fee": 24.18,
       "pnl_pct": 0.1234,
       "exit_reason": "distribution_surge"
+    },
+    {
+      "date": "20260416",
+      "ts_code": "002396.SZ",
+      "name": "星网锐捷",
+      "direction": "sell",
+      "price": 29.08,
+      "shares": 800,
+      "amount": 23264.0,
+      "fee": 29.42,
+      "pnl_pct": 0.1189,
+      "exit_reason": "take_profit_2"
     }
   ],
   "daily_actions": [
@@ -1107,6 +1106,20 @@
       "nav": 1.022258,
       "cash": 19070.83,
       "positions": 4
+    },
+    {
+      "date": "20260416",
+      "type": "sell",
+      "ts_code": "002396.SZ",
+      "name": "星网锐捷",
+      "price": 29.08,
+      "shares": 800,
+      "amount": 23264.0,
+      "pnl_pct": 0.1189,
+      "exit_reason": "take_profit_2",
+      "nav": 1.038082,
+      "cash": 42305.16,
+      "positions": 3
     }
   ],
   "equity_curve": [
@@ -1264,6 +1277,11 @@
       "date": "20260415",
       "nav": 1.022258,
       "drawdown": 0.000112
+    },
+    {
+      "date": "20260416",
+      "nav": 1.038082,
+      "drawdown": 0.0
     }
   ],
   "effectiveness": {
@@ -1297,6 +1315,11 @@
         "start": "20260408",
         "end": "20260415",
         "return_pct": 2.26
+      },
+      {
+        "start": "20260415",
+        "end": "20260416",
+        "return_pct": 1.55
       }
     ],
     "monthly_returns": [
@@ -1306,7 +1329,7 @@
       },
       {
         "month": "2026-04",
-        "return_pct": 7.95
+        "return_pct": 9.62
       }
     ],
     "rolling_win_rate": [
@@ -1344,6 +1367,11 @@
         "trade_index": 11,
         "win_rate": 0.4,
         "date": "20260415"
+      },
+      {
+        "trade_index": 12,
+        "win_rate": 0.6,
+        "date": "20260416"
       }
     ],
     "by_exit_reason": {
@@ -1364,6 +1392,12 @@
         "wins": 0,
         "avg_pnl": -2.72,
         "win_rate": 0.0
+      },
+      "take_profit_2": {
+        "count": 1,
+        "wins": 1,
+        "avg_pnl": 11.89,
+        "win_rate": 1.0
       }
     }
   }
