@@ -1,66 +1,26 @@
 {
-  "date": "20260416",
+  "date": "20260417",
   "version": "v30.3",
   "tracking_period": {
     "start": "20260302",
     "end": "20260530",
     "months": 3,
-    "tracking_days": 32,
+    "tracking_days": 33,
     "total_trading_days": 65
   },
   "paper_stats": {
-    "total_equity": 103808.0,
-    "cash": 42305.0,
-    "market_value": 61503.0,
-    "nav": 1.0381,
-    "net_return": 0.0381,
+    "total_equity": 103667.0,
+    "cash": 103667.0,
+    "market_value": 0.0,
+    "nav": 1.0367,
+    "net_return": 0.0367,
     "max_drawdown": 0.0623,
-    "total_trades": 12,
-    "win_rate": 0.3333,
-    "sharpe": 1.5,
-    "positions": 3
+    "total_trades": 15,
+    "win_rate": 0.4667,
+    "sharpe": 1.42,
+    "positions": 0
   },
-  "holdings": [
-    {
-      "ts_code": "688100.SH",
-      "name": "威胜信息",
-      "sector_name": "通信设备",
-      "buy_price": 36.54,
-      "current_price": 38.4,
-      "pnl_pct": 0.0509,
-      "shares": 500,
-      "buy_cost": 18274.16,
-      "market_value": 19200.0,
-      "days_held": 13,
-      "buy_date": "20260330"
-    },
-    {
-      "ts_code": "603341.SH",
-      "name": "龙旗科技",
-      "sector_name": "通信设备",
-      "buy_price": 37.56,
-      "current_price": 39.03,
-      "pnl_pct": 0.0391,
-      "shares": 500,
-      "buy_cost": 18784.7,
-      "market_value": 19515.0,
-      "days_held": 13,
-      "buy_date": "20260330"
-    },
-    {
-      "ts_code": "300310.SZ",
-      "name": "宜通世纪",
-      "sector_name": "通信设备",
-      "buy_price": 5.74,
-      "current_price": 6.33,
-      "pnl_pct": 0.1028,
-      "shares": 3600,
-      "buy_cost": 20654.66,
-      "market_value": 22788.0,
-      "days_held": 12,
-      "buy_date": "20260330"
-    }
-  ],
+  "holdings": [],
   "candidates": [],
   "pending_sells": [],
   "paper_paired_trades": [
@@ -271,53 +231,53 @@
     {
       "ts_code": "688100.SH",
       "name": "威胜信息",
-      "status": "holding",
+      "status": "closed",
       "buy_date": "20260330",
-      "sell_date": "",
+      "sell_date": "20260417",
       "entry_price": 36.54,
-      "exit_price": 38.4,
+      "exit_price": 38.36,
       "shares": 500,
-      "pnl_pct": 0.0509,
-      "exit_reason": "",
-      "hold_days": 13,
+      "pnl_pct": 0.0499,
+      "exit_reason": "timeout",
+      "hold_days": 15,
       "buy_amount": 18270.0,
-      "sell_amount": 0,
-      "commission": 5.0,
-      "stamp": 0
+      "sell_amount": 19180.0,
+      "commission": 10.0,
+      "stamp": 19.18
     },
     {
       "ts_code": "603341.SH",
       "name": "龙旗科技",
-      "status": "holding",
+      "status": "closed",
       "buy_date": "20260330",
-      "sell_date": "",
+      "sell_date": "20260417",
       "entry_price": 37.56,
-      "exit_price": 39.03,
+      "exit_price": 38.99,
       "shares": 500,
-      "pnl_pct": 0.0391,
-      "exit_reason": "",
-      "hold_days": 13,
+      "pnl_pct": 0.0381,
+      "exit_reason": "timeout",
+      "hold_days": 15,
       "buy_amount": 18780.0,
-      "sell_amount": 0,
-      "commission": 5.0,
-      "stamp": 0
+      "sell_amount": 19495.0,
+      "commission": 10.0,
+      "stamp": 19.5
     },
     {
       "ts_code": "300310.SZ",
       "name": "宜通世纪",
-      "status": "holding",
+      "status": "closed",
       "buy_date": "20260330",
-      "sell_date": "",
+      "sell_date": "20260417",
       "entry_price": 5.74,
-      "exit_price": 6.33,
+      "exit_price": 6.32,
       "shares": 3600,
-      "pnl_pct": 0.1028,
-      "exit_reason": "",
-      "hold_days": 12,
+      "pnl_pct": 0.1017,
+      "exit_reason": "timeout",
+      "hold_days": 15,
       "buy_amount": 20664.0,
-      "sell_amount": 0,
-      "commission": 5.0,
-      "stamp": 0
+      "sell_amount": 22752.0,
+      "commission": 10.0,
+      "stamp": 22.77
     }
   ],
   "paper_trades": [
@@ -644,6 +604,42 @@
       "fee": 29.42,
       "pnl_pct": 0.1189,
       "exit_reason": "take_profit_2"
+    },
+    {
+      "date": "20260417",
+      "ts_code": "688100.SH",
+      "name": "威胜信息",
+      "direction": "sell",
+      "price": 38.36,
+      "shares": 500,
+      "amount": 19180.0,
+      "fee": 25.14,
+      "pnl_pct": 0.0499,
+      "exit_reason": "timeout"
+    },
+    {
+      "date": "20260417",
+      "ts_code": "603341.SH",
+      "name": "龙旗科技",
+      "direction": "sell",
+      "price": 38.99,
+      "shares": 500,
+      "amount": 19495.0,
+      "fee": 25.47,
+      "pnl_pct": 0.0381,
+      "exit_reason": "timeout"
+    },
+    {
+      "date": "20260417",
+      "ts_code": "300310.SZ",
+      "name": "宜通世纪",
+      "direction": "sell",
+      "price": 6.32,
+      "shares": 3600,
+      "amount": 22752.0,
+      "fee": 28.91,
+      "pnl_pct": 0.1017,
+      "exit_reason": "timeout"
     }
   ],
   "daily_actions": [
@@ -1120,6 +1116,48 @@
       "nav": 1.038082,
       "cash": 42305.16,
       "positions": 3
+    },
+    {
+      "date": "20260417",
+      "type": "sell",
+      "ts_code": "688100.SH",
+      "name": "威胜信息",
+      "price": 38.36,
+      "shares": 500,
+      "amount": 19180.0,
+      "pnl_pct": 0.0499,
+      "exit_reason": "timeout",
+      "nav": 1.036671,
+      "cash": 103667.14,
+      "positions": 0
+    },
+    {
+      "date": "20260417",
+      "type": "sell",
+      "ts_code": "603341.SH",
+      "name": "龙旗科技",
+      "price": 38.99,
+      "shares": 500,
+      "amount": 19495.0,
+      "pnl_pct": 0.0381,
+      "exit_reason": "timeout",
+      "nav": 1.036671,
+      "cash": 103667.14,
+      "positions": 0
+    },
+    {
+      "date": "20260417",
+      "type": "sell",
+      "ts_code": "300310.SZ",
+      "name": "宜通世纪",
+      "price": 6.32,
+      "shares": 3600,
+      "amount": 22752.0,
+      "pnl_pct": 0.1017,
+      "exit_reason": "timeout",
+      "nav": 1.036671,
+      "cash": 103667.14,
+      "positions": 0
     }
   ],
   "equity_curve": [
@@ -1282,6 +1320,11 @@
       "date": "20260416",
       "nav": 1.038082,
       "drawdown": 0.0
+    },
+    {
+      "date": "20260417",
+      "nav": 1.036671,
+      "drawdown": 0.001359
     }
   ],
   "effectiveness": {
@@ -1318,8 +1361,8 @@
       },
       {
         "start": "20260415",
-        "end": "20260416",
-        "return_pct": 1.55
+        "end": "20260417",
+        "return_pct": 1.41
       }
     ],
     "monthly_returns": [
@@ -1329,7 +1372,7 @@
       },
       {
         "month": "2026-04",
-        "return_pct": 9.62
+        "return_pct": 9.47
       }
     ],
     "rolling_win_rate": [
@@ -1372,6 +1415,21 @@
         "trade_index": 12,
         "win_rate": 0.6,
         "date": "20260416"
+      },
+      {
+        "trade_index": 13,
+        "win_rate": 0.8,
+        "date": "20260417"
+      },
+      {
+        "trade_index": 14,
+        "win_rate": 1.0,
+        "date": "20260417"
+      },
+      {
+        "trade_index": 15,
+        "win_rate": 1.0,
+        "date": "20260417"
       }
     ],
     "by_exit_reason": {
@@ -1397,6 +1455,12 @@
         "count": 1,
         "wins": 1,
         "avg_pnl": 11.89,
+        "win_rate": 1.0
+      },
+      "timeout": {
+        "count": 3,
+        "wins": 3,
+        "avg_pnl": 6.32,
         "win_rate": 1.0
       }
     }
