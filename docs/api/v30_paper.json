@@ -21,7 +21,43 @@
     "positions": 0
   },
   "holdings": [],
-  "candidates": [],
+  "candidates": [
+    {
+      "ts_code": "603556.SH",
+      "name": "海兴电力",
+      "sector_name": "电器仪表",
+      "close": 28.72,
+      "stock_score": 57.2
+    },
+    {
+      "ts_code": "300259.SZ",
+      "name": "新天科技",
+      "sector_name": "电器仪表",
+      "close": 4.46,
+      "stock_score": 57.1
+    },
+    {
+      "ts_code": "603100.SH",
+      "name": "川仪股份",
+      "sector_name": "电器仪表",
+      "close": 19.49,
+      "stock_score": 54.6
+    },
+    {
+      "ts_code": "000011.SZ",
+      "name": "深物业A",
+      "sector_name": "房产服务",
+      "close": 8.07,
+      "stock_score": 52.3
+    },
+    {
+      "ts_code": "300349.SZ",
+      "name": "金卡智能",
+      "sector_name": "电器仪表",
+      "close": 13.08,
+      "stock_score": 48.5
+    }
+  ],
   "pending_sells": [],
   "paper_paired_trades": [
     {
