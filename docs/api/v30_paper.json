@@ -1,11 +1,11 @@
 {
-  "date": "20260513",
+  "date": "20260514",
   "version": "v30.3",
   "tracking_period": {
     "start": "20260302",
     "end": "20260530",
     "months": 3,
-    "tracking_days": 47,
+    "tracking_days": 48,
     "total_trading_days": 65
   },
   "paper_stats": {
@@ -17,26 +17,11 @@
     "max_drawdown": 0.0623,
     "total_trades": 15,
     "win_rate": 0.4667,
-    "sharpe": 1.19,
+    "sharpe": 1.17,
     "positions": 0
   },
   "holdings": [],
-  "candidates": [
-    {
-      "ts_code": "003012.SZ",
-      "name": "东鹏控股",
-      "sector_name": "陶瓷",
-      "close": 5.57,
-      "stock_score": 62.5
-    },
-    {
-      "ts_code": "002869.SZ",
-      "name": "金溢科技",
-      "sector_name": "通信设备",
-      "close": 20.47,
-      "stock_score": 45.9
-    }
-  ],
+  "candidates": [],
   "pending_sells": [],
   "paper_paired_trades": [
     {
@@ -1271,6 +1256,13 @@
       "nav": 1.036671,
       "cash": 103667.14,
       "positions": 0
+    },
+    {
+      "date": "20260514",
+      "type": "standby",
+      "nav": 1.036671,
+      "cash": 103667.14,
+      "positions": 0
     }
   ],
   "equity_curve": [
@@ -1508,6 +1500,11 @@
       "date": "20260513",
       "nav": 1.036671,
       "drawdown": 0.001359
+    },
+    {
+      "date": "20260514",
+      "nav": 1.036671,
+      "drawdown": 0.001359
     }
   ],
   "effectiveness": {
@@ -1559,7 +1556,7 @@
       },
       {
         "start": "20260512",
-        "end": "20260513",
+        "end": "20260514",
         "return_pct": 0.0
       }
     ],
