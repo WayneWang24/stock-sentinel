@@ -1,11 +1,11 @@
 {
-  "date": "20260527",
+  "date": "20260528",
   "version": "v30.3",
   "tracking_period": {
     "start": "20260302",
     "end": "20260530",
     "months": 3,
-    "tracking_days": 57,
+    "tracking_days": 58,
     "total_trading_days": 65
   },
   "paper_stats": {
@@ -1326,6 +1326,13 @@
       "nav": 1.036671,
       "cash": 103667.14,
       "positions": 0
+    },
+    {
+      "date": "20260528",
+      "type": "standby",
+      "nav": 1.036671,
+      "cash": 103667.14,
+      "positions": 0
     }
   ],
   "equity_curve": [
@@ -1613,6 +1620,11 @@
       "date": "20260527",
       "nav": 1.036671,
       "drawdown": 0.001359
+    },
+    {
+      "date": "20260528",
+      "nav": 1.036671,
+      "drawdown": 0.001359
     }
   ],
   "effectiveness": {
@@ -1674,7 +1686,7 @@
       },
       {
         "start": "20260526",
-        "end": "20260527",
+        "end": "20260528",
         "return_pct": 0.0
       }
     ],
