@@ -1,5 +1,5 @@
 {
-  "date": "20260617",
+  "date": "20260618",
   "version": "v30.3",
   "tracking_period": {
     "start": "20260302",
@@ -21,22 +21,7 @@
     "positions": 0
   },
   "holdings": [],
-  "candidates": [
-    {
-      "ts_code": "002237.SZ",
-      "name": "恒邦股份",
-      "sector_name": "黄金",
-      "close": 14.51,
-      "stock_score": 42.6
-    },
-    {
-      "ts_code": "002155.SZ",
-      "name": "湖南黄金",
-      "sector_name": "黄金",
-      "close": 26.5,
-      "stock_score": 39.1
-    }
-  ],
+  "candidates": [],
   "pending_sells": [],
   "paper_paired_trades": [
     {
@@ -1446,6 +1431,13 @@
       "nav": 1.036671,
       "cash": 103667.14,
       "positions": 0
+    },
+    {
+      "date": "20260618",
+      "type": "standby",
+      "nav": 1.036671,
+      "cash": 103667.14,
+      "positions": 0
     }
   ],
   "equity_curve": [
@@ -1808,6 +1800,11 @@
       "date": "20260617",
       "nav": 1.036671,
       "drawdown": 0.001359
+    },
+    {
+      "date": "20260618",
+      "nav": 1.036671,
+      "drawdown": 0.001359
     }
   ],
   "effectiveness": {
@@ -1884,7 +1881,7 @@
       },
       {
         "start": "20260616",
-        "end": "20260617",
+        "end": "20260618",
         "return_pct": 0.0
       }
     ],
