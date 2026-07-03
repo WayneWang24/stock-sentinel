@@ -1,5 +1,5 @@
 {
-  "date": "20260702",
+  "date": "20260703",
   "version": "v30.3",
   "tracking_period": {
     "start": "20260302",
@@ -17,7 +17,7 @@
     "max_drawdown": 0.0623,
     "total_trades": 15,
     "win_rate": 0.4667,
-    "sharpe": 0.89,
+    "sharpe": 0.88,
     "positions": 0
   },
   "holdings": [],
@@ -1508,6 +1508,13 @@
       "nav": 1.036671,
       "cash": 103667.14,
       "positions": 0
+    },
+    {
+      "date": "20260703",
+      "type": "standby",
+      "nav": 1.036671,
+      "cash": 103667.14,
+      "positions": 0
     }
   ],
   "equity_curve": [
@@ -1925,6 +1932,11 @@
       "date": "20260702",
       "nav": 1.036671,
       "drawdown": 0.001359
+    },
+    {
+      "date": "20260703",
+      "nav": 1.036671,
+      "drawdown": 0.001359
     }
   ],
   "effectiveness": {
@@ -2011,7 +2023,7 @@
       },
       {
         "start": "20260630",
-        "end": "20260702",
+        "end": "20260703",
         "return_pct": 0.0
       }
     ],
